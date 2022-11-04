@@ -1,0 +1,1078 @@
+{% extends 'crypto/base2.html' %}   
+
+
+{% block content %}
+  <!-- Content Wrapper. Contains page content -->
+  <!-- <div class="content-wrapper" style="min-height:5px
+;background-color: #000422; margin-left: 0;"> -->
+	  <div class="container">
+		<!-- Content Header (Page header) -->	  
+		<div class="content-header">
+			<div class="d-flex align-items-center">
+				<div class="me-auto">
+					<h4 class="page-title">Details </h4>
+					<div class="d-inline-block align-items-center">
+						<nav>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
+								<li class="breadcrumb-item" aria-current="page">Transactions</li>
+								<li class="breadcrumb-item active" aria-current="page">Details </li>
+
+							</ol>
+						</nav>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+{% include 'crypto/messages.html' %}
+	
+<!-- Styles -->
+<style>
+	#chartcontrols {
+	  height: auto;
+	  padding: 5px 5px 0 16px;
+	  max-width: 100%;
+	}
+	
+	#chartdiv {
+	  width: 100%;
+	  height: 600px;
+	  max-width: 100%;
+	}
+	</style>
+
+						<!-- Main content -->
+		<section class="content">			
+<div class="row">
+				<div class="col-12">
+				  <div class="box">
+					<div class="box-body">
+						<h5 class="text-center">Withdrawal Historys and Transactions Datatable</h5>
+						<div class="table-responsive">
+							<table class="table table-striped table-bordered no-margin">
+							  <thead>
+								<tr>
+								   <th class="text-center">#</th>
+								   <th>Name</th>
+								   <th class="text-end">Your wallet</th>
+								   <th class="text-end">Amount requested</th>
+								   <th class="text-end">Recieving mode</th>
+								   <th class="text-end">Date / Time</th>
+								   <th class="text-end">Status</th>
+								</tr>
+							   </thead>
+							   <tbody>
+							   	{% for post in post %}
+								<tr>
+								   <td class="text-center">{{post.id}}</td>
+								   <td><a href="#" class="hover-warning">{{post.user.username}}</a></td>
+								   <td class="text-end">{{post.userwallet}}</td>
+								   <td class="text-end"><span>$</span> {{post.amount}}</td>
+								   <td class="text-end"><span></span> {{post.currency}}</td>
+								   <td class="text-end"><span></span>{{post.created_date}}</td>
+								   {% if post.status == 'confirmed' %}
+								   <td class="text-end"><span class="label label-success">{{post.status}}</span></td>
+								   {% elif post.status == 'declind' %}
+								   <td class="text-end"><span class="label label-danger">{{post.status}}</span></td>
+								   {% else %}
+								   <td class="text-end"><span class="label" style="background-color:#d7961a;">{{post.status}}</span></td>
+								   {% endif %}
+								</tr>
+								{% endfor %}
+							   </tbody>
+								
+							</table>
+						</div>
+					</div>
+					<!-- /.box-body -->
+				  </div>
+				  <!-- /.box -->
+				</div>
+			  </div>
+
+
+
+
+		</section>
+		<!-- /.content -->
+
+	<!-- Main content -->
+	<section class="content">
+
+
+		<div class="row">
+			<div class="">
+
+			  <!-- Profile Image -->
+			  <div class="box bg-transparent no-border">
+				<div class="box-body box-profile">
+					<div id="chartcontrols"></div>
+					<div id="chartdiv"></div>
+
+				</div>
+				<!-- /.box-body -->
+			  </div>
+			  <!-- /.box -->
+			</div>
+			<!-- /.col -->
+			
+			<!-- /.col -->
+		  </div>
+
+
+
+
+<!-- 
+
+		<div class="row">
+			<div class="col-lg-6 col-12">
+			  <div class="box">
+				<div class="box-header with-border">
+				  <h4 class="box-title">Your Wallet Info {{name}}</h4>
+				</div>
+				<div class="box-body">
+					<div class="table-responsive">
+						<table class="table table-striped table-hover no-margin">
+						  <tbody>
+							<tr>
+							  <td>Wallet Address</td>
+							  <td><a href="#">{{btc.address}}</a></td>
+							</tr>
+							<tr>
+							  <td>Public key</td>
+							  <td><a href="#">{{btc.public_key}}</a></td>
+							</tr>
+							<tr>
+							  <td>Private key</td>
+							  <td>{{btc.private_key}}</td>
+							</tr>
+						  </tbody>
+						</table>
+					</div>
+				</div>
+			  </div>
+			</div>
+			<div class="col-lg-4 col-12">
+			  <div class="box">
+				<div class="box-header with-border">
+				  <h4 class="box-title">Transactions</h4>
+				</div>
+				<div class="box-body">
+					<div class="table-responsive">
+						<table class="table table-striped table-hover no-margin">
+						  <tbody>
+							<tr>
+							  <td>Total Sent</td>
+							  <td><span class="text-success">{{detail.total_sent}}</span></td>
+							  <td><i class="fa fa-bar-chart"></i></td>
+							</tr>
+							<tr>
+							  <td>Total Received</td>
+							  <td><span class="text-success">{{detail.total_received}} BTC</span></td>
+							  <td><i class="fa fa-bar-chart"></i></td>
+							</tr>
+							<tr>
+							  <td>Total Balance</td>
+							  <td><span class="text-success">{{detail.balance}}</span></td>
+							  <td><i class="fa fa-bar-chart"></i></td>
+							</tr>
+						  </tbody>
+						</table>
+					</div>
+				</div>
+			  </div>
+			</div>
+			<div class="col-lg-2 col-12">
+			  <div class="box">
+				<div class="box-body">
+					<img src="https://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data={{btc.address}}%0A&qzone=1&margin=0&size=200x200&ecc=L" alt="codeQR">
+				</div>
+			  </div>
+			</div>
+		</div>
+
+-->
+
+
+
+
+
+			  <div class="row">
+
+		  <div class="row mt-30">
+		  <div class="col-12 col-md-6 col-lg-4">
+			<div class="box box-body pull-up" data-bs-toggle="modal" data-bs-target="#modal-center">
+			  <div class="media align-items-center p-0">
+				<div class="text-center">
+				  <a href="#"><i class="cc BTC me-5" title="BTC"></i></a>
+				</div>
+				<div>
+				  <h3 class="no-margin">Bitcoin BTC</h3>
+				</div>
+			  </div><!-- 
+			  <div class="flexbox align-items-center mt-25">
+				<div>
+				  <p class="no-margin">2.340000434 <span class="text-gray">BTC</span> <span class="text-info">$0.04</span></p>
+				</div>
+				<div class="text-end">
+				  <p class="no-margin"><span class="text-success">+5.35%</span></p>
+				</div>
+			  </div> -->
+			</div>			
+		  </div>
+		  <div class="col-12 col-md-6 col-lg-4">
+			<div class="box box-body pull-up" data-bs-toggle="modal" data-bs-target="#ETH-center">
+			  <div class="media align-items-center p-0">
+				<div class="text-center">
+				  <a href="#"><i class="cc ETH me-5" title="ETH"></i></a>
+				</div>
+				<div>
+				  <h3 class="no-margin">Ethereum ETH</h3>
+				</div>
+			  </div>
+		<!-- 	  <div class="flexbox align-items-center mt-25">
+				<div>
+				  <p class="no-margin">1.34000434 <span class="text-gray">LTC</span> <span class="text-info">$0.14</span></p>
+				</div>
+				<div class="text-end">
+				  <p class="no-margin"><span class="text-danger">-2.35%</span></p>
+				</div>
+			  </div> -->
+			</div>			
+		  </div>
+
+		  <div class="col-12 col-md-6 col-lg-4">
+			<div class="box box-body pull-up" data-bs-toggle="modal" data-bs-target="#USDT-center">
+			  <div class="media align-items-center p-0">
+				<div class="text-center">
+				  <a href="#"><i class="cc USDT me-5" title="USDT"></i></a>
+				</div>
+				<div>
+				  <h3 class="no-margin">Tether USDT</h3>
+				</div>
+			  </div>
+		<!-- 	  <div class="flexbox align-items-center mt-25">
+				<div>
+				  <p class="no-margin">1.34000434 <span class="text-gray">LTC</span> <span class="text-info">$0.14</span></p>
+				</div>
+				<div class="text-end">
+				  <p class="no-margin"><span class="text-danger">-2.35%</span></p>
+				</div>
+			  </div> -->
+			</div>			
+		  </div>
+
+
+		</div>
+
+
+
+	  </div>
+
+
+
+	</section>
+	<!-- /.content -->
+	  
+	  </div>
+  </div>
+  <!-- /.content-wrapper -->
+ 
+  <!-- Modal -->
+  <div class="modal center-modal fade" id="modal-center" tabindex="-1">
+	  <div class="modal-dialog" ><!-- style="max-width: 1000px;" -->
+		<div class="modal-content">
+		
+				  <div class="modal-header">
+		<form action="" method="post" >
+		  	<h5 class="modal-title center">Enter your amount</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			  </div>
+        {% csrf_token %}
+			
+			  <div class="modal-body">
+			
+
+
+		  	<div class="input-group bootstrap-touchspin">
+
+		  		<span class="input-group-addon bootstrap-touchspin-prefix">$</span>
+		  		<!-- <input type="hidden" name="addr" value="{{btc.address}}"> -->
+
+
+		  		<input id="btc" type="hidden" value="BTC" name="btc" class="form-control" data-bts-button-down-class="btn btn-secondary" data-bts-button-up-class="btn btn-secondary" style="display: block;">
+
+
+		  		<input id="pricet" type="text" name="pricet" placeholder="enter your amount" class="form-control" data-bts-button-down-class="btn btn-secondary" data-bts-button-up-class="btn btn-secondary" style="display: block;">
+				</div>
+
+			
+
+
+
+
+			  </div>
+
+			   <div class="modal-body">
+
+
+		  	<div class="input-group bootstrap-touchspin">
+				<span class="input-group-addon bootstrap-touchspin-prefix">w</span>
+		  		<!-- <input type="hidden" name="addr" value="{{btc.address}}"> -->
+
+
+
+		  		<input id="addr" type="text" name="addr" class="form-control" placeholder="enter your Wallet address" data-bts-button-down-class="btn btn-secondary" data-bts-button-up-class="btn btn-secondary" style="display: block;"><br>
+
+		  	</div>
+
+			
+
+
+
+
+			  </div>
+			  
+			  <div class="modal-body">
+
+
+		  	<div class="input-group bootstrap-touchspin">
+				<!-- <span class="input-group-addon bootstrap-touchspin-prefix">w</span> -->
+		  		<!-- <input type="hidden" name="addr" value="{{btc.address}}"> -->
+
+							<select style="height: 40px;" required="" class="btn-group form-control bootstrap-select btn dropdown-toggle btn-default" name="types">
+								<option selected="" disabled="true" class="text">---Witdrawal From---</option>
+								<option class="text">Profit : (PF)</option>
+								<option class="text">Bonus : (BN)</option>
+								<option class="text">Ref bonus : (RB)</option>
+								<option class="text">All Transact : (AT)</option>
+							</select>
+					
+<!-- 
+		  		<input id="addr" type="text" name="addr" class="form-control" placeholder="enter your Wallet address" data-bts-button-down-class="btn btn-secondary" data-bts-button-up-class="btn btn-secondary" style="display: block;"> --><br>
+
+		  	</div>
+
+			
+
+
+
+
+			  </div>
+			  <div class="modal-footer modal-footer-uniform">
+				<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+				 <button type="submit" value="Submit" class="btn btn-primary float-end" >
+						Send
+					</button>
+		</form>
+				  
+<script>
+
+	var button = document.getElementById('add-item');
+	var result = document.getElementById('demo2');
+
+	document.querySelector('button').addEventListener("click", function() {
+	  // Store results
+	  var resultStored = result.value;
+	  // Reset value of input
+	  result.value = "";
+
+	  // Get items container
+	  var items = document.getElementById('items');
+	  // Add items to container
+	  items.innerHTML += resultStored;
+	});
+</script>
+
+  <script>
+    setTimeout(function(){
+      if ($('#msg').length > 0) {
+        $('#msg').remove();
+      }
+    }, 3000)
+  </script>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  <!-- /.modal -->
+
+
+
+
+
+
+
+
+
+  <!-- Modal -->
+  <div class="modal center-modal fade" id="ETH-center" tabindex="-1">
+	  <div class="modal-dialog" ><!-- style="max-width: 1000px;" -->
+		<div class="modal-content">
+		
+				  <div class="modal-header">
+		<form action="" method="post" >
+		  	<h5 class="modal-title center">Enter your amount</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			  </div>
+        {% csrf_token %}
+			
+			  <div class="modal-body">
+			
+
+
+		  	<div class="input-group bootstrap-touchspin">
+
+		  		<span class="input-group-addon bootstrap-touchspin-prefix">$</span>
+		  		<!-- <input type="hidden" name="addr" value="{{btc.address}}"> -->
+
+
+		  		<input id="btc" type="hidden" value="ETH" name="btc" class="form-control" data-bts-button-down-class="btn btn-secondary" data-bts-button-up-class="btn btn-secondary" style="display: block;">
+
+
+		  		<input id="pricet" type="text" name="pricet" placeholder="enter your amount" class="form-control" data-bts-button-down-class="btn btn-secondary" data-bts-button-up-class="btn btn-secondary" style="display: block;">
+				</div>
+
+			
+
+
+
+
+			  </div>
+
+			   <div class="modal-body">
+
+
+		  	<div class="input-group bootstrap-touchspin">
+				<span class="input-group-addon bootstrap-touchspin-prefix">w</span>
+		  		<!-- <input type="hidden" name="addr" value="{{btc.address}}"> -->
+
+
+
+		  		<input id="addr" type="text" name="addr" class="form-control" placeholder="enter your Wallet address" data-bts-button-down-class="btn btn-secondary" data-bts-button-up-class="btn btn-secondary" style="display: block;"><br>
+
+		  	</div>
+
+			
+
+
+
+
+			  </div>
+
+			  <div class="modal-body">
+
+
+		  	<div class="input-group bootstrap-touchspin">
+				<!-- <span class="input-group-addon bootstrap-touchspin-prefix">w</span> -->
+		  		<!-- <input type="hidden" name="addr" value="{{btc.address}}"> -->
+
+							<select style="height: 40px;" required="" class="btn-group form-control bootstrap-select btn dropdown-toggle btn-default" name="types">
+								<option selected="" disabled="true" class="text">---Witdrawal From---</option>
+								<option class="text">Profit : (PF)</option>
+								<option class="text">Bonus : (BN)</option>
+								<option class="text">Ref bonus : (RB)</option>
+								<option class="text">All Transact : (AT)</option>
+							</select>
+					
+<!-- 
+		  		<input id="addr" type="text" name="addr" class="form-control" placeholder="enter your Wallet address" data-bts-button-down-class="btn btn-secondary" data-bts-button-up-class="btn btn-secondary" style="display: block;"> --><br>
+
+		  	</div>
+
+			
+
+
+
+
+			  </div>
+			  <div class="modal-footer modal-footer-uniform">
+				<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+				 <button type="submit" value="Submit" class="btn btn-primary float-end" >
+						Send
+					</button>
+		</form>
+				  
+<script>
+
+	var button = document.getElementById('add-item');
+	var result = document.getElementById('demo2');
+
+	document.querySelector('button').addEventListener("click", function() {
+	  // Store results
+	  var resultStored = result.value;
+	  // Reset value of input
+	  result.value = "";
+
+	  // Get items container
+	  var items = document.getElementById('items');
+	  // Add items to container
+	  items.innerHTML += resultStored;
+	});
+</script>
+
+  <script>
+    setTimeout(function(){
+      if ($('#msg').length > 0) {
+        $('#msg').remove();
+      }
+    }, 3000)
+  </script>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  <!-- /.modal -->
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Modal -->
+  <div class="modal center-modal fade" id="USDT-center" tabindex="-1">
+	  <div class="modal-dialog" ><!-- style="max-width: 1000px;" -->
+		<div class="modal-content">
+		
+				  <div class="modal-header">
+		<form action="" method="post" >
+		  	<h5 class="modal-title center">Enter your amount</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			  </div>
+        {% csrf_token %}
+			
+			  <div class="modal-body">
+			
+
+
+		  	<div class="input-group bootstrap-touchspin">
+
+		  		<span class="input-group-addon bootstrap-touchspin-prefix">$</span>
+		  		<!-- <input type="hidden" name="addr" value="{{btc.address}}"> -->
+
+
+		  		<input id="btc" type="hidden" value="USDT" name="btc" class="form-control" data-bts-button-down-class="btn btn-secondary" data-bts-button-up-class="btn btn-secondary" style="display: block;">
+
+
+		  		<input id="pricet" type="text" name="pricet" placeholder="enter your amount" class="form-control" data-bts-button-down-class="btn btn-secondary" data-bts-button-up-class="btn btn-secondary" style="display: block;">
+				</div>
+
+			
+
+
+
+
+			  </div>
+
+			   <div class="modal-body">
+
+
+		  	<div class="input-group bootstrap-touchspin">
+				<span class="input-group-addon bootstrap-touchspin-prefix">w</span>
+		  		<!-- <input type="hidden" name="addr" value="{{btc.address}}"> -->
+
+
+
+		  		<input id="addr" type="text" name="addr" class="form-control" placeholder="enter your Wallet address" data-bts-button-down-class="btn btn-secondary" data-bts-button-up-class="btn btn-secondary" style="display: block;"><br>
+
+		  	</div>
+
+			
+
+
+
+
+			  </div>
+
+			  <div class="modal-body">
+
+
+		  	<div class="input-group bootstrap-touchspin">
+				<!-- <span class="input-group-addon bootstrap-touchspin-prefix">w</span> -->
+		  		<!-- <input type="hidden" name="addr" value="{{btc.address}}"> -->
+
+							<select style="height: 40px;" required="" class="btn-group form-control bootstrap-select btn dropdown-toggle btn-default" name="types">
+								<option selected="" disabled="true" class="text">---Witdrawal From---</option>
+								<option class="text">Profit : (PF)</option>
+								<option class="text">Bonus : (BN)</option>
+								<option class="text">Ref bonus : (RB)</option>
+								<option class="text">All Transact : (AT)</option>
+							</select>
+					
+<!-- 
+		  		<input id="addr" type="text" name="addr" class="form-control" placeholder="enter your Wallet address" data-bts-button-down-class="btn btn-secondary" data-bts-button-up-class="btn btn-secondary" style="display: block;"> --><br>
+
+		  	</div>
+
+			
+
+
+
+
+			  </div>
+			  <div class="modal-footer modal-footer-uniform">
+				<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+				 <button type="submit" value="Submit" class="btn btn-primary float-end" >
+						Send
+					</button>
+		</form>
+				  
+<script>
+
+	var button = document.getElementById('add-item');
+	var result = document.getElementById('demo2');
+
+	document.querySelector('button').addEventListener("click", function() {
+	  // Store results
+	  var resultStored = result.value;
+	  // Reset value of input
+	  result.value = "";
+
+	  // Get items container
+	  var items = document.getElementById('items');
+	  // Add items to container
+	  items.innerHTML += resultStored;
+	});
+</script>
+
+  <script>
+    setTimeout(function(){
+      if ($('#msg').length > 0) {
+        $('#msg').remove();
+      }
+    }, 3000)
+  </script>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  <!-- /.modal -->
+  <!-- Modal -->
+  <div class="modal modal-fill fade" data-backdrop="false" id="modal-fill" tabindex="-1">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h5 class="modal-title">Modal title</h5>
+			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		  </div>
+		  <div class="modal-body">
+			
+
+
+
+		 
+
+
+
+
+
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+			<button type="button" class="btn btn-primary float-end">Save changes</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  <!-- /.modal -->
+<!-- Resources -->
+<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/stock.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+
+<!-- Chart code -->
+<script>
+function getMonthABBR(month) {
+   let monthAbbR = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+   return monthAbbR[(month - 1)]
+  }
+am5.ready(function() {
+
+// Create root element
+// -------------------------------------------------------------------------------
+// https://www.amcharts.com/docs/v5/getting-started/#Root_element
+var root = am5.Root.new("chartdiv");
+
+
+// Set themes
+// -------------------------------------------------------------------------------
+// https://www.amcharts.com/docs/v5/concepts/themes/
+root.setThemes([
+  am5themes_Animated.new(root)
+]);
+
+
+// Create a stock chart
+// -------------------------------------------------------------------------------
+// https://www.amcharts.com/docs/v5/charts/stock-chart/#Instantiating_the_chart
+var stockChart = root.container.children.push(am5stock.StockChart.new(root, {
+}));
+
+
+// Set global number format
+// -------------------------------------------------------------------------------
+// https://www.amcharts.com/docs/v5/concepts/formatters/formatting-numbers/
+root.numberFormatter.set("numberFormat", "#,###.00");
+
+
+// Create a main stock panel (chart)
+// -------------------------------------------------------------------------------
+// https://www.amcharts.com/docs/v5/charts/stock-chart/#Adding_panels
+var mainPanel = stockChart.panels.push(am5stock.StockPanel.new(root, {
+  wheelY: "zoomX",
+  panX: true,
+  panY: true
+}));
+
+
+// Create value axis
+// -------------------------------------------------------------------------------
+// https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+var valueAxis = mainPanel.yAxes.push(am5xy.ValueAxis.new(root, {
+  renderer: am5xy.AxisRendererY.new(root, {
+    pan: "zoom"
+  }),
+  extraMin: 0.1, // adds some space for for main series
+  tooltip: am5.Tooltip.new(root, {}),
+  numberFormat: "#,###.00",
+  extraTooltipPrecision: 2
+}));
+
+var dateAxis = mainPanel.xAxes.push(am5xy.GaplessDateAxis.new(root, {
+  baseInterval: {
+    timeUnit: "day",
+    count: 1
+  },
+  renderer: am5xy.AxisRendererX.new(root, {}),
+  tooltip: am5.Tooltip.new(root, {})
+}));
+
+
+// Add series
+// -------------------------------------------------------------------------------
+// https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+var valueSeries = mainPanel.series.push(am5xy.CandlestickSeries.new(root, {
+  name: "MSFT",
+  clustered: false,
+  valueXField: "Date",
+  valueYField: "Close",
+  highValueYField: "High",
+  lowValueYField: "Low",
+  openValueYField: "Open",
+  calculateAggregates: true,
+  xAxis: dateAxis,
+  yAxis: valueAxis,
+  legendValueText: "open: [bold]{openValueY}[/] high: [bold]{highValueY}[/] low: [bold]{lowValueY}[/] close: [bold]{valueY}[/]",
+  legendRangeValueText:""
+}));
+
+
+// Set main value series
+// -------------------------------------------------------------------------------
+// https://www.amcharts.com/docs/v5/charts/stock-chart/#Setting_main_series
+stockChart.set("stockSeries", valueSeries);
+
+
+// Add a stock legend
+// -------------------------------------------------------------------------------
+// https://www.amcharts.com/docs/v5/charts/stock-chart/stock-legend/
+var valueLegend = mainPanel.plotContainer.children.push(am5stock.StockLegend.new(root, {
+  stockChart: stockChart
+}));
+
+
+// Create volume axis
+// -------------------------------------------------------------------------------
+// https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+var volumeAxisRenderer = am5xy.AxisRendererY.new(root, {
+  inside: true
+});
+
+volumeAxisRenderer.labels.template.set("forceHidden", true);
+volumeAxisRenderer.grid.template.set("forceHidden", true);
+
+var volumeValueAxis = mainPanel.yAxes.push(am5xy.ValueAxis.new(root, {
+  numberFormat: "#.#a",
+  height: am5.percent(20),
+  y: am5.percent(100),
+  centerY: am5.percent(100),
+  renderer: volumeAxisRenderer
+}));
+
+// Add series
+// https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+var volumeSeries = mainPanel.series.push(am5xy.ColumnSeries.new(root, {
+  name: "Volume",
+  clustered: false,
+  valueXField: "Date",
+  valueYField: "Volume",
+  xAxis: dateAxis,
+  yAxis: volumeValueAxis,
+  legendValueText: "[bold]{valueY.formatNumber('#,###.0a')}[/]"
+}));
+
+volumeSeries.columns.template.setAll({
+  strokeOpacity: 0,
+  fillOpacity: 0.5
+});
+
+// color columns by stock rules
+volumeSeries.columns.template.adapters.add("fill", function(fill, target) {
+  var dataItem = target.dataItem;
+  if (dataItem) {
+    return stockChart.getVolumeColor(dataItem);
+  }
+  return fill;
+})
+
+
+// Set main series
+// -------------------------------------------------------------------------------
+// https://www.amcharts.com/docs/v5/charts/stock-chart/#Setting_main_series
+stockChart.set("volumeSeries", volumeSeries);
+valueLegend.data.setAll([valueSeries, volumeSeries]);
+
+
+// Add cursor(s)
+// -------------------------------------------------------------------------------
+// https://www.amcharts.com/docs/v5/charts/xy-chart/cursor/
+mainPanel.set("cursor", am5xy.XYCursor.new(root, {
+  yAxis: valueAxis,
+  xAxis: dateAxis,
+  snapToSeries: [valueSeries],
+  snapToSeriesBy: "y!"
+}));
+
+
+// Add scrollbar
+// -------------------------------------------------------------------------------
+// https://www.amcharts.com/docs/v5/charts/xy-chart/scrollbars/
+var scrollbar = mainPanel.set("scrollbarX", am5xy.XYChartScrollbar.new(root, {
+  orientation: "horizontal",
+  height: 50
+}));
+stockChart.toolsContainer.children.push(scrollbar);
+
+var sbDateAxis = scrollbar.chart.xAxes.push(am5xy.GaplessDateAxis.new(root, {
+  baseInterval: {
+    timeUnit: "day",
+    count: 1
+  },
+  renderer: am5xy.AxisRendererX.new(root, {})
+}));
+
+var sbValueAxis = scrollbar.chart.yAxes.push(am5xy.ValueAxis.new(root, {
+  renderer: am5xy.AxisRendererY.new(root, {})
+}));
+
+var sbSeries = scrollbar.chart.series.push(am5xy.LineSeries.new(root, {
+  valueYField: "Close",
+  valueXField: "Date",
+  xAxis: sbDateAxis,
+  yAxis: sbValueAxis
+}));
+
+sbSeries.fills.template.setAll({
+  visible: true,
+  fillOpacity: 0.3
+});
+
+
+// Function that dynamically loads data
+function loadData(ticker, series, granularity) {
+
+  // Load external data
+  // https://www.amcharts.com/docs/v5/charts/xy-chart/series/#Setting_data
+  am5.net.load("https://www.amcharts.com/wp-content/uploads/assets/docs/stock/" + ticker + "_" + granularity + ".csv").then(function(result) {
+
+    // Parse loaded data
+    var data = am5.CSVParser.parse(result.response, {
+      delimiter: ",",
+      skipEmpty: true,
+      useColumnNames: true
+    });
+
+    // Process data (convert dates and values)
+    var processor = am5.DataProcessor.new(root, {
+      dateFields: ["Date"],
+      dateFormat: "yyyy-MM-dd",
+      numericFields: ["Open", "High", "Low", "Close", "Adj Close", "Volume"]
+    });
+    processor.processMany(data);
+
+    // Set data
+    am5.array.each(series, function(item) {
+      item.data.setAll(data);
+    });
+  });
+}
+
+// Load initial data for the first series
+var currentGranularity = "day";
+loadData("MSFT", [valueSeries, volumeSeries, sbSeries], currentGranularity);
+
+// Add comparing series
+addComparingSeries("AAPL");
+
+
+// Set up comparison control
+// -------------------------------------------------------------------------------
+// https://www.amcharts.com/docs/v5/charts/stock/toolbar/comparison-control/
+var comparisonControl = am5stock.ComparisonControl.new(root, {
+  stockChart: stockChart,
+  searchable: true,
+  searchCallback: function (query) {
+    return getTicker(query);
+  }
+});
+
+comparisonControl.events.on("selected", function(ev) {
+  addComparingSeries(ev.item.subLabel);
+});
+
+function addComparingSeries(label){
+  var series = am5xy.LineSeries.new(root, {
+    name: label,
+    valueYField: "Close",
+    calculateAggregates: true,
+    valueXField: "Date",
+    xAxis: dateAxis,
+    yAxis: valueAxis,
+    legendValueText: "{valueY.formatNumber('#.00')}"
+  });
+  var comparingSeries = stockChart.addComparingSeries(series);
+  loadData(label, [comparingSeries], currentGranularity);  
+}
+
+function getTicker(search) {
+  search = search.toLowerCase();
+  let d = [];
+{% for v in post %}
+d.push({"subLabel": Math.round("{{v.amount}}"),"label": "{{v.currency}}", "id": "{{v.id}}"});
+console.log("{{v.year}}")
+
+{%endfor%}
+// Add data
+chart.data = d.reverse();
+var tickers = d.reverse();
+//   var tickers = [
+//     { label: "Apple", subLabel: "AAPL", id: "AAPL" },
+//     { label: "Advanced Micro Devices", subLabel: "AMD", id: "AMD" },
+//     { label: "Microsoft", subLabel: "MSFT", id: "MSFT" },
+//     { label: "Alphabet (Google)", subLabel: "GOOG", id: "GOOG" },
+//     { label: "Amazon", subLabel: "AMZN", id: "AMZN" },
+//     { label: "Tesla", subLabel: "TSLA", id: "TSLA" },
+//     { label: "NVIDIA", subLabel: "NVDA", id: "NVDA" },
+//     { label: "Netflix", subLabel: "NFLX", id: "NFLX" }
+//   ];
+
+  return tickers.filter(function (item) {
+    return item.label.toLowerCase().match(search) || item.subLabel.toLowerCase().match(search);
+  });
+}
+
+
+// Set up series type switcher
+// -------------------------------------------------------------------------------
+// https://www.amcharts.com/docs/v5/charts/stock/toolbar/series-type-control/
+var seriesSwitcher = am5stock.SeriesTypeControl.new(root, {
+  stockChart: stockChart
+});
+
+seriesSwitcher.events.on("selected", function(ev) {
+  setSeriesType(ev.item.id);
+});
+
+function getNewSettings(series) {
+  var newSettings = [];
+  am5.array.each(["name", "valueYField", "highValueYField", "lowValueYField", "openValueYField", "calculateAggregates", "valueXField", "xAxis", "yAxis", "legendValueText", "stroke", "fill"], function(setting) {
+    newSettings[setting] = series.get(setting);
+  });
+  return newSettings;
+}
+
+function setSeriesType(seriesType) {
+  // Get current series and its settings
+  var currentSeries = stockChart.get("stockSeries");
+  var newSettings = getNewSettings(currentSeries);
+
+  // Remove previous series
+  var data = currentSeries.data.values;
+  mainPanel.series.removeValue(currentSeries);
+
+  // Create new series
+  var series;
+  switch (seriesType) {
+    case "line":
+      series = mainPanel.series.push(am5xy.LineSeries.new(root, newSettings));
+      break;
+    case "candlestick":
+    case "procandlestick":
+      newSettings.clustered = false;
+      series = mainPanel.series.push(am5xy.CandlestickSeries.new(root, newSettings));
+      if (seriesType == "procandlestick") {
+        series.columns.template.get("themeTags").push("pro");
+      }
+      break;
+    case "ohlc":
+      newSettings.clustered = false;
+      series = mainPanel.series.push(am5xy.OHLCSeries.new(root, newSettings));
+      break;
+  }
+
+  // Set new series as stockSeries
+  if (series) {
+    valueLegend.data.removeValue(currentSeries);
+    series.data.setAll(data);
+    stockChart.set("stockSeries", series);
+    var cursor = mainPanel.get("cursor");
+    if (cursor) {
+      cursor.set("snapToSeries", [series]);
+    }
+    valueLegend.data.insertIndex(0, series);
+  }
+}
+
+
+// Stock toolbar
+// -------------------------------------------------------------------------------
+// https://www.amcharts.com/docs/v5/charts/stock/toolbar/
+var toolbar = am5stock.StockToolbar.new(root, {
+  container: document.getElementById("chartcontrols"),
+  stockChart: stockChart,
+  controls: [
+    comparisonControl,
+    am5stock.IndicatorControl.new(root, {
+      stockChart: stockChart,
+      legend: valueLegend
+    }),
+    am5stock.DateRangeSelector.new(root, {
+      stockChart: stockChart
+    }),
+    am5stock.PeriodSelector.new(root, {
+      stockChart: stockChart
+    }),
+    seriesSwitcher,
+    am5stock.DrawingControl.new(root, {
+      stockChart: stockChart
+    }),
+    am5stock.ResetControl.new(root, {
+      stockChart: stockChart
+    }),
+    am5stock.SettingsControl.new(root, {
+      stockChart: stockChart
+    })
+  ]
+})
+
+}); // end am5.ready()
+</script>
+
+{% endblock content %}

@@ -1,0 +1,199 @@
+          {% load static %} <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ 
+    <title>Anfra KYC</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+    <!-- External Css -->
+    <link rel="stylesheet" href="{% static 'css/line-awesome.min.css' %}">
+
+    <!-- Custom Css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/kyc-2.css' %}">
+
+    <link rel="icon" href="{% static 'images/favicon.png' %}">
+    <link rel="apple-touch-icon" href="{% static 'images/apple-touch-icon.png' %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static 'images/icon-72x72.png' %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static 'images/icon-114x114.png' %}">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet">
+
+  <div class="content-wrapper" style="background-color: #000422; overflow: hidden; color: #fff;">
+    <div class="container-full">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+
+    <section class="content">
+
+      <div class="row">
+   <div class="container">
+        <div class="row">
+          <div class="col-lg-8 offset-lg-2" style="background-color: gray; color: #fff;">
+            <div class="ugf-form">
+              <form action="#" method="post" enctype="multipart/form-data">
+                 {% csrf_token %}
+                <div class="input-block">
+                  <h4>Personal Documents</h4>
+                  <p>Upload any of the following personal document.</p>
+                  <div class="documents-upload-wrap">
+                    <div class="label">Select Document type</div>
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                      <li class="nav-item" role="presentation"><input type="radio" name="idname" value="passport">
+                        <a class="nav-link active" id="passport-tab" data-toggle="tab" href="#passport" role="tab" aria-controls="passport" aria-selected="true"><img src="{% static 'images/passport.png' %}" alt="">passport</a>
+                      </li>
+                      <li class="nav-item" role="presentation"><input type="radio" name="idname" value="National id">
+                        <a class="nav-link" id="nid-tab" data-toggle="tab" href="#nid" role="tab" aria-controls="nid" aria-selected="false"><img src="{% static 'images/nid.png' %}" alt="">National id</a>
+                      </li>
+                      <li class="nav-item" role="presentation"><input type="radio" name="idname" value="Driver’s License">
+                        <a class="nav-link" id="driver-tab" data-toggle="tab" href="#driver" role="tab" aria-controls="driver" aria-selected="false"><img src="{% static 'images/driving.png' %}" alt="">Driver’s License</a>
+                      </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                      <div class="tab-pane fade show active" id="passport" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="documents-upload">
+                          <div class="upload-item">
+                            <input type="file" name="idimage1" id="input1" class="input-file" accept="image/*" hidden />
+                            <label class="btn-upload" for="input1" role="button">
+                              <img src="{% static 'images/cloud.png' %}">
+                              <div id="p-input1" class="preview-box"></div>
+                            </label>
+                            <div class="upload-direction"><span class="text">Passport Cover</span><a href="#"><img src="{% static 'images/download.png' %}" alt=""></a></div>
+                          </div>
+                          <div class="upload-item">
+                            <input type="file" name="idimage2"  id="input2" class="input-file" accept="image/*" hidden />
+                            <label class="btn-upload" for="input2" role="button">
+                              <img src="{% static 'images/cloud.png' %}">
+                              <div  id="p-input2" class="preview-box"></div>
+                            </label>
+                            <div class="upload-direction"><span class="text">Passport Data Page</span><a href="#"><img src="{% static 'images/download.png' %}" alt=""></a></div>
+                          </div>
+                          <div class="upload-item">
+                            <input type="file"  name="idimage3"  id="input3" class="input-file" accept="image/*" hidden />
+                            <label class="btn-upload" for="input3" role="button">
+                              <img src="{% static 'images/cloud.png' %}">
+                              <div  id="p-input3" class="preview-box"></div>
+                            </label>
+                            <div class="upload-direction"><span class="text">Selfie With Passport</span><a href="#"><img src="{% static 'images/download.png' %}" alt=""></a></div>
+                          </div>
+                        </div>
+                        <div class="conditions">
+                          <ul>
+                            <li class="complete">File accepted: JPEG/JPG/PNG (Max size: 250 KB)</li>
+                            <li>Document should be good condition</li>
+                            <li>Document must be  valid period</li>
+                            <li>Face must be clear visible</li>
+                            <li>Note has today’s date</li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="tab-pane fade" id="nid" role="tabpanel" aria-labelledby="nid-tab">
+                        <div class="documents-upload">
+                          <div class="upload-item">
+                            <input type="file"  name="idimage1"  id="input4" class="input-file" accept="image/*" hidden />
+                            <label class="btn-upload" for="input4" role="button">
+                              <img src="{% static 'images/cloud.png' %}">
+                              <div id="p-input4" class="preview-box"></div>
+                            </label>
+                            <div class="upload-direction"><span class="text">National ID Front</span><a href="#"><img src="images/download.png' %}" alt=""></a></div>
+                          </div>
+                          <div class="upload-item">
+                            <input type="file"  name="idimage2"  id="input5" class="input-file" accept="image/*" hidden />
+                            <label class="btn-upload" for="input5" role="button">
+                              <img src="{% static 'images/cloud.png' %}">
+                              <div id="p-input5" class="preview-box"></div>
+                            </label>
+                            <div class="upload-direction"><span class="text">National ID Back</span><a href="#"><img src="{% static 'images/download.png' %}" alt=""></a></div>
+                          </div>
+                          <div class="upload-item">
+                            <input type="file"  name="idimage3"  id="input6" class="input-file" accept="image/*" hidden />
+                            <label class="btn-upload" for="input6" role="button">
+                              <img src="{% static 'images/cloud.png' %}">
+                              <div id="p-input6" class="preview-box"></div>
+                            </label>
+                            <div class="upload-direction"><span class="text">Selfie With National ID</span><a href="#"><img src="{% static 'images/download.png' %}" alt=""></a></div>
+                          </div>
+                        </div>
+                        <div class="conditions">
+                          <ul>
+                            <li class="complete">File accepted: JPEG/JPG/PNG (Max size: 250 KB)</li>
+                            <li>Document should be good condition</li>
+                            <li>Document must be  valid period</li>
+                            <li>Face must be clear visible</li>
+                            <li>Note has today’s date</li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="tab-pane fade" id="driver" role="tabpanel" aria-labelledby="driver-tab">
+                        <div class="documents-upload">
+                          <div class="upload-item">
+                            <input type="file" name="idimage1"  id="input7" class="input-file" accept="image/*" hidden />
+                            <label class="btn-upload" for="input7" role="button">
+                              <img src="{% static 'images/cloud.png' %}">
+                              <div id="p-input7" class="preview-box"></div>
+                            </label>
+                            <div class="upload-direction"><span class="text">License Front</span><a href="#"><img src="{% static 'images/download.png' %}" alt=""></a></div>
+                          </div>
+                          <div class="upload-item">
+                            <input type="file" name="idimage2"  id="input8" class="input-file" accept="image/*" hidden />
+                            <label class="btn-upload" for="input8" role="button">
+                              <img src="{% static 'images/cloud.png' %}">
+                              <div id="p-input8" class="preview-box"></div>
+                            </label>
+                            <div class="upload-direction"><span class="text">License Back</span><a href="#"><img src="{% static 'images/download.png' %}" alt=""></a></div>
+                          </div>
+                          <div class="upload-item">
+                            <input type="file" name="idimage3"  id="input9" class="input-file" accept="image/*" hidden />
+                            <label class="btn-upload" for="input9" role="button">
+                              <img src="{% static 'images/cloud.png' %}">
+                              <div id="p-input9" class="preview-box"></div>
+                            </label>
+                            <div class="upload-direction"><span class="text">Selfie With License</span><a href="#"><img src="{% static 'images/download.png' %}" alt=""></a></div>
+                          </div>
+                        </div>
+                        <div class="conditions">
+                          <ul>
+                            <li class="complete">File accepted: JPEG/JPG/PNG (Max size: 250 KB)</li>
+                            <li>Document should be good condition</li>
+                            <li>Document must be  valid period</li>
+                            <li>Face must be clear visible</li>
+                            <li>Note has today’s date</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="input-block">
+                  <h4>ID Number</h4>
+                  <div class="form-group">
+                    <input type="text" name="id"  class="form-control" placeholder="e.g.  1234 0256 0145" id="nid-number" required="">
+                  </div>
+                </div>  
+                  <div class="form-group">
+                    <div class="custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customControlValidation1" required="">
+                      <label class="custom-control-label" for="customControlValidation1">I accept the <a href="#">Terms &amp; Conditions</a> and <a href="#">Privacy policy</a></label>
+                    </div>
+                  </div>
+                </div>
+                <button type="submit" class="btn">Submit Documents</button>
+              </form>
+            </div>
+          </div>
+        </div>
+     </div>
+
+ </div></section>
+  </div>
+</div>
+</div>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+    <!-- <script src="../assets/js/owl.carousel.min.js"></script> -->
+    <!-- <script src="../assets/js/countrySelect.min.js"></script> -->
+
+    <script src="{% static 'js/custom.js' %}"></script>

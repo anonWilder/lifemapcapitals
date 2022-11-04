@@ -1,0 +1,274 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx" class="js">
+   <head>
+      <meta charset="utf-8">
+      <meta name="author" content="Softnio">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="description" content="Fully featured and complete ICO Dashboard template for ICO backend management.">
+      <!-- Fav Icon -->
+      <link rel="shortcut icon" href="{% static 'images/favicon.png' %}">
+      <!-- Site Title  -->
+      <title>TokenWiz - ICO User Dashboard Admin Template</title>
+      <!-- Vendor Bundle CSS -->
+      <link rel="stylesheet" href="{% static 'kyc/css/vendor.bundle49f7.css' %}">
+      <!-- Custom styles for this template -->
+      <link rel="stylesheet" href="{% static 'kyc/css/style49f7.css' %}" id="layoutstyle">
+   </head>
+   <body class="page-user">
+      <!-- .topbar-wrap -->
+      <div class="page-header page-header-kyc">
+         <div class="container">
+            <div class="row justify-content-center">
+               <div class="col-lg-8 col-xl-7 text-center">
+                  <h2 class="page-title">Begin your Account-Activation</h2>
+                  <p class="large">Activate your account to procide to your Bank Dashbord.</p>
+               </div>
+            </div>
+         </div>
+         <!-- .container -->
+      </div>
+      <div class="page-content">
+         <div class="container">
+            <div class="row">
+               <div class="main-content col-lg-8">
+                  <div class="content-area card">
+                     <div class="card-innr">
+                        <div class="card-head">
+                           <h4 class="card-title">Profile Details</h4>
+                        </div>
+                        <ul class="nav nav-tabs nav-tabs-line" role="tablist">
+                           <li class="nav-item"><a class="nav-link active show" data-toggle="tab" href="#personal-data">Personal Data</a></li>
+                           <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#settings">Settings</a></li>
+                           <li class="nav-item" disabled><a class="nav-link" data-toggle="tab" disabled  style="color:#e1e8f0;;">Account</a></li>
+                        </ul>
+                        <!-- .nav-tabs-line href="#password"-->
+                        <div class="tab-content" id="profile-details">
+                           <div class="tab-pane fade active show" id="personal-data">
+                              <form action="#" method='post'>
+                                 {% csrf_token %} 
+                                 <div class="row">
+                                    <div class="col-md-6">
+                                       <div class="input-item input-with-label"><label for="full-name" class="input-item-label">Full Name</label><input class="input-bordered" type="text" id="full-name" name="name" value="{{user.first_name}} {{user.last_name}}"></div>
+                                       <!-- .input-item -->
+                                    </div>
+                                    <div class="col-md-6">
+                                       <div class="input-item input-with-label"><label for="email-address" class="input-item-label">Email Address</label><input class="input-bordered" type="text" id="email-address" name="email" value="{{user.email}}"></div>
+                                       <!-- .input-item -->
+                                    </div>
+                                    <div class="col-md-6">
+                                       <div class="input-item input-with-label"><label for="mobile-number" class="input-item-label">Mobile Number</label><input class="input-bordered" type="text" id="mobile-number" name="phon"></div>
+                                       <!-- .input-item -->
+                                    </div>
+                                    <div class="col-md-6">
+                                       <div class="input-item input-with-label"><label for="date-of-birth" class="input-item-label">Date of Birth</label><input class="input-bordered" placeholder='YYYY-MM-DD' type="text"  name="date"></div>
+                                       <!-- .input-item  date-picker-dob-->
+                                    </div>
+                                    <!-- .col -->
+                                    <div class="col-md-6">
+                                       <div class="input-item input-with-label">
+                                          <label for="nationality" class="input-item-label">Nationality</label>
+                                          <select class="select-bordered select-block select2-hidden-accessible" name="country" id="nationality" tabindex="-1" aria-hidden="true">
+                                             <option value="United State">United State</option>
+                                             <option value="United KingDom">United KingDom</option>
+                                             <option value="France">France</option>
+                                             <option value="China">China</option>
+                                             <option value="Czech Republic">Czech Republic</option>
+                                             <option value="Colombia">Colombia</option>
+                                          </select>
+                                          <span class="select2 select2-container select2-container--flat bordered" dir="ltr" style="width: 320px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-nationality-container"><span class="select2-selection__rendered" id="select2-nationality-container" title="United State">United State</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                       </div>
+                                       <!-- .input-item -->
+                                    </div>
+
+                                    <div class="col-md-6">
+                                       <div class="input-item input-with-label">
+                                          <label for="nationality" class="input-item-label">Account Type</label>
+                                          <select class="select-bordered select-block select2-hidden-accessible" name="type" id="nationality" tabindex="-1" aria-hidden="true">
+                                             <option value="Checking Account">Checking Account</option>
+                                             <option value="Savings accounts">Savings accounts</option>
+                                             <option value="Money market accounts">Money market accounts</option>
+                                             <option value="Brokerage accounts">Brokerage accounts</option>
+                                             <option value="Individual retirement accounts">Individual retirement accounts</option>
+                                           
+                                          </select>
+                                          {% comment %} <span class="select2 select2-container select2-container--flat bordered" dir="ltr" style="width: 320px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-nationality-container"><span class="select2-selection__rendered" id="select2-nationality-container" title="United State">United State</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span> {% endcomment %}
+                                       </div>
+                                       <!-- .input-item -->
+                                    </div>
+                                    <!-- .col -->
+                                 </div>
+                                 <!-- .row -->
+                                 <div class="gaps-1x"></div>
+                                 <!-- 10px gap -->
+                                 <div class="d-sm-flex justify-content-between align-items-center">
+                                    <button type="submit" class="btn btn-primary">Create Account</button>
+                                    <div class="gaps-2x d-sm-none"></div>
+                                    <span class="text-primary"><input type="checkbox" value="True" name='checked' class="text-exlight" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Please only check the box if payment have been made to your account to do that click the make payment button and pay in any amount to your account to procced then check the box when payment is DONE" required> Have made the payment</span>
+                                 </div>
+                              </form>
+                              <!-- form -->
+                           </div>
+                           <!-- .tab-pane -->
+                           <div class="tab-pane fade" id="settings">
+                              <div class="pdb-1-5x">
+                                 <h5 class="card-title card-title-sm text-dark">Security Settings</h5>
+                              </div>
+                              <div class="input-item"><input type="checkbox" class="input-switch input-switch-sm" id="save-log" checked=""><label for="save-log">Save my Activities Log</label></div>
+                              <div class="input-item"><input type="checkbox" class="input-switch input-switch-sm" id="pass-change-confirm"><label for="pass-change-confirm">Confirm me through email before password change</label></div>
+                              <div class="pdb-1-5x">
+                                 <h5 class="card-title card-title-sm text-dark">Manage Notification</h5>
+                              </div>
+                              <div class="input-item"><input type="checkbox" class="input-switch input-switch-sm" id="latest-news" checked=""><label for="latest-news">Notify me by email about sales and latest news</label></div>
+                              <div class="input-item"><input type="checkbox" class="input-switch input-switch-sm" id="activity-alert" checked=""><label for="activity-alert">Alert me by email for unusual activity.</label></div>
+                              <div class="gaps-1x"></div>
+                              <div class="d-flex justify-content-between align-items-center"><span></span><span class="text-success"><em class="ti ti-check-box"></em> Setting has been updated</span></div>
+                           </div>
+                           <!-- .tab-pane -->
+                           <div class="tab-pane fade" id="password">
+                              <div class="row">
+                                 <div class="col-md-6">
+                                    <div class="input-item input-with-label"><label for="old-pass" class="input-item-label">Old Password</label><input class="input-bordered" type="password" id="old-pass" name="old-pass"></div>
+                                    <!-- .input-item -->
+                                 </div>
+                                 <!-- .col -->
+                              </div>
+                              <!-- .row -->
+                              <div class="row">
+                                 <div class="col-md-6">
+                                    <div class="input-item input-with-label"><label for="new-pass" class="input-item-label">New Password</label><input class="input-bordered" type="password" id="new-pass" name="new-pass"></div>
+                                    <!-- .input-item -->
+                                 </div>
+                                 <!-- .col -->
+                                 <div class="col-md-6">
+                                    <div class="input-item input-with-label"><label for="confirm-pass" class="input-item-label">Confirm New Password</label><input class="input-bordered" type="password" id="confirm-pass" name="confirm-pass"></div>
+                                    <!-- .input-item -->
+                                 </div>
+                                 <!-- .col -->
+                              </div>
+                              <!-- .row -->
+                              <div class="note note-plane note-info pdb-1x">
+                                 <em class="fas fa-info-circle"></em>
+                                 <p>Password should be minmum 8 letter and include lower and uppercase letter.</p>
+                              </div>
+                              <div class="gaps-1x"></div>
+                              <!-- 10px gap -->
+                              <div class="d-sm-flex justify-content-between align-items-center">
+                                 <button class="btn btn-primary">Update</button>
+                                 <div class="gaps-2x d-sm-none"></div>
+                                 <span class="text-success"><em class="ti ti-check-box"></em>  Changed Password</span>
+                              </div>
+                           </div>
+                           <!-- .tab-pane -->
+                        </div>
+                        <!-- .tab-content -->
+                     </div>
+                     <!-- .card-innr -->
+                  </div>
+                  <!-- .card -->
+                  <div class="content-area card">
+                     <div class="card-innr">
+                        <div class="card-head">
+                           <h4 class="card-title">Payment for Account Opeaning</h4>
+                        </div>
+                        <p>For you to have an account with CHIME BANK your will have to deposit payment to your New created account . to have your accout activated after felling the form make the payment then check the box that said you have paid the our system the checks it than add it to your new account </p>
+                        <div class="d-sm-flex justify-content-between align-items-center pdt-1-5x">
+                           <span class="text-light ucap d-inline-flex align-items-center"><span class="mb-0"><small>Current Status:</small></span> <span class="badge badge-disabled ml-2">Not Paid</span></span>
+                           <div class="gaps-2x d-sm-none"></div>
+                           <a href="#" data-toggle="modal" data-target="#edit-wallet" class="link link-ucap"><button class="order-sm-first btn btn-primary">Make Payment</button></a>
+                        </div>
+                     </div>
+                     <!-- .card-innr -->
+                  </div>
+                  <!-- .card -->
+               </div>
+               <!-- .col -->
+               <div class="aside sidebar-right col-lg-4">
+                  <div class="account-info card">
+                     <div class="card-innr">
+                        <h6 class="card-title card-title-sm">Your Account Status</h6>
+                        <ul class="btn-grp">
+                           <li><a href="#" class="btn btn-auto btn-xs btn-success">Account Verified</a></li>
+                           <li><a href="#" class="btn btn-auto btn-xs btn-warning">KYC Pending</a></li>
+                        </ul>
+                        <div class="gaps-2-5x"></div>
+                        <h6 class="card-title card-title-sm">Receiving Wallet</h6>
+                        <div class="d-flex justify-content-between"><span><span>0x39deb3.....e2ac64rd</span> <em class="fas fa-info-circle text-exlight" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="1 ETH = 100 TWZ"></em></span></div>
+                     </div>
+                  </div>
+                  <div class="referral-info card">
+                     <div class="card-innr">
+                        <h6 class="card-title card-title-sm">Earn with Referral</h6>
+                        <p class=" pdb-0-5x">Invite your friends &amp; family and receive a <strong><span class="text-primary">bonus - 15%</span> of the value of contribution.</strong></p>
+                        <div class="copy-wrap mgb-0-5x"><span class="copy-feedback"></span><em class="fas fa-link"></em><input type="text" class="copy-address" value="https://demo.themenio.com/ico?ref=7d264f90653733592" disabled=""><button class="copy-trigger copy-clipboard" data-clipboard-text="https://demo.themenio.com/ico?ref=7d264f90653733592"><em class="ti ti-files"></em></button></div>
+                        <!-- .copy-wrap -->
+                     </div>
+                  </div>
+                  <div class="kyc-info card">
+                     <div class="card-innr">
+                        <h6 class="card-title card-title-sm">Identity Verification - KYC</h6>
+                        <p>To comply with regulation, participant will have to go through indentity verification.</p>
+                        <p class="lead text-light pdb-0-5x">You have not submitted your KYC application to verify your indentity.</p>
+                        <a href="#" class="btn btn-primary btn-block">Click to Proceed</a>
+                        <h6 class="kyc-alert text-danger">* KYC verification required for purchase token</h6>
+                     </div>
+                  </div>
+               </div>
+               <!-- .col -->
+            </div>
+            <!-- .container -->
+         </div>
+         <!-- .container -->
+      </div>
+      <div class="modal fade" id="edit-wallet" tabindex="-1" aria-hidden="true" style="display: none;">
+         <div class="modal-dialog modal-dialog-md modal-dialog-centered">
+            <div class="modal-content">
+               <a href="#" class="modal-close" data-dismiss="modal" aria-label="Close"><em class="ti ti-close"></em></a>
+               <div class="popup-body">
+                  <h4 class="popup-title">Payment Method</h4>
+                  <p>In order to have an account with<a href="/"><strong> CHIME BANK </strong></a> please make your payment and fill in your personal infomation to have your account created then you can transfer , witdraw and make payment . <strong>You will receive an email when account has been created after payment.</strong></p>
+                  <form action="#">
+                     <div class="row">
+                        <div class="col-md-6">
+                           <div class="input-item input-with-label">
+                              <label for="swalllet" class="input-item-label">Select Method </label>
+                              <select class="select-bordered select-block select2-hidden-accessible" name="swalllet" id="swalllet" tabindex="-1" aria-hidden="true">
+                                 <option value="db card" disabled>Debit Card</option>
+                                 <option value="paypal" disabled>Paypal</option>
+                                 <option value="BitCoin">BitCoin</option>
+                              </select>
+                              <span class="select2 select2-container select2-container--flat bordered select2-container--below" dir="ltr" style="width: auto;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-swalllet-container"><span class="select2-selection__rendered" id="select2-swalllet-container" title="BitCoin">BitCoin</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                           </div>
+                           <!-- .input-item -->
+                        </div>
+                        <!-- .col -->
+                     </div>
+                     <!-- .row -->
+                     <div class="input-item input-with-label"><label for="token-address" class="input-item-label">Your Address for tokens:</label><input class="input-bordered" type="text" id="token-address" name="token-address" value="0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae"><span class="input-note">Note: Address should be ERC20-compliant.</span></div>
+                     <!-- .input-item -->
+                     <div class="note note-plane note-danger">
+                        <em class="fas fa-info-circle"></em>
+                        <p>DO NOT USE your exchange wallet address such as Kraken, Bitfinex, Bithumb, Binance etc. You can use MetaMask, MayEtherWallet, Mist wallets etc. Do not use the address if you don’t have a private key of the your address. You WILL NOT receive TWZ Tokens and WILL LOSE YOUR FUNDS if you do.</p>
+                     </div>
+                     <div class="gaps-3x"></div>
+                     <div class="d-sm-flex justify-content-between align-items-center">
+                        {% comment %} <form method='post'>
+                        <input type="checkbox" value="True" name='checked' checked>
+                        <button type="submit" class="btn btn-primary">Have paid in Proceed</button>
+                        </form> {% endcomment %}
+                        {% comment %} <div class="gaps-2x d-sm-none"></div>
+                        <span class="text-success"><em class="ti ti-check-box"></em> Updated wallet address</span> {% endcomment %}
+                     </div>
+                  </form>
+                  <!-- form -->
+               </div>
+            </div>
+            <!-- .modal-content -->
+         </div>
+         <!-- .modal-dialog -->
+      </div>
+      <!-- .footer-bar --><!-- JavaScript (include all script here) -->
+      <script src="{% static 'kyc/js/jquery.bundle49f7.js' %}"></script>
+      <script src="{% static 'kyc/js/script49f7.js' %}"></script>
+   </body>
+</html>

@@ -1,0 +1,14 @@
+ {% load static %}
+
+
+
+ {% if messages %}
+    {% for message in messages %}
+        <div class="col-12">
+                                    <!-- Start an Alert alert-success  -->
+         <div id="alerttopright" class="myadmin-alert {{ message.tags }} myadmin-alert-img myadmin-alert-top-right"> 
+            <img src="{{user.profile.image.url}}" class="img" alt="img"><a href="#" class="closed">&times;</a>
+                <h4>You have a Message!</h4> <b>{{user.username}} </b> {{ message }}</div>
+        </div>
+    {% endfor %}
+{% endif %}

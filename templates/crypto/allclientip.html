@@ -1,0 +1,1074 @@
+{% extends 'crypto/base2.html' %}   
+
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+<style>
+	#chartdiv {
+	width: 100%;
+	height: 500px;
+	}
+</style>
+  <!-- Content Wrapper. Contains page content -->
+  <!-- <div class="content-wrapper" style="background-color: #000422; scroll-behavior: smooth; margin-left: 0;"> -->
+	  <div class="container" style="scroll-behavior: smooth;">
+		<!-- Content Header (Page header) -->
+		<div class="content-header">
+			<div class="d-flex align-items-center">
+				<div class="me-auto">
+					<h4 class="page-title">ALL Location</h4>
+					<div class="d-inline-block align-items-center">
+						<nav>
+							<ol class="breadcrumb">
+								<!-- <li class="breadcrumb-item"><a href="#">
+									<i class="mdi mdi-home-outline"></i></a></li> -->
+								<!-- <li class="breadcrumb-item" aria-current="page">Component</li>
+								<li class="breadcrumb-item active" aria-current="page">Modals</li> -->
+							</ol>
+						</nav>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+{% include 'crypto/messages.html' %}
+		<!-- Main content -->
+
+				<!-- Main content -->
+
+
+		<!-- 		<section class="content">			
+					<div class="row">
+									<div class="col-12">
+									  <div class="box">
+										<div class="box-body">
+											<h5 class="text-center">Location Historys Chart</h5>
+											<div class="table-responsive">
+											<div id="chartdiv"></div>
+											</div>
+										</div>
+									  </div>
+									</div>
+								  </div>
+					
+					
+					
+					
+							</section> -->
+
+
+		<section class="content">			
+<div class="row">
+				<div class="col-12">
+				  <div class="box">
+					<div class="box-body">
+						<h5 class="text-center">Location Historys Datatable</h5>
+						<div class="table-responsive">
+							<table class="table table-striped table-bordered no-margin">
+							  <thead>
+								<tr>
+								   <th class="text-center">#</th>
+								   <th>IP</th>
+								   <th class="text-end">Country</th>
+								   <th class="text-end">City</th>
+								   <th class="text-end">Country Code</th>
+								   <th class="text-end">Region</th>
+								   <th class="text-end">Timezone</th>
+								   <th class="text-end">Lat</th>
+								   <th class="text-end">Lon</th>
+								   <th class="text-end">Isp</th>
+								   <th class="text-end">Ascode</th>
+								   <th class="text-end">Org</th>
+								   <th class="text-end">Postal</th>
+								</tr>
+							   </thead>
+							   <tbody>
+							   	{% for post in ip %}
+								<tr>
+								   <td class="text-center">{{post.id}}</td>
+								   <td><a href="#" class="hover-warning">{{post.ip}}</a></td>
+								   <!-- <td class="text-end"><img src="{{post.prof.url}}" style="width:20px"></td> -->
+								   
+								   <td class="text-end"><span></span> {{post.country}}</td>
+								   <td class="text-end"><span></span> {{post.city}}</td>
+								   <td class="text-end"><span></span>{{post.countryCode}}</td>
+
+								   <td class="text-end"><span></span> {{post.region}}</td>
+								   <td class="text-end"><span></span> {{post.timezone}}</td>
+								   <td class="text-end"><span></span>{{post.lat}}</td>
+
+								   <td class="text-end"><span></span> {{post.lon}}</td>
+								   <td class="text-end"><span></span> {{post.isp}}</td>
+								   <td class="text-end"><span></span>{{post.ascode}}</td>
+
+								   <td class="text-end"><span></span> {{post.org}}</td>
+								   <td class="text-end"><span></span>{{post.postal}}</td>
+								   <td class="text-end"><span class="label label-danger">Delete</span></td>
+								</tr>
+								{% endfor %}
+							   </tbody>
+								
+							</table>
+						</div>
+					</div>
+					<!-- /.box-body -->
+				  </div>
+				  <!-- /.box -->
+				</div>
+			  </div>
+
+
+
+
+		</section>
+		<!-- /.content -->
+
+		<!-- /.content -->
+	  </div>
+  </div>
+  <!-- /.content-wrapper -->
+	
+	
+  
+<script>
+
+	function myFunction() {
+
+  /* Get the text field */
+	  var copyText = document.getElementById("myInput");
+
+	  /* Select the text field */
+	  copyText.select();
+	  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+	  /* Copy the text inside the text field */
+	  navigator.clipboard.writeText(copyText.value);
+	  
+	  /* Alert the copied text */
+	  // alert("Copied the text: " + copyText.value);
+};
+
+
+
+var copyTextareaBtn = document.querySelector('.js-textareacopybtn');
+
+copyTextareaBtn.addEventListener('click', function(event) {
+  var copyTextarea = document.querySelector('.js-copytextarea');
+  copyTextarea.focus();
+  copyTextarea.select();
+
+  try {
+    var successful = document.execCommand('copy');
+    var msg = successful ? 'successful' : 'unsuccessful';
+    alert('Copying text command was ' + msg);
+  } catch (err) {
+    alert('Oops, unable to copy');
+  }
+});
+</script>				  
+<script>
+
+	var button = document.getElementById('add-item');
+	var result = document.getElementById('demo2');
+
+	document.querySelector('button').addEventListener("click", function() {
+	  // Store results
+	  var resultStored = result.value;
+	  // Reset value of input
+	  result.value = "";
+
+	  // Get items container
+	  var items = document.getElementById('items');
+	  // Add items to container
+	  items.innerHTML += resultStored;
+	});
+</script>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  <!-- /.modal -->
+
+
+
+
+
+
+
+
+	
+  <!-- Modal -->
+  <div class="modal center-modal fade" id="modal-ETH" tabindex="-1">
+	  <div class="modal-dialog" style="max-width: 1000px;">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h5 class="modal-title center">You can Deposit Using the ETH ADDRESS or Deposit using QRCODE</h5>
+			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		  </div>
+		  <div class="modal-body">
+			
+
+
+
+ 	<div class="row">
+ 		<div class="col-12">
+									<!-- Start an Alert -->
+									<div id="alerttopright" class="myadmin-alert myadmin-alert-img alert-success myadmin-alert-top-right"> <img src="{{user.profile.image.url}}" class="img" alt="img"><a href="#" class="closed">&times;</a>
+										<h4>You have a Message!</h4> <b>{{user.username}} </b> You Copied a text</div>
+								</div>
+				<div class="col-lg-6 col-12">
+				  <div class="box">
+					<div class="box-header with-border">
+					  <h4 class="box-title">Deposit 
+								   </h4><button class="js-textareacopybtnb"  onclick="myFunction()" style="float: right;
+    background: #1c212e;
+    color: #32b687;"id="showtopright">Copy</button>
+					</div>
+					<div class="box-body">
+						<div class="table-responsive">
+							<table class="table table-striped table-hover no-margin">
+							  <tbody>
+							  <tr>
+								  <td>Address</td>
+								  <td><input class="js-copytextareab" type="text" value="0xF8B88cFAcb7121A1a5A89b2B240E29297508cd0f" id="myInput" style="border: none;
+    color: #cacbce;
+    width: 100%;
+    background: #1c212e;"></td>
+								
+								</tr>			
+								<tr>
+								  <td>Company</td>
+								  <td><a href="#">LIFEMAP (inc.)</a></td>
+								</tr>
+								
+								<tr>
+								  <td>Acc Type</td>
+								  <td>Ethereum (ETH)</td>
+								</tr>
+							  </tbody>
+							</table>
+						</div>
+					</div>
+				  </div>
+				</div>
+				<div class="col-lg-4 col-12">
+				  <div class="box">
+					<div class="box-header with-border">
+					  <h4 class="box-title">Your Info</h4>
+					</div>
+					<div class="box-body">
+						<div class="table-responsive">
+							<table class="table table-striped table-hover no-margin">
+							  <tbody>
+								<tr>
+								  <td>Name</td>
+								  <td><span class="text-success" id="items">{{user.first_name}} {{user.last_name}}</span></td>
+								  <!-- <td><i class="fa fa-bar-chart"></i></td> -->
+								</tr>
+								<tr>
+								  <td>Your Email</td>
+								  <td><span class="text-success">{{user.email}}</span></td>
+								  <!-- <td><i class="fa fa-bar-chart"></i></td> -->
+								</tr>
+								<tr>
+								  <td>Your Username</td>
+								  <td><span class="text-success">{{user.username}}</span></td>
+								  <!-- <td><i class="fa fa-bar-chart"></i></td> -->
+								</tr>
+							  </tbody>
+							</table>
+						</div>
+					</div>
+				  </div>
+				</div>
+				<div class="col-lg-2 col-12">
+				  <div class="box">
+					<div class="box-body">
+						<img src="https://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data=0xF8B88cFAcb7121A1a5A89b2B240E29297508cd0f%0A&qzone=1&margin=0&size=200x200&ecc=L" alt="codeQR">
+					</div>
+				  </div>
+				</div>
+			</div>
+
+
+
+
+
+
+
+
+		  </div>
+		  <div class="modal-footer modal-footer-uniform">
+			<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+		<!-- 	 <button type="button" id="add-item" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#modal-fill">
+					Done
+				  </button> -->
+
+<script>
+
+	function myFunction() {
+
+  /* Get the text field */
+	  var copyText = document.getElementById("myInput");
+
+	  /* Select the text field */
+	  copyText.select();
+	  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+	  /* Copy the text inside the text field */
+	  navigator.clipboard.writeText(copyText.value);
+	  
+	  /* Alert the copied text */
+	  // alert("Copied the text: " + copyText.value);
+};
+
+var copyTextareaBtnb = document.querySelector('.js-textareacopybtnb');
+
+copyTextareaBtnb.addEventListener('click', function(event) {
+  var copyTextareab = document.querySelector('.js-copytextareab');
+  copyTextareab.focus();
+  copyTextareab.select();
+
+  try {
+    var successful = document.execCommand('copy');
+    var msg = successful ? 'successful' : 'unsuccessful';
+    alert('Copying text command was ' + msg);
+  } catch (err) {
+    alert('Oops, unable to copy');
+  }
+});
+</script>				  
+<script>
+
+	var button = document.getElementById('add-item');
+	var result = document.getElementById('demo2');
+
+	document.querySelector('button').addEventListener("click", function() {
+	  // Store results
+	  var resultStored = result.value;
+	  // Reset value of input
+	  result.value = "";
+
+	  // Get items container
+	  var items = document.getElementById('items');
+	  // Add items to container
+	  items.innerHTML += resultStored;
+	});
+</script>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  <!-- /.modal -->
+
+
+
+
+
+
+
+	
+  <!-- Modal -->
+  <div class="modal center-modal fade" id="modal-USDT" tabindex="-1">
+	  <div class="modal-dialog" style="max-width: 1000px;">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h5 class="modal-title center">You can Deposit Using the USDT ADDRESS or Deposit using QRCODE</h5>
+			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		  </div>
+		  <div class="modal-body">
+			
+
+
+
+ 	<div class="row">
+ 		<div class="col-12">
+									<!-- Start an Alert -->
+									<div id="alerttopright" class="myadmin-alert myadmin-alert-img alert-success myadmin-alert-top-right"> <img src="{{user.profile.image.url}}" class="img" alt="img"><a href="#" class="closed">&times;</a>
+										<h4>You have a Message!</h4> <b>{{user.username}} </b> You Copied a text</div>
+								</div>
+				<div class="col-lg-6 col-12">
+				  <div class="box">
+					<div class="box-header with-border">
+					  <h4 class="box-title">Deposit 
+								   </h4><button class="js-textareacopybtnc"  onclick="myFunction()" style="float: right;
+    background: #1c212e;
+    color: #32b687;" id="showtopright">Copy</button>
+					</div>
+					<div class="box-body">
+						<div class="table-responsive">
+							<table class="table table-striped table-hover no-margin">
+							  <tbody> 
+							  <tr>
+								  <td>Address</td>
+								  <td><input type="text" class="js-copytextareac" value="0xF8B88cFAcb7121A1a5A89b2B240E29297508cd0f" id="myInput" style="border: none;
+    color: #cacbce;
+    width: 100%;
+    background: #1c212e;"></td>
+								
+								</tr>			
+								<tr>
+								  <td>Company</td>
+								  <td><a href="#">LIFEMAP (inc.)</a></td>
+								</tr>
+								
+								<tr>
+								  <td>Acc Type</td>
+								  <td>Tether (USDT) <i>(ERC20)</i></td>
+								</tr>
+							  </tbody>
+							</table>
+						</div>
+					</div>
+				  </div>
+				</div>
+				<div class="col-lg-4 col-12">
+				  <div class="box">
+					<div class="box-header with-border">
+					  <h4 class="box-title">Your Info</h4>
+					</div>
+					<div class="box-body">
+						<div class="table-responsive">
+							<table class="table table-striped table-hover no-margin">
+							  <tbody>
+								<tr>
+								  <td>Name</td>
+								  <td><span class="text-success" id="items">{{user.first_name}} {{user.last_name}}</span></td>
+								  <!-- <td><i class="fa fa-bar-chart"></i></td> -->
+								</tr>
+								<tr>
+								  <td>Your Email</td>
+								  <td><span class="text-success">{{user.email}}</span></td>
+								  <!-- <td><i class="fa fa-bar-chart"></i></td> -->
+								</tr>
+								<tr>
+								  <td>Your Username</td>
+								  <td><span class="text-success">{{user.username}}</span></td>
+								  <!-- <td><i class="fa fa-bar-chart"></i></td> -->
+								</tr>
+							  </tbody>
+							</table>
+						</div>
+					</div>
+				  </div>
+				</div>
+				<div class="col-lg-2 col-12">
+				  <div class="box">
+					<div class="box-body">
+						<img src="https://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data=0xF8B88cFAcb7121A1a5A89b2B240E29297508cd0f%0A&qzone=1&margin=0&size=200x200&ecc=L" alt="codeQR">
+					</div>
+				  </div>
+				</div>
+			</div>
+
+
+
+
+
+
+
+
+		  </div>
+		  <div class="modal-footer modal-footer-uniform">
+			<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+		<!-- 	 <button type="button" id="add-item" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#modal-fill">
+					Done
+				  </button> -->
+
+<script>
+
+	function myFunction() {
+
+  /* Get the text field */
+	  var copyText = document.getElementById("myInput");
+
+	  /* Select the text field */
+	  copyText.select();
+	  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+	  /* Copy the text inside the text field */
+	  navigator.clipboard.writeText(copyText.value);
+	  
+	  /* Alert the copied text */
+	  // alert("Copied the text: " + copyText.value);
+};
+
+
+
+var copyTextareaBtnc = document.querySelector('.js-textareacopybtnc');
+
+copyTextareaBtnc.addEventListener('click', function(event) {
+  var copyTextareac = document.querySelector('.js-copytextareac');
+  copyTextareac.focus();
+  copyTextareac.select();
+
+  try {
+    var successful = document.execCommand('copy');
+    var msg = successful ? 'successful' : 'unsuccessful';
+    alert('Copying text command was ' + msg);
+  } catch (err) {
+    alert('Oops, unable to copy');
+  }
+});
+</script>				  
+<script>
+
+	var button = document.getElementById('add-item');
+	var result = document.getElementById('demo2');
+
+	document.querySelector('button').addEventListener("click", function() {
+	  // Store results
+	  var resultStored = result.value;
+	  // Reset value of input
+	  result.value = "";
+
+	  // Get items container
+	  var items = document.getElementById('items');
+	  // Add items to container
+	  items.innerHTML += resultStored;
+	});
+</script>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  <!-- /.modal -->
+
+
+
+
+<!-- /////////////////////////////////////////////////////////////////////////////
+ -->
+
+	
+  <!-- Modal -->
+  <div class="modal center-modal fade" id="modal-USDT-TRC" tabindex="-1">
+	  <div class="modal-dialog" style="max-width: 1000px;">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h5 class="modal-title center">You can Deposit Using the USDT ADDRESS or Deposit using QRCODE</h5>
+			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		  </div>
+		  <div class="modal-body">
+			
+
+
+
+ 	<div class="row">
+ 		<div class="col-12">
+									<!-- Start an Alert -->
+									<div id="alerttopright" class="myadmin-alert myadmin-alert-img alert-success myadmin-alert-top-right"> <img src="{{user.profile.image.url}}" class="img" alt="img"><a href="#" class="closed">&times;</a>
+										<h4>You have a Message!</h4> <b>{{user.username}} </b> You Copied a text</div>
+								</div>
+				<div class="col-lg-6 col-12">
+				  <div class="box">
+					<div class="box-header with-border">
+					  <h4 class="box-title">Deposit 
+								   </h4><button class="js-textareacopybtn2"  onclick="myFunction()" style="float: right;
+    background: #1c212e;
+    color: #32b687;" id="showtopright">Copy</button>
+					</div>
+					<div class="box-body">
+						<div class="table-responsive">
+							<table class="table table-striped table-hover no-margin">
+							  <tbody> 
+							  <tr>
+								  <td>Address</td>
+								  <td><input type="text" class="js-copytextarea2" value="TWhamYxKYZ8QKAL4Q46kVrigrj6rupfNYG" id="myInput" style="border: none;
+    color: #cacbce;
+    width: 100%;
+    background: #1c212e;"></td>
+								
+								</tr>			
+								<tr>
+								  <td>Company</td>
+								  <td><a href="#">LIFEMAP (inc.)</a></td>
+								</tr>
+								
+								<tr>
+								  <td>Acc Type</td>
+								  <td>Tether (USDT) <i>(TRC20)</i></td>
+								</tr>
+							  </tbody>
+							</table>
+						</div>
+					</div>
+				  </div>
+				</div>
+				<div class="col-lg-4 col-12">
+				  <div class="box">
+					<div class="box-header with-border">
+					  <h4 class="box-title">Your Info</h4>
+					</div>
+					<div class="box-body">
+						<div class="table-responsive">
+							<table class="table table-striped table-hover no-margin">
+							  <tbody>
+								<tr>
+								  <td>Name</td>
+								  <td><span class="text-success" id="items">{{user.first_name}} {{user.last_name}}</span></td>
+								  <!-- <td><i class="fa fa-bar-chart"></i></td> -->
+								</tr>
+								<tr>
+								  <td>Your Email</td>
+								  <td><span class="text-success">{{user.email}}</span></td>
+								  <!-- <td><i class="fa fa-bar-chart"></i></td> -->
+								</tr>
+								<tr>
+								  <td>Your Username</td>
+								  <td><span class="text-success">{{user.username}}</span></td>
+								  <!-- <td><i class="fa fa-bar-chart"></i></td> -->
+								</tr>
+							  </tbody>
+							</table>
+						</div>
+					</div>
+				  </div>
+				</div>
+				<div class="col-lg-2 col-12">
+				  <div class="box">
+					<div class="box-body">
+						<img src="https://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data=TWhamYxKYZ8QKAL4Q46kVrigrj6rupfNYG%0A&qzone=1&margin=0&size=200x200&ecc=L" alt="codeQR">
+					</div>
+				  </div>
+				</div>
+			</div>
+
+
+
+
+
+
+
+
+		  </div>
+		  <div class="modal-footer modal-footer-uniform">
+			<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+		<!-- 	 <button type="button" id="add-item" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#modal-fill">
+					Done
+				  </button> -->
+
+<script>
+
+	function myFunction() {
+
+  /* Get the text field */
+	  var copyText = document.getElementById("myInput");
+
+	  /* Select the text field */
+	  copyText.select();
+	  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+	  /* Copy the text inside the text field */
+	  navigator.clipboard.writeText(copyText.value);
+	  
+	  /* Alert the copied text */
+	  // alert("Copied the text: " + copyText.value);
+};
+
+
+
+var copyTextareaBtnc = document.querySelector('.js-textareacopybtn2');
+
+copyTextareaBtnc.addEventListener('click', function(event) {
+  var copyTextareac = document.querySelector('.js-copytextarea2');
+  copyTextareac.focus();
+  copyTextareac.select();
+
+  try {
+    var successful = document.execCommand('copy');
+    var msg = successful ? 'successful' : 'unsuccessful';
+    alert('Copying text command was ' + msg);
+  } catch (err) {
+    alert('Oops, unable to copy');
+  }
+});
+</script>				  
+<script>
+
+	var button = document.getElementById('add-item');
+	var result = document.getElementById('demo2');
+
+	document.querySelector('button').addEventListener("click", function() {
+	  // Store results
+	  var resultStored = result.value;
+	  // Reset value of input
+	  result.value = "";
+
+	  // Get items container
+	  var items = document.getElementById('items');
+	  // Add items to container
+	  items.innerHTML += resultStored;
+	});
+</script>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  <!-- /.modal -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- /////////////////////////////////////////////////////////////////////////////
+ -->
+
+	
+  <!-- Modal -->
+  <div class="modal center-modal fade" id="modal-USDT-BEP" tabindex="-1">
+	  <div class="modal-dialog" style="max-width: 1000px;">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h5 class="modal-title center">You can Deposit Using the USDT ADDRESS or Deposit using QRCODE</h5>
+			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		  </div>
+		  <div class="modal-body">
+			
+
+
+
+ 	<div class="row">
+ 		<div class="col-12">
+									<!-- Start an Alert -->
+									<div id="alerttopright" class="myadmin-alert myadmin-alert-img alert-success myadmin-alert-top-right"> <img src="{{user.profile.image.url}}" class="img" alt="img"><a href="#" class="closed">&times;</a>
+										<h4>You have a Message!</h4> <b>{{user.username}} </b> You Copied a text</div>
+								</div>
+				<div class="col-lg-6 col-12">
+				  <div class="box">
+					<div class="box-header with-border">
+					  <h4 class="box-title">Deposit 
+								   </h4><button class="js-textareacopybtn3"  onclick="myFunction()" style="float: right;
+    background: #1c212e;
+    color: #32b687;" id="showtopright">Copy</button>
+					</div>
+					<div class="box-body">
+						<div class="table-responsive">
+							<table class="table table-striped table-hover no-margin">
+							  <tbody> 
+							  <tr>
+								  <td>Address</td>
+								  <td><input type="text" class="js-copytextarea3" value="0x9ae83416e320b83f5512f97233dcda11d57cd2b9" id="myInput" style="border: none;
+    color: #cacbce;
+    width: 100%;
+    background: #1c212e;"></td>
+								
+								</tr>			
+								<tr>
+								  <td>Company</td>
+								  <td><a href="#">LIFEMAP (inc.)</a></td>
+								</tr>
+								
+								<tr>
+								  <td>Acc Type</td>
+								  <td>Tether (USDT) <i>(BEP20)</i></td>
+								</tr>
+							  </tbody>
+							</table>
+						</div>
+					</div>
+				  </div>
+				</div>
+				<div class="col-lg-4 col-12">
+				  <div class="box">
+					<div class="box-header with-border">
+					  <h4 class="box-title">Your Info</h4>
+					</div>
+					<div class="box-body">
+						<div class="table-responsive">
+							<table class="table table-striped table-hover no-margin">
+							  <tbody>
+								<tr>
+								  <td>Name</td>
+								  <td><span class="text-success" id="items">{{user.first_name}} {{user.last_name}}</span></td>
+								  <!-- <td><i class="fa fa-bar-chart"></i></td> -->
+								</tr>
+								<tr>
+								  <td>Your Email</td>
+								  <td><span class="text-success">{{user.email}}</span></td>
+								  <!-- <td><i class="fa fa-bar-chart"></i></td> -->
+								</tr>
+								<tr>
+								  <td>Your Username</td>
+								  <td><span class="text-success">{{user.username}}</span></td>
+								  <!-- <td><i class="fa fa-bar-chart"></i></td> -->
+								</tr>
+							  </tbody>
+							</table>
+						</div>
+					</div>
+				  </div>
+				</div>
+				<div class="col-lg-2 col-12">
+				  <div class="box">
+					<div class="box-body">
+						<img src="https://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data=0x9ae83416e320b83f5512f97233dcda11d57cd2b9%0A&qzone=1&margin=0&size=200x200&ecc=L" alt="codeQR">
+					</div>
+				  </div>
+				</div>
+			</div>
+
+
+
+
+
+
+
+
+		  </div>
+		  <div class="modal-footer modal-footer-uniform">
+			<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+		<!-- 	 <button type="button" id="add-item" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#modal-fill">
+					Done
+				  </button> -->
+
+<script>
+
+	function myFunction() {
+
+  /* Get the text field */
+	  var copyText = document.getElementById("myInput");
+
+	  /* Select the text field */
+	  copyText.select();
+	  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+	  /* Copy the text inside the text field */
+	  navigator.clipboard.writeText(copyText.value);
+	  
+	  /* Alert the copied text */
+	  // alert("Copied the text: " + copyText.value);
+};
+
+
+
+var copyTextareaBtnc = document.querySelector('.js-textareacopybtn3');
+
+copyTextareaBtnc.addEventListener('click', function(event) {
+  var copyTextareac = document.querySelector('.js-copytextarea3');
+  copyTextareac.focus();
+  copyTextareac.select();
+
+  try {
+    var successful = document.execCommand('copy');
+    var msg = successful ? 'successful' : 'unsuccessful';
+    alert('Copying text command was ' + msg);
+  } catch (err) {
+    alert('Oops, unable to copy');
+  }
+});
+</script>				  
+<script>
+
+	var button = document.getElementById('add-item');
+	var result = document.getElementById('demo2');
+
+	document.querySelector('button').addEventListener("click", function() {
+	  // Store results
+	  var resultStored = result.value;
+	  // Reset value of input
+	  result.value = "";
+
+	  // Get items container
+	  var items = document.getElementById('items');
+	  // Add items to container
+	  items.innerHTML += resultStored;
+	});
+</script>
+		  </div>
+		</div>
+	  </div>
+	
+  <!-- /.modal -->
+
+
+
+
+
+
+
+
+  <!-- Modal -->
+  <div class="modal modal-fill fade" data-backdrop="false" id="modal-fill" tabindex="-1">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h5 class="modal-title">Modal title</h5>
+			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		  </div>
+		  <div class="modal-body">
+			
+
+
+
+		 
+
+
+
+
+
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+			<button type="button" class="btn btn-primary float-end">Save changes</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  <!-- /.modal -->
+  <!-- Resources -->
+<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+
+<!-- Chart code -->
+<script>
+function getMonthABBR(month) {
+   let monthAbbR = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+   return monthAbbR[(month - 1)]
+  }
+am5.ready(function() {
+
+// Create root element
+// https://www.amcharts.com/docs/v5/getting-started/#Root_element
+var root = am5.Root.new("chartdiv");
+
+
+// Set themes
+// https://www.amcharts.com/docs/v5/concepts/themes/
+root.setThemes([
+  am5themes_Animated.new(root)
+]);
+
+
+// Create chart
+// https://www.amcharts.com/docs/v5/charts/xy-chart/
+var chart = root.container.children.push(am5xy.XYChart.new(root, {
+  panX: true,
+  panY: true,
+  wheelX: "panX",
+  wheelY: "zoomX",
+  pinchZoomX:true
+}));
+
+// Add cursor
+// https://www.amcharts.com/docs/v5/charts/xy-chart/cursor/
+var cursor = chart.set("cursor", am5xy.XYCursor.new(root, {}));
+cursor.lineY.set("visible", false);
+
+
+// Create axes
+// https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+var xRenderer = am5xy.AxisRendererX.new(root, { minGridDistance: 30 });
+xRenderer.labels.template.setAll({
+  rotation: -90,
+  centerY: am5.p50,
+  centerX: am5.p100,
+  paddingRight: 15
+});
+
+var xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
+  maxDeviation: 0.3,
+  categoryField: "country",
+  renderer: xRenderer,
+  tooltip: am5.Tooltip.new(root, {})
+}));
+
+var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
+  maxDeviation: 0.3,
+  renderer: am5xy.AxisRendererY.new(root, {})
+}));
+
+
+// Create series
+// https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+var series = chart.series.push(am5xy.ColumnSeries.new(root, {
+  name: "Series 1",
+  xAxis: xAxis,
+  yAxis: yAxis,
+  valueYField: "value",
+  sequencedInterpolation: true,
+  categoryXField: "country",
+  tooltip: am5.Tooltip.new(root, {
+    labelText:"{valueY}"
+  })
+}));
+
+series.columns.template.setAll({ cornerRadiusTL: 5, cornerRadiusTR: 5 });
+series.columns.template.adapters.add("fill", function(fill, target) {
+  return chart.get("colors").getIndex(series.columns.indexOf(target));
+});
+
+series.columns.template.adapters.add("stroke", function(stroke, target) {
+  return chart.get("colors").getIndex(series.columns.indexOf(target));
+});
+
+let d = [];
+{% for v in post %}
+d.push({"value": Math.round("{{v.amount}}"),"country": "{{v.currency}} {{v.id}}"});
+console.log("{{v.year}}")
+
+{%endfor%}
+// Add data
+chart.data = d.reverse();
+var data = d.reverse();
+// Set data
+// var data = [{
+//   country: "USA",
+//   value: 2025
+// }, {
+//   country: "China",
+//   value: 1882
+// }, {
+//   country: "Japan",
+//   value: 1809
+// }, {
+//   country: "Germany",
+//   value: 1322
+// }, {
+//   country: "UK",
+//   value: 1122
+// }, {
+//   country: "France",
+//   value: 1114
+// }, {
+//   country: "India",
+//   value: 984
+// }, {
+//   country: "Spain",
+//   value: 711
+// }, {
+//   country: "Netherlands",
+//   value: 665
+// }, {
+//   country: "South Korea",
+//   value: 443
+// }, {
+//   country: "Canada",
+//   value: 441
+// }];
+
+xAxis.data.setAll(data);
+series.data.setAll(data);
+
+
+// Make stuff animate on load
+// https://www.amcharts.com/docs/v5/concepts/animations/
+series.appear(1000);
+chart.appear(1000, 100);
+
+}); // end am5.ready()
+</script>
+{% endblock content %}
+	<!-- Page Content overlay -->
+	
+	

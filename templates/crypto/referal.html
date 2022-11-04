@@ -1,0 +1,148 @@
+{% extends 'crypto/base2.html' %}   
+
+{% load crispy_forms_tags %}
+
+
+
+{% block content %}
+  <!-- Content Wrapper. Contains page content -->
+  <!-- <div class="content-wrapper" style="margin-left: 0;"> -->
+	  <div class="container">
+		<!-- Content Header (Page header) -->	  
+		<div class="content-header">
+			<div class="d-flex align-items-center">
+				<div class="me-auto">
+					<h4 class="page-title">My Referals</h4>
+					<div class="d-inline-block align-items-center">
+						<nav>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
+								<li class="breadcrumb-item active" aria-current="page">My Referals</li>
+							</ol>
+						</nav>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+
+		<!-- Main content -->
+		<section class="content">
+			<div class="row">
+				<div class="">
+
+				  <!-- Profile Image -->
+				  <div class="box bg-transparent no-border">
+
+				  	<h4 class="text-center mt-0" style="color:green">https://lifemap.com/{{post.code}}</h4>
+
+
+
+					<div class="box-body box-profile">
+
+					  <div class="row social-states">
+						  <center><div class="col-6">YOUR SPONSOR</div></center>
+					  </div>
+
+					  <img class="rounded img-fluid mx-auto d-block max-w-150" src="{{post.recommended_by.profile.image.url}}" alt="User profile picture">
+
+					  <h3 class="profile-username text-center mb-0">{{post.recommended_by}}</h3>
+
+					  <h4 class="text-center mt-0"><i class="fa fa-envelope-o me-10"></i>{{post.recommended_by.email}}</h4>
+
+					  <br>
+
+
+
+<div class="row">
+
+				<div class="col-12">
+					<div class="box">
+						<div class="box-header with-border">						
+							<h4 class="box-title">Your Referals</h4>
+							<h6 class="box-subtitle">List of all your referals</h6>
+						</div>
+						<div class="box-body p-15">						
+							<div class="table-responsive">
+								<div id="tickets_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
+
+
+									<div class="row"><div class="col-sm-12"><table id="tickets" class="table mt-0 table-hover no-wrap dataTable no-footer" data-page-size="10" role="grid" aria-describedby="tickets_info">
+									<thead>
+										<tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="tickets" rowspan="1" colspan="1" aria-sort="ascending" aria-label="ID: activate to sort column descending">ID</th><th class="sorting" tabindex="0" aria-controls="tickets" rowspan="1" colspan="1" aria-label="Ope. by: activate to sort column ascending">Reffed</th><th class="sorting" tabindex="0" aria-controls="tickets" rowspan="1" colspan="1" aria-label="Cust. Email: activate to sort column ascending">Ref. Email</th><th class="sorting" tabindex="0" aria-controls="tickets" rowspan="1" colspan="1" aria-label="Sbuject: activate to sort column ascending">last login</th><th class="sorting" tabindex="0" aria-controls="tickets" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending">Active</th><th class="sorting" tabindex="0" aria-controls="tickets" rowspan="1" colspan="1" aria-label="Ass. to: activate to sort column ascending">Ref. by</th><th class="sorting" tabindex="0" aria-controls="tickets" rowspan="1" colspan="1" aria-label="Date: activate to sort column ascending">Date.joined</th></tr>
+									</thead>
+									<tbody>
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										 {% if my_recs %}
+										
+										
+										{% for p in my_recs %}
+									<tr role="row" class="odd">
+											<td class="sorting_1">{{p.user.id}}</td>
+											<td>
+												<a href="javascript:void(0)">{{p.user}}</a>
+											</td>
+											<td>{{p.user.email}}</td>
+											<td>{{p.user.last_login}}</td>
+											{% if p.user.is_active %}
+											<td><span class="badge badge-success">{{p.user.is_active}}</span> </td>
+											{% else %}
+											<td><span class="badge badge-warning">{{p.user.is_active}}</span> </td>
+											{% endif %}
+											<td>{{user.username}}</td>
+											<td>{{p.user.date_joined}}</td>
+										
+										</tr>{% endfor %}
+ {% endif %}
+									</tbody>
+								</table></div></div></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+					</div>
+					<!-- /.box-body -->
+				  </div>
+				  <!-- /.box -->
+				</div>
+				<!-- /.col -->
+				<!-- /.col -->
+			  </div>
+		</section>
+		<!-- /.content -->
+	  
+	  </div>
+  </div>
+  <!-- /.content-wrapper -->
+ 
+
+{% endblock content %}

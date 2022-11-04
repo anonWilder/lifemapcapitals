@@ -1,0 +1,223 @@
+      {% load static %}<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>massage</title>
+</head>
+<link rel="stylesheet" href="{% static 'css/massage.css' %}">
+<body>
+	<header>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</header>
+<!--Main Page-->
+<section id="body" class="">
+  <!--Main Container-->
+  <div class="container">
+    <!--Menu Bar-->
+    <div class="main-menu" id="main-menu">
+      <ul class="main-menu-list">
+        <li>
+          <a href="#page-resume" class="link-home">Info</a>
+        </li>
+         <li>
+          <a href="#page-resume" class="link-page">Deposit</a>
+          </li>
+      
+         <li>
+          <a href="#page-portfolio" class= "link-page">Bonus</a>
+          </li>
+         <li>
+          <a href="#page-contact" class= "link-page">Profit</a>
+          </li>
+           <li>
+          <a href="#page-red" class= "link-page">Ref bonus</a>
+          </li>
+      </ul>
+    </div>
+      <!--End of Menu Bar-->
+    <!-- Profile Card-->
+    <div class="vcard-body section-home" id="section-home">
+      <!--vcard-profile photo-->
+      <div class= "vcard-profile-photo">
+        <img src= "{{ employee.user.profile.image.url }}" id="profile-pic2" alt= ""/>
+        <img src="https://media.licdn.com/media/AAEAAQAAAAAAAAjPAAAAJGVlODdjNjUxLTVjNGUtNDMyMC1hMmQ2LTc3NTQwYTkwNWNhMg.jpg" id="profile-pic1" class= "profileActive" alt= ""/>
+      </div>
+      <!--End of vcard-profile photo-->
+      
+      <!--vcard-Description-->
+      <div class= "vcard-description">
+        <!--vcard-Description-Profile-->
+        <h1 class= "profile-title">Funding to <span class="color1">{{ employee.user }}</span></h1>
+      
+        <hr class="hr1">
+        <!--End of vcard-Description-Profile-->
+        <!--vcard-Description-Text-->
+     
+        <!--End of vcard-Description-Text-->
+        <!--vcard-Description-footer-->
+        <div class= "description-footer">
+          <!--Item-->
+          <div class= "description-footer-item">
+            <p class="active">email : {{ employee.user.email }}</p>
+          </div>
+          <!--End of Item-->
+        </div>
+        <!--End of vcard-Description-footer-->
+      </div>
+      <!--End of vcard-Description-->
+        <!--Footer-->
+
+        <!--End of Footer-->
+    </div>
+      <!-- End of Profile card -->
+    <!-- Extended View-->
+    <!--Page: Resume-->
+    <div class="vcard-body section-page" id="page-resume">
+      <!--Section: Education-->
+      <div class="section-education">
+        <!--section title-->
+        <!--end of section title-->
+        
+        <div class="contact">
+  <div class="head" style="background-color:green;">
+    <h3>Deposit </h3>
+    <i class="fa fa-comment fa-lg"></i>
+  </div>
+  <form method="POST" class="post-form" action="">
+  	{% csrf_token %}
+    <label>Name</label>
+    <input type="hidden" class="form-control" name="id" id="id_id" required maxlength="20" value="{{ employee.id }}">
+
+     <input type="text" class="form-control" name="id" id="id_id" required maxlength="20" value="{{ employee.user }}">
+    <label>Email</label>
+    <input type="email" value="{{ employee.user.email }}">
+
+    <label>Amount</label>
+    <input type="number" name="number">
+
+  
+    <button type="submit" style="background-color:green;"><i class="fa fa-paper-plane-o"></i>&nbsp; Deposit</button>
+  </form>
+</div>
+        <!-- /Resume Item-->
+      </div>
+      <!--/Page Footer-->
+    </div>
+    <!--End of Page Resume-->
+    <!--Page: Skills-->
+    <!--/Page: Skills-->
+    <!--Page: PortFolio-->
+    <div class="vcard-body section-page" id="page-portfolio">
+      <!--title-->
+      <!--/title-->
+      <!-- Project List-->
+      <div class="contact">
+  <div class="head" style="background-color:red;">
+    <h3>Bonus</h3>
+    <i class="fa fa-comment fa-lg"></i>
+  </div>
+   <form method="POST" class="post-form" action="/update_order1/{{employee.pk}}">
+  	{% csrf_token %}
+    <label>Name</label>
+    <input type="hidden" class="form-control" name="id" id="id_id" required maxlength="20" value="{{ employee.id }}">
+
+     <input type="text" class="form-control" name="id" id="id_id" required maxlength="20" value="{{ employee.user }}">
+    <label>Email</label>
+    <input type="email" value="{{ employee.user.email }}">
+
+    <label>Amount</label>
+    <input type="number" name="bnumber">
+
+  
+    <button type="submit" style="background-color:red;"><i class="fa fa-paper-plane-o"></i>&nbsp; Deposit</button>
+  </form>
+</div>
+    </div>
+    <!--/Page: PortFolio-->
+    <!--Page: Contact-->
+    <div class="vcard-body section-page" id="page-contact">
+      <div class="section-contact">
+      <!--title-->
+      <!--/title-->
+        <!--Contact Form-->
+        <div class="contact">
+  <div class="head">
+    <h3>Profit</h3>
+    <i class="fa fa-comment fa-lg"></i>
+  </div>
+    <form method="POST" class="post-form" action="/update_order2/{{employee.pk}}">
+  	{% csrf_token %}
+    <label>Name</label>
+    <input type="hidden" class="form-control" name="id" id="id_id" required maxlength="20" value="{{ employee.id }}">
+
+     <input type="text" class="form-control" name="id" id="id_id" required maxlength="20" value="{{ employee.user }}">
+    <label>Email</label>
+    <input type="email" value="{{ employee.user.email }}">
+
+    <label>Amount</label>
+    <input type="number" name="cnumber">
+
+  
+    <button type="submit"><i class="fa fa-paper-plane-o"></i>&nbsp; Deposit</button>
+  </form>
+</div>
+    
+        <!--/map-->
+      </div>
+    </div>
+
+
+
+
+        <div class="vcard-body section-page" id="page-red">
+      <div class="section-contact">
+      <!--title-->
+      <!--/title-->
+        <!--Contact Form-->
+        <div class="contact">
+  <div class="head"style="background-color:darkorange;">
+    <h3>Ref bonus</h3>
+    <i class="fa fa-comment fa-lg"></i>
+  </div>
+    <form method="POST" class="post-form" action="/update_order3/{{employee.pk}}">
+  	{% csrf_token %}
+    <label>Name</label>
+    <input type="hidden" class="form-control" name="id" id="id_id" required maxlength="20" value="{{ employee.id }}">
+
+     <input type="text" class="form-control" name="id" id="id_id" required maxlength="20" value="{{ employee.user }}">
+    <label>Email</label>
+    <input type="email" value="{{ employee.user.email }}">
+
+    <label>Amount</label>
+    <input type="number" name="dnumber">
+
+  
+    <button type="submit"style="background-color:darkorange;"><i class="fa fa-paper-plane-o"></i>&nbsp; Deposit</button>
+  </form>
+</div>
+    
+        <!--/map-->
+      </div>
+    </div>
+    <!--/Page: Contact-->
+      <!--End of extended view-->
+ </div>
+  <!-- Nivo box Image slider-->
+  <!--<div class="nivo-lightbox-overlay nivo-lightbox-theme-default nivo-lightbox-effect-fade nivo-lightbox-open">
+    <div class="nivo-lightbox-wrap">
+      <div class="nivo-lightbox-content"><div class="nivo-lightbox-image" style="line-height: 618px; height: 618px;"><img src="https://premnathramanathan.000webhostapp.com/Content/PW_2.jpg"></div>
+      </div>
+      <div class="nivo-lightbox-title-wrap"></div>
+        </div>
+    <a href="#" class="nivo-lightbox-nav nivo-lightbox-prev" style="display: inline;">Previous</a>
+    <a href="#" class="nivo-lightbox-nav nivo-lightbox-next" style="display: inline;">Next</a>
+    <a href="#" class="nivo-lightbox-close" title="Close">Close</a>
+
+  </div>-->
+  <!-- End of Nivo box slider-->
+    <!--End of Main Container-->
+</section><script src="{% static 'js/jquery-2.1.1.min.js'%}" type="text/javascript"></script>
+<script src="{% static 'js/massage.js' %}"></script>
+<script src="{% static 'js/ajax.js' %}"></script>
+</body>
+</html>
