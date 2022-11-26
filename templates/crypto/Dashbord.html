@@ -1,4 +1,7 @@
-{% extends 'crypto/base2.html' %}   
+ {% extends 'crypto/base.html' %}   
+
+  {% load static %}
+   {% load crispy_forms_tags %}
 
 {% block content %}
 <style>
@@ -8,250 +11,330 @@
 	}
 	</style>
 	
-	<div class="col-xl-8 col-12">
-		<div class="box">						
-			<div class="box-body">
-				<div class="position-relative">
-					<iframe src="https://widget.coinlib.io/widget?type=chart&amp;theme=light&amp;coin_id=859&amp;pref_coin_id=1505" width="100%" height="100%" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;line-height:14px; min-height: 482px" class="lv"></iframe>
+<div class="content-wrapper" style="min-height: 675px;">
+	  <div class="container-full">
+		<!-- Main content -->
+		<section class="content">			
+			<div class="row">
 
-					<!-- <iframe src="https://widget.coinlib.io/widget?type=chart&amp;theme=dark&amp;coin_id=859&amp;pref_coin_id=1505" width="100%" height="100%" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;line-height:14px; min-height: 482px" class="dv"></iframe> -->
-				</div>
-			</div>
-		</div>
-		<div class="box">
-			<div class="box-body">
-				<div class="position-relative">
-					<iframe src="https://widget.coinlib.io/widget?type=horizontal_v2&amp;theme=light&amp;pref_coin_id=1505&amp;invert_hover=no" width="100%" height="36px" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;" class="lv"></iframe>
 
-					<iframe src="https://widget.coinlib.io/widget?type=horizontal_v2&amp;theme=dark&amp;pref_coin_id=1505&amp;invert_hover=no" width="100%" height="36px" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;" class="dv"></iframe>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	<div class="col-lg-4 col-12">
-		<div class="box">
-			<div class="box-body">	
+				<div class="col-xl-4 col-12">
 				
-<div class="col-12">
-	<div class="box">
-<div class="box-header with-border">
-	<h4 class="box-title">Transactions History</h4>
-</div>
 
-<div class="box-body">
-	<div class="table-responsive">
-		<table class="table no-margin table-hover">
-			<thead>					
-			<tr>
-				<th>Transaction</th>
-				<!-- <th>BTC</th> -->
-				<th>USD</th>
-			</tr>
-			</thead>
-			<tbody>
-				<tr>
-				<td>
-				<a href="#" class="text-warning hover-warning">
-					Deposited
-				</a>
-				...
+							
+				</div><!-- 
+				<div class="col-xl-8 col-12">
+				
 
-				</td>
-				<!-- <td>₿ {{detail.balance_usd}} </td> -->
-				{% if btc.deposited < 0.0 %}
-
-				<td>
-				<time class="timeago" datetime="2018-02-01T13:38:01Z" title="2018-02-01 13:38 GMT">0.00 USD</time>
-				</td>
-				{% else %}
-				<td>
-				<time class="timeago" datetime="2018-02-01T13:38:01Z" title="2018-02-01 13:38 GMT">{{btc.deposited}} USD</time>
-				</td>
-			{% endif %}
-			</tr>
-			<tr>
-				<td>
-				<a href="#" class="text-warning hover-warning">
-					Profit Returns
-				</a>
-				...
-				</td>
-				<!-- <td>  ₿</td> -->
-				<td>
-				<time class="timeago" datetime="2018-02-01T13:38:01Z" title="2018-02-01 13:38 GMT">{{btc.profit}} USD</time>
-				</td>
-				
-			</tr>
-			<tr>
-				<td>
-				<a href="#" class="text-warning hover-warning">
-					Bonus
-				</a>
-				...
-				</td>
-				<!-- <td> ₿</td> -->
-				<td>
-				<time class="timeago" datetime="2018-02-01T13:38:01Z" title="2018-02-01 13:38 GMT">{{btc.bonus}} USD</time>
-				</td>
-				
-			</tr>
-			<tr>
-				<td>
-				<a href="#" class="text-warning hover-warning">
-					Ref. Bonus
-				</a>
-				...
-				</td>
-				<!-- <td>{{btc.address}}₿</td> -->
-				<td>
-				<time class="timeago" datetime="2018-02-01T13:38:00Z" title="2018-02-01 13:38 GMT">{{btc.ref_bonus}} USD</time>
-				</td>
-			
-			</tr>
-				<tr>
-				<td>
-				<a href="#" class="text-warning hover-warning">
-					Total Packages
-				</a>
-				...
-				</td>
-			<!--   <td></td> -->
-				<td>
-				<time class="timeago" datetime="2018-02-01T13:38:00Z" title="2018-02-01 13:38 GMT">{{count}}</time>
-				</td>
-			
-			</tr>
-						<tr>
-				<td>
-				<a href="#" class="text-warning hover-warning">
-					Active Packages
-				</a>
-				...
-				</td>
-				<td>{{active_count}}</td>
-		<!-- 	  <td>
-				<time class="timeago" datetime="2018-02-01T13:38:00Z" title="2018-02-01 13:38 GMT"></time>
-				</td> -->
-			
-			</tr>
-
-			</tbody>
-		</table>
-	</div>
-</div>
-</div>
-</div>						
-				<div class="position-relative">
-					<!-- <iframe src="https://widget.coinlib.io/widget?type=single_v2&amp;theme=light&amp;coin_id=859&amp;pref_coin_id=1505" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;line-height:14px;" class="min-h-260 w-p100 lv"></iframe> -->
-				
-				
-						<div class="table-responsive">
-							<table class="table no-margin table-hover">
-								<thead>					
-								<tr>
-									<th>Transaction</th>
-									<!-- <th>BTC</th> -->
-									<th>USD</th>
-								</tr>
-								</thead>
-								<tbody>
-									<tr>
-									<td>
-									<a href="#" class="text-warning hover-warning">
-										Balance Details
-									</a>
-									...
-									</td>
-									<!-- <td>₿ {{detail.balance_usd}} </td> -->
-									{% if btc.deposited < 0.0 %}
-					
-									<td>
-									<time class="timeago" datetime="2018-02-01T13:38:01Z" title="2018-02-01 13:38 GMT">0.00 USD</time>
-									</td>
-									{% else %}
-									<td>
-									<time class="timeago" datetime="2018-02-01T13:38:01Z" title="2018-02-01 13:38 GMT">{{btc.deposited}} USD</time>
-									</td>
-								{% endif %}
-								</tr>
-								<!-- <tr>
-									<td>
-									<a href="#" class="text-warning hover-warning">
-										Profit Returns
-									</a>
-									...
-									</td>
-									   <td>  ₿</td>
-									<td>
-									<time class="timeago" datetime="2018-02-01T13:38:01Z" title="2018-02-01 13:38 GMT">{{btc.profit}} USD</time>
-									</td>
-									
-								</tr> -->
-								<tr>
-									<td>
-									<a href="#" class="text-warning hover-warning">
-										Total withdraw
-									</a>
-									...
-									</td>
-									<!-- <td> ₿</td> -->
-									<td>
-									<time class="timeago" datetime="2018-02-01T13:38:01Z" title="2018-02-01 13:38 GMT">{{btc.bonus}} USD</time>
-									</td>
-									
-								</tr>
-								
-					
-								</tbody>
-							</table>
+					<div class="box">
+						<div class="box-header">
+							<h4 class="box-title">
+								Your Cryptos
+							</h4>
 						</div>
-					<!-- <iframe src="https://widget.coinlib.io/widget?type=single_v2&amp;theme=dark&amp;coin_id=859&amp;pref_coin_id=1505" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;line-height:14px;" class="min-h-260 w-p100 dv"></iframe> -->
+						<div class="box-body p-0">
+							<div class="table-responsive">
+								<table class="table m-0 recent-table">
+									<tbody>
+										<tr>
+											<td>
+												<div class="d-flex align-items-center">
+													<i class="cc BTC"></i>
+													<span>Bitcoin</span>
+												</div>
+											</td>
+											<td>
+												<div class="progress">
+													<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+													</div>
+												</div>
+												<small class="fw-300 mb-5">100%</small>
+											</td>
+											<td class="text-end">
+												<h5 class="my-0">₿ {{detail.balance_usd}}</h5>
+												<small>${{rest}}</small>
+
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<div class="d-flex align-items-center">
+													<i class="cc ETH"></i>
+													<span>Ethereum</span>
+												</div>
+											</td>
+											<td>
+												<div class="progress">
+													<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+													</div>
+												</div>
+												<small class="fw-300 mb-5">100%</small>
+											</td>
+											<td class="text-end">
+												<h5 class="my-0">Ξ {{detail.balance_usd3}}</h5>
+												<small>${{rest}}</small>
+											</td>
+										</tr>
+												<tr>
+											<td>
+												<div class="d-flex align-items-center">
+													<i class="cc USDT"></i>
+													<span>Tether</span>
+												</div>
+											</td>
+											<td>
+												<div class="progress">
+													<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+													</div>
+												</div>
+												<small class="fw-300 mb-5">100%</small>
+											</td>
+											<td class="text-end">
+												<h5 class="my-0">Ξ {{detail.balance_usd3}}</h5>
+												<small>${{rest}}</small>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div> -->
+				
+
+
+
+
+
+
+
+
+
+				<div class="col-xl-4 col-12">
+							<div class="box">
+						<div class="box-header with-border">
+						  <h4 class="box-title">Transactions History</h4>
+						</div>
+						<div class="box-body">
+							<div class="table-responsive">
+								<table class="table no-margin table-hover">
+								  <thead>					
+									<tr>
+									  <th>Transaction</th>
+									  <!-- <th>BTC</th> -->
+									  <th>USD</th>
+									</tr>
+								  </thead>
+								  <tbody>
+										<tr>
+									  <td>
+										<a href="#" class="text-warning hover-warning">
+										  Deposited
+										</a>
+										...
+									  </td>
+									  <!-- <td>₿ {{detail.balance_usd}} </td> -->
+									  {% if btc.deposited < 0.0 %}
+
+									   <td>
+										<time class="timeago" datetime="2018-02-01T13:38:01Z" title="2018-02-01 13:38 GMT">0.00 USD</time>
+									  </td>
+									  {% else %}
+									  <td>
+										<time class="timeago" datetime="2018-02-01T13:38:01Z" title="2018-02-01 13:38 GMT">{{btc.deposited}} USD</time>
+									  </td>
+									{% endif %}
+									</tr>
+									<tr>
+									  <td>
+										<a href="#" class="text-warning hover-warning">
+										  Profit
+										</a>
+										...
+									  </td>
+									  <!-- <td>  ₿</td> -->
+									  <td>
+										<time class="timeago" datetime="2018-02-01T13:38:01Z" title="2018-02-01 13:38 GMT">{{btc.profit}} USD</time>
+									  </td>
+									  
+									</tr>
+									<tr>
+									  <td>
+										<a href="#" class="text-warning hover-warning">
+										   Bonus
+										</a>
+										...
+									  </td>
+									  <!-- <td> ₿</td> -->
+									  <td>
+										<time class="timeago" datetime="2018-02-01T13:38:01Z" title="2018-02-01 13:38 GMT">{{btc.bonus}} USD</time>
+									  </td>
+									 
+									</tr>
+									<tr>
+									  <td>
+										<a href="#" class="text-warning hover-warning">
+										  Ref. Bonus
+										</a>
+										...
+									  </td>
+									  <!-- <td>{{btc.address}}₿</td> -->
+									  <td>
+										<time class="timeago" datetime="2018-02-01T13:38:00Z" title="2018-02-01 13:38 GMT">{{btc.ref_bonus}} USD</time>
+									  </td>
+									
+									</tr>
+										<tr>
+									  <td>
+										<a href="#" class="text-warning hover-warning">
+										  Total Packages
+										</a>
+										...
+									  </td>
+									<!--   <td></td> -->
+									  <td>
+										<time class="timeago" datetime="2018-02-01T13:38:00Z" title="2018-02-01 13:38 GMT">{{count}}</time>
+									  </td>
+									
+									</tr>
+												<tr>
+									  <td>
+										<a href="#" class="text-warning hover-warning">
+										  Active Packages
+										</a>
+										...
+									  </td>
+									  <td>{{active_count}}</td>
+								<!-- 	  <td>
+										<time class="timeago" datetime="2018-02-01T13:38:00Z" title="2018-02-01 13:38 GMT"></time>
+									  </td> -->
+									
+									</tr>
+
+								  </tbody>
+								</table>
+							</div>
+						</div>
+					  </div>
+				</div>
+
+				<div class="col-xl-4 col-12">
+					<div class="box">
+				<!-- <div class="box-header with-border">
+				  <h4 class="box-title">Transactions History</h4>
+				</div> -->
+				<div class="box-body">
+					<div class="table-responsive">
+						<table class="table no-margin table-hover">
+						  <thead>					
+							<tr>
+							  <th>Transaction</th>
+							  <!-- <th>BTC</th> -->
+							  <th>USD</th>
+							</tr>
+						  </thead>
+						  <tbody>
+								<tr>
+							  <td>
+								<a href="#" class="text-warning hover-warning">
+									Balance Details
+								</a>
+								...
+							  </td>
+							  <!-- <td>₿ {{detail.balance_usd}} </td> -->
+							  {% if btc.deposited < 0.0 %}
+
+							   <td>
+								<time class="timeago" datetime="2018-02-01T13:38:01Z" title="2018-02-01 13:38 GMT">0.00 USD</time>
+							  </td>
+							  {% else %}
+							  <td>
+								<time class="timeago" datetime="2018-02-01T13:38:01Z" title="2018-02-01 13:38 GMT">{{btc.deposited}} USD</time>
+							  </td>
+							{% endif %}
+							</tr>
+							<tr>
+							  <td>
+								<a href="#" class="text-warning hover-warning">
+									Total withdraw
+								</a>
+								...
+							  </td>
+							  <!-- <td>  ₿</td> -->
+							  <td>
+								<time class="timeago" datetime="2018-02-01T13:38:01Z" title="2018-02-01 13:38 GMT">{{btc.bonus}} USD</time>
+							  </td>
+							  
+						
+
+						  </tbody>
+						</table>
+					</div>
+				</div>
+			  </div>
+		</div>
+				<div class="col-xl-8 col-12">
+					<div class="box">						
+						<div class="box-body">
+							<div class="position-relative">
+								<div id="chartdiv"></div>
+							</div>
+						</div>
+					</div>
+					<div class="box">
+						<div class="box-body">
+							<div class="position-relative">
+								<iframe src="https://widget.coinlib.io/widget?type=horizontal_v2&amp;theme=light&amp;pref_coin_id=1505&amp;invert_hover=no" width="100%" height="36px" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;" class="lv"></iframe>
+
+								<iframe src="https://widget.coinlib.io/widget?type=horizontal_v2&amp;theme=dark&amp;pref_coin_id=1505&amp;invert_hover=no" width="100%" height="36px" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;" class="dv"></iframe>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-lg-4 col-12">
+					<div class="box">
+						<div class="box-body">							
+							<div class="position-relative">
+								<iframe src="https://widget.coinlib.io/widget?type=single_v2&amp;theme=light&amp;coin_id=859&amp;pref_coin_id=1505" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;line-height:14px;" class="min-h-260 w-p100 lv"></iframe>
+								
+								<iframe src="https://widget.coinlib.io/widget?type=single_v2&amp;theme=dark&amp;coin_id=859&amp;pref_coin_id=1505" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;line-height:14px;" class="min-h-260 w-p100 dv"></iframe>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-12">
+					<div class="box">
+						<div class="box-body">						
+							<div class="position-relative">
+								<iframe src="https://widget.coinlib.io/widget?type=single_v2&amp;theme=light&amp;coin_id=145&amp;pref_coin_id=1505" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;line-height:14px;" class="min-h-260 w-p100 lv"></iframe>
+								
+								<iframe src="https://widget.coinlib.io/widget?type=single_v2&amp;theme=dark&amp;coin_id=145&amp;pref_coin_id=1505" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;line-height:14px;" class="min-h-260 w-p100 dv"></iframe>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-12">
+					<div class="box">
+						<div class="box-body">						
+							<div class="position-relative">
+								<iframe src="https://widget.coinlib.io/widget?type=single_v2&amp;theme=dark&amp;coin_id=637&amp;pref_coin_id=1505" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;" class="min-h-260 w-p100 lv"></iframe>
+								
+								<iframe src="https://widget.coinlib.io/widget?type=single_v2&amp;theme=dark&amp;coin_id=637&amp;pref_coin_id=1505" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;" class="min-h-260 w-p100 dv"></iframe>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
-		</div>
-	</div>
-	<div class="col-lg-4 col-12">
-		<div class="box">
-			<div class="box-body">						
-				<div class="position-relative">
-					<iframe src="https://widget.coinlib.io/widget?type=single_v2&amp;theme=light&amp;coin_id=145&amp;pref_coin_id=1505" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;line-height:14px;" class="min-h-260 w-p100 lv"></iframe>
-					
-					<!-- <iframe src="https://widget.coinlib.io/widget?type=single_v2&amp;theme=dark&amp;coin_id=145&amp;pref_coin_id=1505" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;line-height:14px;" class="min-h-260 w-p100 dv"></iframe> -->
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="col-lg-4 col-12">
-		<div class="box">
-			<div class="box-body">						
-				<div class="position-relative">
-					<iframe src="https://widget.coinlib.io/widget?type=single_v2&amp;theme=light&amp;coin_id=637&amp;pref_coin_id=1505" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;" class="min-h-260 w-p100 lv"></iframe>
-					
-					<!-- <iframe src="https://widget.coinlib.io/widget?type=single_v2&amp;theme=dark&amp;coin_id=637&amp;pref_coin_id=1505" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;" class="min-h-260 w-p100 dv"></iframe> -->
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="col-lg-4 col-12">
-		<div class="box">
-			<div class="box-body">						
-				<div class="position-relative">
-					<iframe src="https://widget.coinlib.io/widget?type=single_v2&amp;theme=light&amp;coin_id=859&amp;pref_coin_id=1505" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;line-height:14px;" class="min-h-260 w-p100 lv"></iframe>
-					
-					<!-- <iframe src="https://widget.coinlib.io/widget?type=single_v2&amp;theme=dark&amp;coin_id=637&amp;pref_coin_id=1505" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;" class="min-h-260 w-p100 dv"></iframe> -->
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="col-12">
-		<div class="box">						
-		
-			<div class="box-body">
-				<div id="chartdiv"></div>
-			</div>
-		</div>
-	</div>		
+		</section>
+		<!-- /.content -->
+	  </div>
+  </div>
+
+
+
+
+
 
 
 
@@ -525,6 +608,4 @@ chart.appear(1000, 100);
 </script>
 
 
-
-
-{% endblock %}
+{% endblock content %}

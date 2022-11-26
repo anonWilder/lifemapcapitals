@@ -1,0 +1,134 @@
+{% extends 'crypto/base2.html' %}   
+
+{% load crispy_forms_tags %}
+
+
+
+{% block content %}
+<!-- <div class="content-wrapper" style="min-height: 606px;background-color: #000422;margin-left: 0;"> -->
+	  <div class="container">
+		<!-- Content Header (Page header) -->
+		<div class="content-header">
+			<div class="d-flex align-items-center">
+				<div class="me-auto">
+					<h4 class="page-title">All Deposit Transactions</h4>
+					<div class="d-inline-block align-items-center">
+						<nav>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
+								<li class="breadcrumb-item" aria-current="page">Deposit</li>
+								<li class="breadcrumb-item active" aria-current="page">All Deposit Transactions</li>
+							</ol>
+						</nav>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+{% include 'crypto/messages.html' %}
+
+
+			<!-- Main content -->
+		<section class="content">			
+			<div class="row">
+				<div class="col-12">
+					<div class="box">
+						<div class="box-body">
+							<div class="table-responsive">
+								<div id="dataTable_crypto_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer"><div class="row"><div class="col-sm-12 col-md-6"></div></div><div class="row"><div class="col-sm-12"><table class="table table-bordered dataTable no-footer table-striped" id="dataTable_crypto" role="grid" aria-describedby="dataTable_crypto_info">
+								  <thead>
+									 <tr role="row"><th colspan="2" rowspan="1">Currency</th>
+									 	<th class="text-end sorting" tabindex="0" aria-controls="dataTable_crypto" rowspan="1" colspan="1" aria-label="Price: activate to sort column ascending">prof</th>
+									 	<th class="text-end sorting" tabindex="0" aria-controls="dataTable_crypto" rowspan="1" colspan="1" aria-label="Price: activate to sort column ascending">User</th><th class="text-end sorting" tabindex="0" aria-controls="dataTable_crypto" rowspan="1" colspan="1" aria-label="Market Cap: activate to sort column ascending">Email</th><th class="text-end sorting" tabindex="0" aria-controls="dataTable_crypto" rowspan="1" colspan="1" aria-label="Volume 24H: activate to sort column ascending">Contact</th><th class="text-end sorting" tabindex="0" aria-controls="dataTable_crypto" rowspan="1" colspan="1" aria-label="Change % (1H): activate to sort column ascending">First name</th><th class="text-end sorting" tabindex="0" aria-controls="dataTable_crypto" rowspan="1" colspan="1" aria-label="Change % (24H): activate to sort column ascending">Last name</th>
+
+									 	<th class="text-end sorting" tabindex="0" aria-controls="dataTable_crypto" rowspan="1" colspan="1" aria-label="Change % (1H): activate to sort column ascending">Date joined</th><th class="text-end sorting" tabindex="0" aria-controls="dataTable_crypto" rowspan="1" colspan="1" aria-label="Change % (24H): activate to sort column ascending">Time Joined</th>
+
+
+
+									 	<th class="text-end sorting" tabindex="0" aria-controls="dataTable_crypto" rowspan="1" colspan="1" aria-label="Change % (7D): activate to sort column ascending">Country</th><th class="text-end sorting" tabindex="0" aria-controls="dataTable_crypto" rowspan="1" colspan="1" aria-label="Chart: activate to sort column ascending">Deposit</th>
+									 	<th class="text-end sorting" tabindex="0" aria-controls="dataTable_crypto" rowspan="1" colspan="1" aria-label="Chart: activate to sort column ascending">Bonus</th><th class="text-end sorting" tabindex="0" aria-controls="dataTable_crypto" rowspan="1" colspan="1" aria-label="Chart: activate to sort column ascending">Profit</th><th class="text-end sorting" tabindex="0" aria-controls="dataTable_crypto" rowspan="1" colspan="1" aria-label="Chart: activate to sort column ascending">Ref Bonus</th><th class="text-end sorting" tabindex="0" aria-controls="dataTable_crypto" rowspan="1" colspan="1" aria-label="Chart: activate to sort column ascending">Funding</th>
+									 	<!-- <th class="text-end sorting" tabindex="0" aria-controls="dataTable_crypto" rowspan="1" colspan="1" aria-label="Chart: activate to sort column ascending">Massage</th> -->
+									 	<th class="text-end sorting" tabindex="0" aria-controls="dataTable_crypto" rowspan="1" colspan="1" aria-label="Chart: activate to sort column ascending">Delete</th>
+									 </tr>
+								  </thead>
+								   <tbody>
+									  
+									  
+									  
+									  
+								<!-- 	 <a class="btn btn-primary  btn-sm btn-block" href="{% url 'create_order' %}">Create Order</a> -->
+									  
+									  {% for employee in employee %}
+									  								  
+								   <tr role="row" class="odd">
+								   		 <td>
+											 <input type="radio" name=""></a></small>
+										 </td>
+								   		 <td class="text-end"><p><span> {{employee.id}}</span></p></td>
+
+								   		 <td class="text-end"><p><span><img class="cc" src="{{employee.user.profile.image.url}}"></span></p></td>
+
+										<!--  <td class="text-end"><span><a href="#"><i class="cc BTC" title="BTC"></i></a></span></td> -->
+										<td class="text-end"><p><span></span> {{employee.user.username}}</p></td>
+										 <td>
+											<small><a href="#" class="hover-warning"> {{employee.user.email}}</a></small>
+										 </td>
+									
+										 
+										 <td class="text-end"><p><span></span> {{employee.user.userinfo.phone}}</p></td>
+
+										    <td class="text-end"><p><span></span> {{employee.user.first_name}}</p></td>
+										   <td class="text-end"><p><span></span> {{employee.user.last_name}}</p></td>
+										   <td class="text-end"><p><span></span> {{employee.user.date_joined.date}}</p></td>
+										   <td class="text-end"><p><span></span> {{employee.user.date_joined.time}}</p></td>
+										  <td class="text-end"><p><span></span> {{employee.user.userinfo.country}}</p></td>
+
+										 <td class="text-end"><p><span></span> {{employee.deposited}}</p></td>
+										  <td class="text-end"><p><span></span> {{employee.bonus}}</p></td>
+										   <td class="text-end"><p><span></span> {{employee.profit}}</p></td>
+										  <td class="text-end"><p><span></span> {{employee.ref_bonus}}</p></td>
+										
+										 
+
+										 <td class="no-wrap text-end"><a href="{% url 'update_order' employee.id %}"><label class="label " style="background-color:#e9b520;"><i class="fa fa-chevron-down"></i> Funding</label></a></td>
+
+
+									<!-- 	 <td class="no-wrap text-end"><a href="/massage/{{ employee.id }}"><label class="label label-success"><i class="fa fa-chevron-up"></i> Massage</label></a></td> -->
+
+										 <td class="no-wrap text-end"><a href="{% url 'delete_order' employee.id %}"><label class="label label-danger"><i class="fa fa-chevron-down"></i> Delete</label></a></td>
+
+
+
+
+									<!-- 	 <td class="no-wrap text-end"><a href="/massage/{{ employee.id }}"><label class="label" style="background-color:blue;"><i class="fa fa-chevron-up"></i> Deposit</label></a></td>
+
+										 <td class="no-wrap text-end"><a href="/massage/{{ employee.id }}"><label class="label label-success"><i class="fa fa-chevron-up"></i> Add profit</label></a></td>
+
+										 <td class="no-wrap text-end"><a href="/massage/{{ employee.id }}"><label class="label" style="background-color:#e9b520;"><i class="fa fa-chevron-up"></i> Give Bonus</label></a></td>
+
+										 <td class="no-wrap text-end"><a href="/massage/{{ employee.id }}"><label class="label" style="background-color:#e9b520;"><i class="fa fa-chevron-up"></i> Ref bonus</label></a></td> -->
+
+							
+									  </tr>
+									  {% endfor %}
+
+							
+
+
+
+
+
+
+									  </tr></tbody>
+								</table></div></div></div>
+							</div>
+						</div>
+						<!-- /.box-body -->
+					  </div>
+				</div>
+			  </div>	
+		</section>
+		<!-- /.content -->
+	  </div>
+  </div>
+  {% endblock content %}

@@ -1,0 +1,551 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	
+<head>
+	<!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>LIFEMAPCAPITAL</title>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  "author": "Lifemap",
+  "cookTime": "PT1H",
+  "dateModified": "2013-05-08",
+  "datePublished": "2013-05-08",
+  "dateCreated": "2013-05-08",
+  "description": "lifemapcapital is a platform that makes mining very efficient, productive and accessible for everyone. It gives large opportunity with highly programmable data",
+  "image": "http://www.lifemapcapital.com/static/images/life2.jpeg",
+
+  "interactionStatistic": {
+    "@type": "InteractionCounter",
+    "interactionType": "https://schema.org/Comment",
+    "userInteractionCount": "1840"
+  },
+  "name": "Lifemapcapital World Farmous Investing platform",
+  
+  "prepTime": "PT15M",
+  
+  "suitableForDiet": "https://schema.org/LowFatDiet"
+}
+</script>
+
+    <link rel="stylesheet" href="{% static 'cardsstyles/css/owl.carousel.min.css' %}">
+    <!--=== Animation Css ===-->
+    <link rel="stylesheet" href="{% static 'cardsstyles/css/animate.css' %}">
+  
+    <link rel="stylesheet" href="{% static 'cardsstyles/css/style.css' %}">
+	<!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link type="image/x-icon" href="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/images/fav-icon.png" rel="icon">
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/css/color.css">
+    <link rel="stylesheet" type="text/css" href="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/card.css' %}">
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-142494086-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-142494086-2');
+</script>
+
+<style>
+	@import url("https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap");
+
+body {
+
+  font-family: "Play", sans-serif;
+}
+
+.container {
+  width: 100%;
+}
+
+.packages {
+  margin: 20px;
+  width: 300px;
+  padding-bottom: 1.5em;
+  height: 100%;
+  background-color: #1e2321;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 0 19px 38px rgba(30, 35, 33, 1), 0 15px 12px rgba(30, 35, 33, 0.2);
+  flex-wrap: wrap;
+  color: #f4f4f4;
+}
+.goog-logo-link {
+   display:none !important;
+}
+
+.goog-te-gadget {
+   color: transparent !important;
+}
+
+.goog-te-gadget .goog-te-combo {
+   color: blue !important;
+}
+h1,
+h2 {
+  font-size: 2.2em;
+}
+
+.list li {
+  font-size: 20px;
+  list-style: none;
+  border-bottom: 1px solid #f4f4f4;
+  padding-inline-start: 0;
+  border-width: 1px;
+  padding: 10px;
+}
+
+.first {
+  margin-top: 40px;
+  border-top: 1px solid #f4f4f4;
+}
+
+.list {
+  width: 80%;
+}
+
+ol,
+ul {
+  padding: 0;
+}
+
+.top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input,
+label {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 10px 0;
+}
+
+.button {
+  padding: 10px 30px;
+  text-decoration: none;
+  font-size: 1.4em;
+  margin: 15px 15px;
+  border-radius: 50px;
+  color: #f4f4f4;
+  transition: all 0.3s ease 0s;
+}
+
+.button:hover {
+  transform: scale(1.2);
+}
+
+.button1 {
+  background-color: #00cc99;
+  box-shadow: 0 0 10px 0 #00cc99 inset, 0 0 20px 2px #00cc99;
+}
+
+.button2 {
+  background-color: #ff007c;
+  box-shadow: 0 0 10px 0 #ff007c inset, 0 0 20px 2px #ff007c;
+}
+
+.button3 {
+  background-color: #ffae42;
+  box-shadow: 0 0 10px 0 #ffae42 inset, 0 0 20px 2px #ffae42;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #1e2321;
+  -webkit-transition: 0.4s;
+
+  box-shadow: 2px 6px 25px #1e2321;
+  transform: translate(0px, 0px);
+  transition: 0.6s ease transform, 0.6s box-shadow;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #50bfe6;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #50bfe6;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.package-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+</style>
+<!-- Start of Async Drift Code -->
+<script>
+"use strict";
+
+!function() {
+  var t = window.driftt = window.drift = window.driftt || [];
+  if (!t.init) {
+    if (t.invoked) return void (window.console && console.error && console.error("Drift snippet included twice."));
+    t.invoked = !0, t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ], 
+    t.factory = function(e) {
+      return function() {
+        var n = Array.prototype.slice.call(arguments);
+        return n.unshift(e), t.push(n), t;
+      };
+    }, t.methods.forEach(function(e) {
+      t[e] = t.factory(e);
+    }), t.load = function(t) {
+      var e = 3e5, n = Math.ceil(new Date() / e) * e, o = document.createElement("script");
+      o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js";
+      var i = document.getElementsByTagName("script")[0];
+      i.parentNode.insertBefore(o, i);
+    };
+  }
+}();
+drift.SNIPPET_VERSION = '0.3.1';
+drift.load('67h3mc6eycie');
+</script>
+<!-- End of Async Drift Code -->
+</head>
+	<body>
+
+		<!-- Start preloader -->
+		<div id="preloader"></div>
+		<!-- End preloader -->
+
+		<!-- Top scroll -->
+		<div class="top-scroll transition">
+			<a href="#banner" class="scrollTo"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
+		</div>	
+		<!-- Top scroll End -->
+		<header class="transition">
+			<div class="container">
+				<div class="row flex-align">
+					<div class="col-lg-4 col-md-3 col-8">
+						<div class="logo">
+							<img width="236" height="38" src="{% static 'images/life2.jpeg' %}" class="transition" alt="Lifemap">
+						</div>
+					</div>
+					<div class="col-lg-8 col-md-9 col-4 text-right">
+						<div class="menu-toggle">
+							<span></span>
+						</div>
+						<div class="menu">
+							<ul class="d-inline-block">
+								<li class="mega-menu">
+									<span class="opener plus"></span>
+									<a href="/">Home</a>
+									<!-- <ul class="transition">
+										<li><a href="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/index.html">Home One</a></li>
+										<li><a href="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/index-2.html">Home Two</a></li>
+									</ul> -->
+								</li>
+								<li class="mega-menu">
+									<span class="opener plus"></span>
+									<a href="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/about.html">Pages</a>
+									<!-- <ul class="transition">
+										<li><a href="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/about.html">About</a></li>
+										<li><a href="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/blog-list.html">Blog</a></li>
+										<li><a href="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/token-sale.html">Token Sale</a></li>
+										<li><a href="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/contact.html">Contact</a></li>
+										<li><a href="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/faq.html">FAQ</a></li>
+										<li><a href="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/404.html">404 Page</a></li>
+									</ul> -->
+								</li>
+								<li><a href="/about-us">About Us</a></li>
+								<li><a href="/terms">Team</a></li>
+							</ul>
+							<div class="signin d-inline-block">
+								<a href="/login" class="btn">Sign in</a>
+							</div>
+							<div id="google_translate_element"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+
+
+		<section class="sub-page-banner parallax" id="banner">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="page-banner text-center">
+							<h1 class="sub-banner-title">Terms and Conditions</h1>
+							<ul>
+								<li><a href="/">Home</a></li>
+								<li>Terms and Conditions</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="about-main ptb-100">
+			<div class="container">
+				<div class="row">
+				<!-- 	<div class="col-lg-6 col-md-12 text-center flex-align justify-center order-r-2 wow fadeInLeft animated" style="visibility: visible;">
+						<div class="work-box w-100">
+							<div class="work-box-bg"></div>
+							<img src="images/work-process.png" class="rotation-img" alt="Work Process">
+						</div>
+					</div> -->
+					<div class="col-lg-6 col-md-12 flex-align order-r-1 mb-r-30 wow fadeInRight animated" style="visibility: visible;">
+						<div class="work-box">
+							<div class="col-lg-8">
+                    <div class="post-details">
+                        <div class="post-inner wow fadeInUp" data-wow-duration="0.3s" data-wow-delay="0.3s" style="visibility: visible; animation-duration: 0.3s; animation-delay: 0.3s; animation-name: fadeInUp;">
+                            <div class="post-header">
+                                
+                                <h3 class="subtitle">
+                                   Lifemapcapital Terms and Conditions
+                                </h3>
+                            </div><br>
+                            <div class="post-content">
+                                <!-- <div class="entry-meta">
+                                    <div class="thumb">
+                                        <a href="#0">
+                                            <img src="https://Lifemapcapital.com/uploads/favicon.png" alt="blog">
+                                        </a>
+                                    </div>
+                                    <a href="#0" class="comment">
+                                        <i class="far fa-comments"></i>
+                                        <span>30</span>
+                                    </a>
+                                    <a href="#0" class="comment">
+                                        <i class="fas fa-share-alt"></i>
+                                        <span>22</span>
+                                    </a>
+
+                                </div> -->
+                                <div class="entry-content">
+                                    <h5 class="fadeInUp" data-wow-delay="0.3s">General Rules</h5>
+                                    <p>This document is created in accordance with the rules of
+                        international law and business practice. Lifemapcapital accepts individuals aged 18 and above. The
+                        registration procedure is necessary for each Lifemapcapital client. You agree with terms
+                        and conditions by being a client of Lifemapcapital.</p>
+                                    <br>
+                                    <h5 class="fadeInUp" data-wow-delay="0.3s">Investment Rules</h5>
+                                    <p>Every deposit is considered to be a private transaction between Lifemapcapital and its
+                        client.
+                        Clients process all financial transactions solely at their own discretion and their own risk.
+                        The size and term of deposit is determined personally by each client.
+                        Accrual of interest on the investment is calculated and credited to client's account at the end
+                        of investment term for "After" investment plans and daily on 'Daily' investment plans.
+                        
+                        The interest rate depends on the amount of investment, investment plan and deposit term.
+                        
+                        Client may choose any payment system or cryptocurrency that we accept in order to make a
+                        deposit. Lifemapcapital accepts only USD for investing.
+                        Client can open only one account per IP/Family/Device. If you wish to open another account
+                        contact us before at support@Lifemapcapital.com. If a new account is opened, the old account
+                        will be closed.</p>
+                        <br>
+                        
+                                    <img src="https://Lifemapcapital.com/front_assets/assets/img/blog2.jpg" alt="blog">
+                                    <h5 class="fadeInUp" data-wow-delay="0.3s">Antispam Rules</h5>
+                                    <p>Spam is commercial e-mail or unsolicited bulk e-mail, including "junk mail", which has not been
+                        requested by the recipient. It is intrusive and often irrelevant or offensive, and it wastes
+                        valuable resources. Inappropriate newsgroup activities, consisting of excessive posting of the
+                        same materials to several newsgroups, are also deemed to be spam. We don't tolerate SPAM in our
+                        company.
+                        We forbid unsolicited e-mails of any kind in connection with the marketing of the services
+                        provided by Lifemapcapital.
+                        If any law enforcement agency, internet provider, web hosting provider or other person or entity
+                        provide us with notice that you may have engaged in transmission of unsolicited e-mails or may
+                        have engaged in otherwise unlawful conduct or conduct in violation of an internet service
+                        provider's terms of service or any such policies or regulations, we will reserve the right to
+                        cooperate in any investigation relating to your activities including disclosure of your account
+                        information.
+                        If you didn't receive a letter from Lifemapcapital, please don't forget to check your Spam
+                        folder because some email services may mark our email as Spam.</p>
+                        <br>
+                        <h5 class="fadeInUp" data-wow-delay="0.3s">Procedure of amending the present rules</h5>
+                        <p>Administration of Lifemapcapital reserves the right to make changes to the current document
+                        without the consent of investors.
+                        Administration of Lifemapcapital will inform clients about changes by publishing notice on
+                        the site of the company.
+                        Terms and Conditions changes come into force since the date of publishing information on the
+                        site, unless otherwise provided in the text.</p>
+                        <h5 class="fadeInUp" data-wow-delay="0.3s">Customer service &amp; support</h5>
+                        <p>Every client has the right to get any additional information from our support service.
+                        Client may contact our support service via our Support Form or another method which is
+                        convinient for him.
+                        Client agrees to behave politely with our support service and follow the instructions to prevent
+                        anyone from potentially negative situation. </p>
+                                </div>
+                            </div>
+
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+						
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+
+
+
+
+
+		<footer class="bg-pattern lightskyblue ptb-100">
+			<div class="container">
+				<div class="footer">
+					<div class="row">
+						<div class="col-lg-4 col-md-6">
+							<div class="footer-logo pb-25">
+							<a href="/"><img width="236" height="58" src="{% static 'images/life2.jpeg' %}" class="transition" alt="Lifemap"></a>
+						</div>
+				<!-- 			<div class="footer-icon">
+								<ul>
+									<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+								</ul>
+							</div> -->
+						</div>
+						<div class="col-lg-4 col-md-6">
+							<div class="footer-link">
+								<ul>
+									<li><a href="/about-us">About Us</a></li>
+									<li><a href="#">+44 7534986544</a></li>
+									<li><a href="#">Join Us</a></li>
+									<li><a href="/retirement">Retirement Income</a></li>
+									<li><a href="#pak">Packages</a></li>
+									<li><a href="/terms">Terms & Condition</a></li>
+									<li><a href="/affiliate">Referral Program</a></li>
+									<li><a href="#faq">Faq</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6">
+							<div class="subscribe">
+								<div class="form-group">
+								    <label>Subscribe to our Newsleter</label>
+								    <input type="email" class="form-control" placeholder="Enter your email Address">
+								    <input type="submit" name="submit" value="Subscribe" class="submit">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="copyright">
+					<div class="row">
+						<div class="col-lg-6">
+							<p>266 Farnham Rd, Slough SL1 4XL, UNITED KINGDOM <a href="/">Lifemapcapital</a></p>
+						</div>
+						<div class="col-lg-6">
+							<ul>
+								<li><a href="/terms">Terms & Condition</a></li>
+								<li><a href="/privacy">Privacy Policy</a></li>
+								<li><a href="/">Contact Us</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+	
+		<script type="text/javascript">
+		function googleTranslateElementInit() {
+		  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+		}
+		</script>
+
+		<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+		<script src="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/js/jquery-3.4.1.min.js"></script>
+		<script src="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/js/bootstrap.min.js"></script>
+		<script src="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/js/owl.carousel.min.js"></script>
+		<script src="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/js/snap.svg-min.js"></script>
+		<script src="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/js/jquery.listtopie.min.js"></script>
+		<script src="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/js/animation.js"></script>
+		<script src="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/js/custom.js"></script>
+	<script type="application/ld+json">
+		{
+  "@context": "https://schema.org",
+  "@type": "Investment",
+  "author": "Lifemap",
+  "cookTime": "PT1H",
+  "dateModified": "2013-05-08",
+  "datePublished": "2013-05-08",
+  "dateCreated": "2013-05-08",
+  "description": "lifemapcapital is a platform that makes mining very efficient, productive and accessible for everyone. It gives large opportunity with highly programmable data",
+  "image": "https://lifemapcapital.com/static/images/life2.jpeg",
+
+  "interactionStatistic": {
+    "@type": "InteractionCounter",
+    "interactionType": "https://schema.org/Comment",
+    "userInteractionCount": "1840"
+  },
+  "name": "Lifemapcapital World Farmous Investing platform",
+  
+  "prepTime": "PT15M",
+  
+  "suitableForDiet": "https://schema.org/LowFatDiet"
+}
+</script>
+	</body>
+</html>

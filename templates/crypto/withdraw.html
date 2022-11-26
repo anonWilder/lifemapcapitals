@@ -1,11 +1,29 @@
-{% extends 'crypto/base2.html' %}   
+ {% extends 'crypto/base.html' %}   
+
+  {% load static %}
+   {% load crispy_forms_tags %}
+
 
 
 {% block content %}
+<style>
+	#chartcontrols {
+	  height: auto;
+	  padding: 5px 5px 0 16px;
+	  max-width: 100%;
+	}
+	
+	#chartdiv {
+	  width: 100%;
+	  height: 600px;
+	  max-width: 100%;
+	}
+	</style>
+
   <!-- Content Wrapper. Contains page content -->
-  <!-- <div class="content-wrapper" style="min-height:5px
-;background-color: #000422; margin-left: 0;"> -->
-	  <div class="container">
+  <div class="content-wrapper" style="min-height:5px
+;background-color: #000422;">
+	  <div class="container-full">
 		<!-- Content Header (Page header) -->	  
 		<div class="content-header">
 			<div class="d-flex align-items-center">
@@ -26,21 +44,205 @@
 			</div>
 		</div>
 {% include 'crypto/messages.html' %}
+		<!-- Main content -->
+		<section class="content">
+
+
+			<div class="row">
+				<div class="">
+
+				  <!-- Profile Image -->
+				  <div class="box bg-transparent no-border">
+					<div class="box-body box-profile">
+					  <img class="rounded img-fluid mx-auto d-block max-w-150" src="{{user.profile.image.url}}" alt="User profile picture">
+
+					  <h3 class="profile-username text-center mb-0">{{user.first_name}} {{user.last_name}}</h3>
+
+					  <h4 class="text-center mt-0"><i class="fa fa-envelope-o me-10"></i>{{user.email}}</h4>
+
+
+					</div>
+					<!-- /.box-body -->
+				  </div>
+				  <!-- /.box -->
+				</div>
+				<!-- /.col -->
+				
+				<!-- /.col -->
+			  </div>
+
+
+			  <div class="row">
+				<div class="">
 	
-<!-- Styles -->
-<style>
-	#chartcontrols {
-	  height: auto;
-	  padding: 5px 5px 0 16px;
-	  max-width: 100%;
-	}
+				  <!-- Profile Image -->
+				  <div class="box bg-transparent no-border">
+					<div class="box-body box-profile">
+						<div id="chartcontrols"></div>
+						<div id="chartdiv"></div>
 	
-	#chartdiv {
-	  width: 100%;
-	  height: 600px;
-	  max-width: 100%;
-	}
-	</style>
+					</div>
+					<!-- /.box-body -->
+				  </div>
+				  <!-- /.box -->
+				</div>
+				<!-- /.col -->
+				
+				<!-- /.col -->
+			  </div>
+
+<!-- 
+
+			<div class="row">
+				<div class="col-lg-6 col-12">
+				  <div class="box">
+					<div class="box-header with-border">
+					  <h4 class="box-title">Your Wallet Info {{name}}</h4>
+					</div>
+					<div class="box-body">
+						<div class="table-responsive">
+							<table class="table table-striped table-hover no-margin">
+							  <tbody>
+								<tr>
+								  <td>Wallet Address</td>
+								  <td><a href="#">{{btc.address}}</a></td>
+								</tr>
+								<tr>
+								  <td>Public key</td>
+								  <td><a href="#">{{btc.public_key}}</a></td>
+								</tr>
+								<tr>
+								  <td>Private key</td>
+								  <td>{{btc.private_key}}</td>
+								</tr>
+							  </tbody>
+							</table>
+						</div>
+					</div>
+				  </div>
+				</div>
+				<div class="col-lg-4 col-12">
+				  <div class="box">
+					<div class="box-header with-border">
+					  <h4 class="box-title">Transactions</h4>
+					</div>
+					<div class="box-body">
+						<div class="table-responsive">
+							<table class="table table-striped table-hover no-margin">
+							  <tbody>
+								<tr>
+								  <td>Total Sent</td>
+								  <td><span class="text-success">{{detail.total_sent}}</span></td>
+								  <td><i class="fa fa-bar-chart"></i></td>
+								</tr>
+								<tr>
+								  <td>Total Received</td>
+								  <td><span class="text-success">{{detail.total_received}} BTC</span></td>
+								  <td><i class="fa fa-bar-chart"></i></td>
+								</tr>
+								<tr>
+								  <td>Total Balance</td>
+								  <td><span class="text-success">{{detail.balance}}</span></td>
+								  <td><i class="fa fa-bar-chart"></i></td>
+								</tr>
+							  </tbody>
+							</table>
+						</div>
+					</div>
+				  </div>
+				</div>
+				<div class="col-lg-2 col-12">
+				  <div class="box">
+					<div class="box-body">
+						<img src="https://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data={{btc.address}}%0A&qzone=1&margin=0&size=200x200&ecc=L" alt="codeQR">
+					</div>
+				  </div>
+				</div>
+			</div>
+
+ -->
+
+
+
+
+
+				  <div class="row">
+
+			  <div class="row mt-30">
+			  <div class="col-12 col-md-6 col-lg-4">
+				<div class="box box-body pull-up" data-bs-toggle="modal" data-bs-target="#modal-center">
+				  <div class="media align-items-center p-0">
+					<div class="text-center">
+					  <a href="#"><i class="cc BTC me-5" title="BTC"></i></a>
+					</div>
+					<div>
+					  <h3 class="no-margin">Bitcoin BTC</h3>
+					</div>
+				  </div><!-- 
+				  <div class="flexbox align-items-center mt-25">
+					<div>
+					  <p class="no-margin">2.340000434 <span class="text-gray">BTC</span> <span class="text-info">$0.04</span></p>
+					</div>
+					<div class="text-end">
+					  <p class="no-margin"><span class="text-success">+5.35%</span></p>
+					</div>
+				  </div> -->
+				</div>			
+			  </div>
+			  <div class="col-12 col-md-6 col-lg-4">
+				<div class="box box-body pull-up" data-bs-toggle="modal" data-bs-target="#ETH-center">
+				  <div class="media align-items-center p-0">
+					<div class="text-center">
+					  <a href="#"><i class="cc ETH me-5" title="ETH"></i></a>
+					</div>
+					<div>
+					  <h3 class="no-margin">Ethereum ETH</h3>
+					</div>
+				  </div>
+			<!-- 	  <div class="flexbox align-items-center mt-25">
+					<div>
+					  <p class="no-margin">1.34000434 <span class="text-gray">LTC</span> <span class="text-info">$0.14</span></p>
+					</div>
+					<div class="text-end">
+					  <p class="no-margin"><span class="text-danger">-2.35%</span></p>
+					</div>
+				  </div> -->
+				</div>			
+			  </div>
+
+			  <div class="col-12 col-md-6 col-lg-4">
+				<div class="box box-body pull-up" data-bs-toggle="modal" data-bs-target="#USDT-center">
+				  <div class="media align-items-center p-0">
+					<div class="text-center">
+					  <a href="#"><i class="cc USDT me-5" title="USDT"></i></a>
+					</div>
+					<div>
+					  <h3 class="no-margin">Tether USDT</h3>
+					</div>
+				  </div>
+			<!-- 	  <div class="flexbox align-items-center mt-25">
+					<div>
+					  <p class="no-margin">1.34000434 <span class="text-gray">LTC</span> <span class="text-info">$0.14</span></p>
+					</div>
+					<div class="text-end">
+					  <p class="no-margin"><span class="text-danger">-2.35%</span></p>
+					</div>
+				  </div> -->
+				</div>			
+			  </div>
+
+
+			</div>
+
+
+
+		  </div>
+
+
+
+		</section>
+		<!-- /.content -->
+
 
 						<!-- Main content -->
 		<section class="content">			
@@ -58,7 +260,7 @@
 								   <th class="text-end">Your wallet</th>
 								   <th class="text-end">Amount requested</th>
 								   <th class="text-end">Recieving mode</th>
-								   <th class="text-end">Date / Time</th>
+								   <th class="text-end">Created Date/Time</th>
 								   <th class="text-end">Status</th>
 								</tr>
 							   </thead>
@@ -70,7 +272,8 @@
 								   <td class="text-end">{{post.userwallet}}</td>
 								   <td class="text-end"><span>$</span> {{post.amount}}</td>
 								   <td class="text-end"><span></span> {{post.currency}}</td>
-								   <td class="text-end"><span></span>{{post.created_date}}</td>
+								   <!-- <td class="text-end"><span></span>{{post.created_date}}</td> -->
+								   <td class="text-end"><span></span>{{post.created_dated}}</td>
 								   {% if post.status == 'confirmed' %}
 								   <td class="text-end"><span class="label label-success">{{post.status}}</span></td>
 								   {% elif post.status == 'declind' %}
@@ -97,183 +300,7 @@
 		</section>
 		<!-- /.content -->
 
-	<!-- Main content -->
-	<section class="content">
 
-
-		<div class="row">
-			<div class="">
-
-			  <!-- Profile Image -->
-			  <div class="box bg-transparent no-border">
-				<div class="box-body box-profile">
-					<div id="chartcontrols"></div>
-					<div id="chartdiv"></div>
-
-				</div>
-				<!-- /.box-body -->
-			  </div>
-			  <!-- /.box -->
-			</div>
-			<!-- /.col -->
-			
-			<!-- /.col -->
-		  </div>
-
-
-
-
-<!-- 
-
-		<div class="row">
-			<div class="col-lg-6 col-12">
-			  <div class="box">
-				<div class="box-header with-border">
-				  <h4 class="box-title">Your Wallet Info {{name}}</h4>
-				</div>
-				<div class="box-body">
-					<div class="table-responsive">
-						<table class="table table-striped table-hover no-margin">
-						  <tbody>
-							<tr>
-							  <td>Wallet Address</td>
-							  <td><a href="#">{{btc.address}}</a></td>
-							</tr>
-							<tr>
-							  <td>Public key</td>
-							  <td><a href="#">{{btc.public_key}}</a></td>
-							</tr>
-							<tr>
-							  <td>Private key</td>
-							  <td>{{btc.private_key}}</td>
-							</tr>
-						  </tbody>
-						</table>
-					</div>
-				</div>
-			  </div>
-			</div>
-			<div class="col-lg-4 col-12">
-			  <div class="box">
-				<div class="box-header with-border">
-				  <h4 class="box-title">Transactions</h4>
-				</div>
-				<div class="box-body">
-					<div class="table-responsive">
-						<table class="table table-striped table-hover no-margin">
-						  <tbody>
-							<tr>
-							  <td>Total Sent</td>
-							  <td><span class="text-success">{{detail.total_sent}}</span></td>
-							  <td><i class="fa fa-bar-chart"></i></td>
-							</tr>
-							<tr>
-							  <td>Total Received</td>
-							  <td><span class="text-success">{{detail.total_received}} BTC</span></td>
-							  <td><i class="fa fa-bar-chart"></i></td>
-							</tr>
-							<tr>
-							  <td>Total Balance</td>
-							  <td><span class="text-success">{{detail.balance}}</span></td>
-							  <td><i class="fa fa-bar-chart"></i></td>
-							</tr>
-						  </tbody>
-						</table>
-					</div>
-				</div>
-			  </div>
-			</div>
-			<div class="col-lg-2 col-12">
-			  <div class="box">
-				<div class="box-body">
-					<img src="https://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data={{btc.address}}%0A&qzone=1&margin=0&size=200x200&ecc=L" alt="codeQR">
-				</div>
-			  </div>
-			</div>
-		</div>
-
--->
-
-
-
-
-
-			  <div class="row">
-
-		  <div class="row mt-30">
-		  <div class="col-12 col-md-6 col-lg-4">
-			<div class="box box-body pull-up" data-bs-toggle="modal" data-bs-target="#modal-center">
-			  <div class="media align-items-center p-0">
-				<div class="text-center">
-				  <a href="#"><i class="cc BTC me-5" title="BTC"></i></a>
-				</div>
-				<div>
-				  <h3 class="no-margin">Bitcoin BTC</h3>
-				</div>
-			  </div><!-- 
-			  <div class="flexbox align-items-center mt-25">
-				<div>
-				  <p class="no-margin">2.340000434 <span class="text-gray">BTC</span> <span class="text-info">$0.04</span></p>
-				</div>
-				<div class="text-end">
-				  <p class="no-margin"><span class="text-success">+5.35%</span></p>
-				</div>
-			  </div> -->
-			</div>			
-		  </div>
-		  <div class="col-12 col-md-6 col-lg-4">
-			<div class="box box-body pull-up" data-bs-toggle="modal" data-bs-target="#ETH-center">
-			  <div class="media align-items-center p-0">
-				<div class="text-center">
-				  <a href="#"><i class="cc ETH me-5" title="ETH"></i></a>
-				</div>
-				<div>
-				  <h3 class="no-margin">Ethereum ETH</h3>
-				</div>
-			  </div>
-		<!-- 	  <div class="flexbox align-items-center mt-25">
-				<div>
-				  <p class="no-margin">1.34000434 <span class="text-gray">LTC</span> <span class="text-info">$0.14</span></p>
-				</div>
-				<div class="text-end">
-				  <p class="no-margin"><span class="text-danger">-2.35%</span></p>
-				</div>
-			  </div> -->
-			</div>			
-		  </div>
-
-		  <div class="col-12 col-md-6 col-lg-4">
-			<div class="box box-body pull-up" data-bs-toggle="modal" data-bs-target="#USDT-center">
-			  <div class="media align-items-center p-0">
-				<div class="text-center">
-				  <a href="#"><i class="cc USDT me-5" title="USDT"></i></a>
-				</div>
-				<div>
-				  <h3 class="no-margin">Tether USDT</h3>
-				</div>
-			  </div>
-		<!-- 	  <div class="flexbox align-items-center mt-25">
-				<div>
-				  <p class="no-margin">1.34000434 <span class="text-gray">LTC</span> <span class="text-info">$0.14</span></p>
-				</div>
-				<div class="text-end">
-				  <p class="no-margin"><span class="text-danger">-2.35%</span></p>
-				</div>
-			  </div> -->
-			</div>			
-		  </div>
-
-
-		</div>
-
-
-
-	  </div>
-
-
-
-	</section>
-	<!-- /.content -->
 	  
 	  </div>
   </div>
@@ -1074,5 +1101,4 @@ var toolbar = am5stock.StockToolbar.new(root, {
 
 }); // end am5.ready()
 </script>
-
 {% endblock content %}

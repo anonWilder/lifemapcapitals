@@ -1,10 +1,11 @@
-{% extends 'crypto/base2.html' %}   
-{% load crispy_forms_tags %}
+ {% extends 'crypto/base.html' %}   
+
+  {% load static %}
+   {% load crispy_forms_tags %}
 
 
 
 {% block content %}
-
 <style>
 	#chartdiv {
 	  width: 100%;
@@ -15,8 +16,8 @@
 	height: 300px;
 	}
 	</style>
-<!-- <div class="content-wrapper" style="min-height: 606px;background-color: #000422;margin-left: 0;"> -->
-	  <div class="container">
+<div class="content-wrapper" style="min-height: 606px;background-color: #000422;">
+	  <div class="container-full">
 		<!-- Content Header (Page header) -->
 		<div class="content-header">
 			<div class="d-flex align-items-center">
@@ -35,38 +36,45 @@
 				
 			</div>
 		</div>
+
+
+		
+		<!-- Main content -->
+		<section class="content">
+		
+			<div class="row">
+				<div class="col-lg-6 col-12">
+				  <div class="box">
+					<div class="box-header with-border">
+					  <h4 class="box-title">Deposit Chart</h4>
+					</div>
+					<div class="box-body">
+						<div id="chartdiv"></div>
+					</div>
+					<!-- /.box-body -->
+			  </div>
+				  <!-- /.box -->
+				</div>
+				<div class="col-lg-6 col-12">
+				  <div class="box">
+					<div class="box-header with-border">
+					  <h4 class="box-title">Withdraw Chart</h4>
+					</div>
+					<div class="box-body">
+							<div id="chartdiv2"></div>
+						
+					</div>
+					<!-- /.box-body -->
+				  </div>
+				  <!-- /.box -->
+				</div>
+			  </div>
+
+
+		</section>
 {% include 'crypto/messages.html' %}
 
-<section class="content">
-	<div class="row">
-		<div class="col-lg-6 col-12">
-			<div class="box">
-			  <div class="box-header with-border">
-				<h4 class="box-title">Deposit Chart</h4>
-			  </div>
-			  <div class="box-body">
-				  <div id="chartdiv"></div>
-			  </div>
-			  <!-- /.box-body -->
-		</div>
-			<!-- /.box -->
-		  </div>
-		  <div class="col-lg-6 col-12">
-			<div class="box">
-			  <div class="box-header with-border">
-				<h4 class="box-title">Withdraw Chart</h4>
-			  </div>
-			  <div class="box-body">
-					  <div id="chartdiv2"></div>
-				  
-			  </div>
-			  <!-- /.box-body -->
-			</div>
-			<!-- /.box -->
-		  </div>
-		</div>
-	</div>
-</section>
+
 			<!-- Main content -->
 		<section class="content">			
 			<div class="row">
@@ -79,7 +87,7 @@
 								  <thead>
 									 <tr role="row"><th colspan="2" rowspan="1">ID</th>
 									 	<th class="text-end sorting" tabindex="0" aria-controls="dataTable_crypto" rowspan="1" colspan="1" aria-label="Price: activate to sort column ascending">profile</th>
-									 	<th class="text-end sorting" tabindex="0" aria-controls="dataTable_crypto" rowspan="1" colspan="1" aria-label="Price: activate to sort column ascending">User</th><th class="text-end sorting" tabindex="0" aria-controls="dataTable_crypto" rowspan="1" colspan="1" aria-label="Market Cap: activate to sort column ascending">Status</th><th class="text-end sorting" tabindex="0" aria-controls="dataTable_crypto" rowspan="1" colspan="1" aria-label="Volume 24H: activate to sort column ascending">Date/Time</th>
+									 	<th class="text-end sorting" tabindex="0" aria-controls="dataTable_crypto" rowspan="1" colspan="1" aria-label="Price: activate to sort column ascending">User</th><th class="text-end sorting" tabindex="0" aria-controls="dataTable_crypto" rowspan="1" colspan="1" aria-label="Market Cap: activate to sort column ascending">Status</th><th class="text-end sorting" tabindex="0" aria-controls="dataTable_crypto" rowspan="1" colspan="1" aria-label="Volume 24H: activate to sort column ascending">Created Date/Time</th>
 
 									 	<th class="text-end sorting" tabindex="0" aria-controls="dataTable_crypto" rowspan="1" colspan="1" aria-label="Change % (1H): activate to sort column ascending">Package</th>
 
@@ -113,10 +121,10 @@
 									
 										 <td class="no-wrap text-end"><a><label class="label " style="background-color:red;"> {{employee.appruved}}</label></a></td>
 									
-										  <td class="text-end"><p><span></span> {{employee.item_created_date}}</p></td>
+										  <td class="text-end"><p><span></span> {{employee.item_created_dated}}</p></td>
 
 										 <td class="text-end"><p><span></span> {{employee.membership}}</p></td>
-										  <td class="text-end"><p><span></span> {{employee.roi}}%</p></td>
+										  <td class="text-end"><p><span></span> {{employee.roi}}</p></td>
 										   <td class="text-end"><p><span></span> {{employee.statuse}}</p></td>
 										  <td class="text-end"><p><span></span> {{employee.amount}}</p></td>
 										
@@ -161,7 +169,6 @@
 			  </div>	
 		</section>
 		<!-- /.content -->
-	
 		<!-- Main content -->
 		<section class="content">			
 			<div class="row">
@@ -213,7 +220,7 @@
 										  <td class="text-end"><p><span></span> {{employee.item_created_date}}</p></td>
 
 										 <td class="text-end"><p><span></span> {{employee.membership}}</p></td>
-										  <td class="text-end"><p><span></span> {{employee.roi}}%</p></td>
+										  <td class="text-end"><p><span></span> {{employee.roi}}</p></td>
 										   <td class="text-end"><p><span></span> {{employee.statuse}}</p></td>
 										  <td class="text-end"><p><span></span> {{employee.amount}}</p></td>
 										
@@ -260,227 +267,226 @@
 		<!-- /.content -->
 	  </div>
   </div>
-    <!-- /.content-wrapper -->
-	<script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
-	<!-- Resources -->
-	<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
-	<script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
-	<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
-	
-	<!-- Chart code -->
-	<script>
-		am5.ready(function() {
-		
-		// Create root element
-		// https://www.amcharts.com/docs/v5/getting-started/#Root_element
-		var root = am5.Root.new("chartdiv");
-		
-		// Set themes
-		// https://www.amcharts.com/docs/v5/concepts/themes/
-		root.setThemes([
-		  am5themes_Animated.new(root)
-		]);
-		
-		// Create chart
-		// https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/
-		var chart = root.container.children.push(am5percent.PieChart.new(root, {
-		  radius: am5.percent(90),
-		  innerRadius: am5.percent(50),
-		  layout: root.horizontalLayout
-		}));
-		
-		// Create series
-		// https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Series
-		var series = chart.series.push(am5percent.PieSeries.new(root, {
-		  name: "Series",
-		  valueField: "sales",
-		  categoryField: "country"
-		}));
-		
-		// Set data
-		// https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Setting_data
-		series.data.setAll([{
-		  country: "Lithuania",
-		  sales: 501.9
+  <script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
+  <!-- Resources -->
+  <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+  
+  <!-- Chart code -->
+  <script>
+	  am5.ready(function() {
+	  
+	  // Create root element
+	  // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+	  var root = am5.Root.new("chartdiv");
+	  
+	  // Set themes
+	  // https://www.amcharts.com/docs/v5/concepts/themes/
+	  root.setThemes([
+		am5themes_Animated.new(root)
+	  ]);
+	  
+	  // Create chart
+	  // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/
+	  var chart = root.container.children.push(am5percent.PieChart.new(root, {
+		radius: am5.percent(90),
+		innerRadius: am5.percent(50),
+		layout: root.horizontalLayout
+	  }));
+	  
+	  // Create series
+	  // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Series
+	  var series = chart.series.push(am5percent.PieSeries.new(root, {
+		name: "Series",
+		valueField: "sales",
+		categoryField: "country"
+	  }));
+	  
+	  // Set data
+	  // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Setting_data
+	  series.data.setAll([{
+		country: "Lithuania",
+		sales: 501.9
+	  }, {
+		country: "Czechia",
+		sales: 301.9
+	  }, {
+		country: "Ireland",
+		sales: 201.1
+	  }, {
+		country: "Germany",
+		sales: 165.8
+	  }, {
+		country: "Australia",
+		sales: 139.9
+	  }, {
+		country: "Austria",
+		sales: 128.3
+	  }, {
+		country: "UK",
+		sales: 99
+	  }, {
+		country: "Belgium",
+		sales: 60
+	  }, {
+		country: "The Netherlands",
+		sales: 50
+	  }]);
+	  
+	  // Disabling labels and ticks
+	  series.labels.template.set("visible", false);
+	  series.ticks.template.set("visible", false);
+	  
+	  // Adding gradients
+	  series.slices.template.set("strokeOpacity", 0);
+	  series.slices.template.set("fillGradient", am5.RadialGradient.new(root, {
+		stops: [{
+		  brighten: -0.8
 		}, {
-		  country: "Czechia",
-		  sales: 301.9
+		  brighten: -0.8
 		}, {
-		  country: "Ireland",
-		  sales: 201.1
+		  brighten: -0.5
 		}, {
-		  country: "Germany",
-		  sales: 165.8
+		  brighten: 0
 		}, {
-		  country: "Australia",
-		  sales: 139.9
-		}, {
-		  country: "Austria",
-		  sales: 128.3
-		}, {
-		  country: "UK",
-		  sales: 99
-		}, {
-		  country: "Belgium",
-		  sales: 60
-		}, {
-		  country: "The Netherlands",
-		  sales: 50
-		}]);
-		
-		// Disabling labels and ticks
-		series.labels.template.set("visible", false);
-		series.ticks.template.set("visible", false);
-		
-		// Adding gradients
-		series.slices.template.set("strokeOpacity", 0);
-		series.slices.template.set("fillGradient", am5.RadialGradient.new(root, {
-		  stops: [{
-			brighten: -0.8
-		  }, {
-			brighten: -0.8
-		  }, {
-			brighten: -0.5
-		  }, {
-			brighten: 0
-		  }, {
-			brighten: -0.5
-		  }]
-		}));
-		
-		// Create legend
-		// https://www.amcharts.com/docs/v5/charts/percent-charts/legend-percent-series/
-		var legend = chart.children.push(am5.Legend.new(root, {
-		  centerY: am5.percent(50),
-		  y: am5.percent(50),
-		  layout: root.verticalLayout
-		}));
-		// set value labels align to right
-		legend.valueLabels.template.setAll({ textAlign: "right" })
-		// set width and max width of labels
-		legend.labels.template.setAll({ 
-		  maxWidth: 140,
-		  width: 140,
-		  oversizedBehavior: "wrap"
-		});
-		
-		legend.data.setAll(series.dataItems);
-		
-		
-		// Play initial series animation
-		// https://www.amcharts.com/docs/v5/concepts/animations/#Animation_of_series
-		series.appear(1000, 100);
-		
-		}); // end am5.ready()
-		</script>
-	
-	
-	
-	
-	<script>
-		am5.ready(function() {
-		
-		// Create root element
-		// https://www.amcharts.com/docs/v5/getting-started/#Root_element
-		var root = am5.Root.new("chartdiv2");
-		
-		// Set themes
-		// https://www.amcharts.com/docs/v5/concepts/themes/
-		root.setThemes([
-		  am5themes_Animated.new(root)
-		]);
-		
-		// Create chart
-		// https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/
-		// start and end angle must be set both for chart and series
-		var chart = root.container.children.push(am5percent.PieChart.new(root, {
-		  layout: root.verticalLayout,
-		  innerRadius: am5.percent(40)
-		}));
-		
-		// Create series
-		// https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Series
-		// start and end angle must be set both for chart and series
-		var series0 = chart.series.push(am5percent.PieSeries.new(root, {
-		  valueField: "bottles",
-		  categoryField: "country",
-		  alignLabels: false
-		}));
-		
-		var bgColor = root.interfaceColors.get("background");
-		
-		series0.ticks.template.setAll({ forceHidden: true });
-		series0.labels.template.setAll({ forceHidden: true });
-		series0.slices.template.setAll({
-		  stroke: bgColor,
-		  strokeWidth: 2,
-		  tooltipText:
-			"{category}: {valuePercentTotal.formatNumber('0.00')}% ({value} bottles)"
-		});
-		series0.slices.template.states.create("hover", { scale: 0.95 });
-		
-		var series1 = chart.series.push(am5percent.PieSeries.new(root, {
-		  valueField: "litres",
-		  categoryField: "country",
-		  alignLabels: true
-		}));
-		
-		series1.slices.template.setAll({
-		  stroke: bgColor,
-		  strokeWidth: 2,
-		  tooltipText:
-			"{category}: {valuePercentTotal.formatNumber('0.00')}% ({value} litres)"
-		});
-		
-		var data = [{
-		  country: "Lithuania",
-		  litres: 501.9,
-		  bottles: 1500
-		}, {
-		  country: "Czech Republic",
-		  litres: 301.9,
-		  bottles: 990
-		}, {
-		  country: "Ireland",
-		  litres: 201.1,
-		  bottles: 785
-		}, {
-		  country: "Germany",
-		  litres: 165.8,
-		  bottles: 255
-		}, {
-		  country: "Australia",
-		  litres: 139.9,
-		  bottles: 452
-		}, {
-		  country: "Austria",
-		  litres: 128.3,
-		  bottles: 332
-		}, {
-		  country: "UK",
-		  litres: 99,
-		  bottles: 150
-		}, {
-		  country: "Belgium",
-		  litres: 60,
-		  bottles: 178
-		}, {
-		  country: "The Netherlands",
-		  litres: 50,
-		  bottles: 50
-		}];
-		
-		// Set data
-		// https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Setting_data
-		series0.data.setAll(data);
-		series1.data.setAll(data);
-		
-		// Play initial series animation
-		// https://www.amcharts.com/docs/v5/concepts/animations/#Animation_of_series
-		series0.appear(1000, 100);
-		series1.appear(1000, 100);
-		
-		}); // end am5.ready()
-		</script>
-	
+		  brighten: -0.5
+		}]
+	  }));
+	  
+	  // Create legend
+	  // https://www.amcharts.com/docs/v5/charts/percent-charts/legend-percent-series/
+	  var legend = chart.children.push(am5.Legend.new(root, {
+		centerY: am5.percent(50),
+		y: am5.percent(50),
+		layout: root.verticalLayout
+	  }));
+	  // set value labels align to right
+	  legend.valueLabels.template.setAll({ textAlign: "right" })
+	  // set width and max width of labels
+	  legend.labels.template.setAll({ 
+		maxWidth: 140,
+		width: 140,
+		oversizedBehavior: "wrap"
+	  });
+	  
+	  legend.data.setAll(series.dataItems);
+	  
+	  
+	  // Play initial series animation
+	  // https://www.amcharts.com/docs/v5/concepts/animations/#Animation_of_series
+	  series.appear(1000, 100);
+	  
+	  }); // end am5.ready()
+	  </script>
+  
+  
+  
+  
+  <script>
+	  am5.ready(function() {
+	  
+	  // Create root element
+	  // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+	  var root = am5.Root.new("chartdiv2");
+	  
+	  // Set themes
+	  // https://www.amcharts.com/docs/v5/concepts/themes/
+	  root.setThemes([
+		am5themes_Animated.new(root)
+	  ]);
+	  
+	  // Create chart
+	  // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/
+	  // start and end angle must be set both for chart and series
+	  var chart = root.container.children.push(am5percent.PieChart.new(root, {
+		layout: root.verticalLayout,
+		innerRadius: am5.percent(40)
+	  }));
+	  
+	  // Create series
+	  // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Series
+	  // start and end angle must be set both for chart and series
+	  var series0 = chart.series.push(am5percent.PieSeries.new(root, {
+		valueField: "bottles",
+		categoryField: "country",
+		alignLabels: false
+	  }));
+	  
+	  var bgColor = root.interfaceColors.get("background");
+	  
+	  series0.ticks.template.setAll({ forceHidden: true });
+	  series0.labels.template.setAll({ forceHidden: true });
+	  series0.slices.template.setAll({
+		stroke: bgColor,
+		strokeWidth: 2,
+		tooltipText:
+		  "{category}: {valuePercentTotal.formatNumber('0.00')}% ({value} bottles)"
+	  });
+	  series0.slices.template.states.create("hover", { scale: 0.95 });
+	  
+	  var series1 = chart.series.push(am5percent.PieSeries.new(root, {
+		valueField: "litres",
+		categoryField: "country",
+		alignLabels: true
+	  }));
+	  
+	  series1.slices.template.setAll({
+		stroke: bgColor,
+		strokeWidth: 2,
+		tooltipText:
+		  "{category}: {valuePercentTotal.formatNumber('0.00')}% ({value} litres)"
+	  });
+	  
+	  var data = [{
+		country: "Lithuania",
+		litres: 501.9,
+		bottles: 1500
+	  }, {
+		country: "Czech Republic",
+		litres: 301.9,
+		bottles: 990
+	  }, {
+		country: "Ireland",
+		litres: 201.1,
+		bottles: 785
+	  }, {
+		country: "Germany",
+		litres: 165.8,
+		bottles: 255
+	  }, {
+		country: "Australia",
+		litres: 139.9,
+		bottles: 452
+	  }, {
+		country: "Austria",
+		litres: 128.3,
+		bottles: 332
+	  }, {
+		country: "UK",
+		litres: 99,
+		bottles: 150
+	  }, {
+		country: "Belgium",
+		litres: 60,
+		bottles: 178
+	  }, {
+		country: "The Netherlands",
+		litres: 50,
+		bottles: 50
+	  }];
+	  
+	  // Set data
+	  // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Setting_data
+	  series0.data.setAll(data);
+	  series1.data.setAll(data);
+	  
+	  // Play initial series animation
+	  // https://www.amcharts.com/docs/v5/concepts/animations/#Animation_of_series
+	  series0.appear(1000, 100);
+	  series1.appear(1000, 100);
+	  
+	  }); // end am5.ready()
+	  </script>
+  
   {% endblock content %}

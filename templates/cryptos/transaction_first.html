@@ -1,0 +1,91 @@
+{% extends 'crypto/base2.html' %}   
+
+{% load crispy_forms_tags %}
+
+
+
+{% block content %}<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+
+
+.page_404{ padding:40px 0; background:#fff; font-family: 'Arvo', serif;
+}
+
+.page_404  img{ width:100%;}
+
+.four_zero_four_bg{
+ 
+ background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+    height: 400px;
+    background-position: center;
+ }
+ 
+ 
+ .four_zero_four_bg h1{
+ font-size:80px;
+ }
+ 
+  .four_zero_four_bg h3{
+			 font-size:80px;
+			 }
+			 
+			 .link_404{			 
+	color: #fff!important;
+    padding: 10px 20px;
+    background: #39ac31;
+    margin: 20px 0;
+    display: inline-block;}
+	.contant_box_404{ margin-top:-50px;}
+	</style>
+
+  <!-- <div class="content-wrapper" style="background-color: #000422; margin-left: 0; margin-top: 20px;">
+	  <div class="container-full">
+<section class="page_404"> -->
+	<div class="container">
+		<div class="row">	
+		<div class="col-sm-12 ">
+		<div class="col-sm-10 col-sm-offset-1  text-center">
+		<div class="four_zero_four_bg">
+			<h1 class="text-center " style="color:rgb(211 215 222);">404</h1>
+		
+		
+		</div>
+		
+		<div class="contant_box_404">
+		<h3 class="h2" style="color:rgb(211 215 222);">
+		You have No transactions 
+		</h3>
+		
+		<p style="font-size:bold;">the page you are looking for not avaible because you have no transactions!</p>
+		
+		<a href="/deposit" class="link_404">Deposit to proceed</a>
+	</div>
+		</div>
+		</div>
+		</div>
+	</div>
+<!-- </section> -->
+<script>
+function alert() {
+	$(".alert").addClass("show");
+	setTimeout("$('.alert').removeClass('show');", 1000);
+}
+
+$("a.btn").click(function(e) {
+	e.preventDefault();
+	var btn = $(this);
+	btn.addClass("rumble");
+
+	setTimeout("$('a.btn').removeClass('rumble');", 300);
+
+	alert();
+});
+
+</script>
+ <!-- </div>
+</div> -->
+{% endblock content %}

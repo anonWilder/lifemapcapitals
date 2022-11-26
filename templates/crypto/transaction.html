@@ -1,8 +1,12 @@
-{% extends 'crypto/base2.html' %}   
+ {% extends 'crypto/base.html' %}   
+
+  {% load static %}
+   {% load crispy_forms_tags %}
+
 
 
 {% block content %}
-<style>
+ <style>
 	#chartdiv {
 	  width: 100%;
 	  height: 500px;
@@ -11,10 +15,10 @@
 	width: 100%;
 	height: 500px;
 	}
-	</style>
-<!-- Content Wrapper. Contains page content -->
-  <!-- <div class="content-wrapper" style="background-color: #000422; margin-left: 0;"> -->
-	  <div class="container" >
+</style>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper" style="background-color: #000422;">
+	  <div class="container-full">
 		<!-- Content Header (Page header) -->	  
 		<div class="content-header">
 			<div class="d-flex align-items-center">
@@ -26,15 +30,6 @@
 								<li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
 								<li class="breadcrumb-item" aria-current="page">Transactions</li>
 								<li class="breadcrumb-item active" aria-current="page">Details </li>
-
-		
-
-
-
-
-
-
-
 							</ol>
 						</nav>
 					</div>
@@ -43,42 +38,10 @@
 			</div>
 		</div>
 
+
+
 		<!-- Main content -->
 		<section class="content">
-		
-			<div class="row">
-				<div class="col-lg-6 col-12">
-				  <div class="box">
-					<div class="box-header with-border">
-					  <h4 class="box-title">Deposit Chart</h4>
-					</div>
-					<div class="box-body">
-						<div id="chartdiv"></div>
-					</div>
-					<!-- /.box-body -->
-			  </div>
-				  <!-- /.box -->
-				</div>
-				<div class="col-lg-6 col-12">
-				  <div class="box">
-					<div class="box-header with-border">
-					  <h4 class="box-title">Withdraw Chart</h4>
-					</div>
-					<div class="box-body">
-							<div id="chartdiv2"></div>
-						
-					</div>
-					<!-- /.box-body -->
-				  </div>
-				  <!-- /.box -->
-				</div>
-			  </div>
-
-
-
-
-
-
 
 
 
@@ -148,14 +111,48 @@
 					</div>
 				  </div>
 				</div>
-			<!-- </div> -->
+			</div>
 
 
 
 
 
 
+			
+		<!-- Main content -->
+		<section class="content">
+		
+			<div class="row">
+				<div class="col-lg-6 col-12">
+				  <div class="box">
+					<div class="box-header with-border">
+					  <h4 class="box-title">Deposit Chart</h4>
+					</div>
+					<div class="box-body">
+						<div id="chartdiv"></div>
+					</div>
+					<!-- /.box-body -->
+			  </div>
+				  <!-- /.box -->
+				</div>
+				<div class="col-lg-6 col-12">
+				  <div class="box">
+					<div class="box-header with-border">
+					  <h4 class="box-title">Withdraw Chart</h4>
+					</div>
+					<div class="box-body">
+							<div id="chartdiv2"></div>
+						
+					</div>
+					<!-- /.box-body -->
+				  </div>
+				  <!-- /.box -->
+				</div>
+			  </div>
 
+
+		</section>
+		<!-- /.content -->
 
 
 
@@ -273,6 +270,7 @@
 	  
 	  </div>
   </div>
+  <!-- /.content-wrapper -->
   <!-- /.content-wrapper -->
   <script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
 <!-- Resources -->
@@ -549,6 +547,4 @@ chart.appear(1000, 100);
 	
 	}); // end am5.ready()
 	</script>
-
-
-{% endblock %}
+{% endblock content %}

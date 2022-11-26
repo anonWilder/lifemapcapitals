@@ -1,0 +1,861 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style type="text/css">
+    
+* {
+    box-sizing: border-box;
+}
+
+body {
+    zoom: 86%;
+}
+
+html {
+    background: #000;
+    background-size: cover;
+    font-size: 10px;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+}
+
+#company-logo {
+    animation: logo-entry 4s ease-in;
+    width: 340px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 40;
+}
+
+h1 {
+    animation: text-glow 2s ease-out infinite alternate;
+    font-family: 'Ubuntu', sans-serif;
+    color: #00a4a2;
+    font-size: 34px;
+    font-weight: bold;
+    position: absolute;
+    text-shadow: 0 0 10px #000, 0 0 20px #000, 0 0 30px #000, 0 0 40px #000, 0 0 50px #000, 0 0 60px #000, 0 0 70px #000;
+    top: 180px;
+}
+
+#login-fade-box {
+    animation: input-entry 3s ease-in;
+    z-index: 4;
+}
+
+.company-login-form form {
+    animation: form-entry 3s ease-in-out;
+    background: #111;
+    background: linear-gradient(#004746, #111111);
+    border: 6px solid #00a4a2;
+    box-shadow: 0 0 15px #00fffd;
+    border-radius: 5px;
+    display: inline-block;
+    height: 200px;
+    margin: 260px auto 0;
+    position: relative;
+    z-index: 4;
+    width: 360px;
+    transition: 1s all;
+}
+
+    .company-login-form form:hover {
+        border: 6px solid #00fffd;
+        box-shadow: 0 0 25px #00fffd;
+        transition: 1s all;
+    }
+
+.company-login-form input {
+    background: #222;
+    background: linear-gradient(#333333, #222222);
+    border: 1px solid #444;
+    border-radius: 5px;
+    box-shadow: 0 2px 0 #000;
+    color: #888;
+    display: block;
+    font-family: 'Cabin', helvetica, arial, sans-serif;
+    font-size: 13px;
+    font-size: 1.3rem;
+    height: 36px;
+    margin: 18px auto 10px;
+    padding: 0 10px;
+    text-shadow: 0 -1px 0 #000;
+    width: 210px;
+}
+
+.company-login-form select {
+    background: #222;
+    background: linear-gradient(#333333, #222222);
+    border: 1px solid #444;
+    border-radius: 5px;
+    box-shadow: 0 2px 0 #000;
+    color: #888;
+    display: block;
+    font-family: 'Cabin', helvetica, arial, sans-serif;
+    font-size: 13px;
+    font-size: 1.3rem;
+    height: 36px;
+    margin: 18px auto 10px;
+    padding: 0 10px;
+    text-shadow: 0 -1px 0 #000;
+    width: 210px;
+}
+
+    .company-login-form input, .company-login-form input:focus {
+        animation: box-glow 1s ease-out infinite alternate;
+        background: #0B4252;
+        background: linear-gradient(#333933, #222922);
+        border-color: #00fffc;
+        box-shadow: 0 0 5px rgba(0, 255, 253, 0.2), inset 0 0 5px rgba(0, 255, 253, 0.1), 0 2px 0 black;
+        color: #efe;
+        outline: none;
+    }
+
+    .company-login-form select, .company-login-form select:focus {
+        animation: box-glow 1s ease-out infinite alternate;
+        background: #0B4252;
+        background: linear-gradient(#333933, #222922);
+        border-color: #00fffc;
+        box-shadow: 0 0 5px rgba(0, 255, 253, 0.2), inset 0 0 5px rgba(0, 255, 253, 0.1), 0 2px 0 black;
+        color: #efe;
+        outline: none;
+    }
+
+        .company-login-form input:invalid {
+            border: 2px solid red;
+            box-shadow: 0 0 5px rgba(255, 0, 0, 0.2), inset 0 0 5px rgba(255, 0, 0, 0.1), 0 2px 0 black;
+        }
+
+.company-login-form button {
+    animation: input-entry 3s ease-in;
+    background: #222;
+    background: linear-gradient(#333333, #222222);
+    box-sizing: content-box;
+    border: 1px solid #444;
+    border-left-color: #000;
+    border-radius: 5px;
+    box-shadow: 0 2px 0 #000;
+    color: #fff;
+    display: block;
+    font-family: 'Cabin', helvetica, arial, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    height: 34px;
+    line-height: 34px;
+    margin: 15px auto;
+    padding: 0;
+    position: relative;
+    text-shadow: 0 -1px 0 #000;
+    width: 210px;
+    transition: 1s all;
+}
+
+    .company-login-form button:hover,
+    .company-login-form button:focus {
+        background: #0C6125;
+        background: linear-gradient(#393939, #292929);
+        color: #00fffc;
+        outline: none;
+        transition: 1s all;
+    }
+
+    .company-login-form button:active {
+        background: #292929;
+        background: linear-gradient(#393939, #292929);
+        box-shadow: 0 1px 0 #000, inset 1px 0 1px #222;
+        top: 1px;
+    }
+
+#form-outer-circle {
+    animation: form-outer-circle 4s linear infinite, circle-entry 6s ease-in-out;
+    background: #000;
+    border-radius: 50%;
+    border: 10px solid #00a4a2;
+    box-shadow: 0 0 0 2px black, 0 0 0 6px #00fffc;
+    height: 340px;
+    width: 340px;
+    position: absolute;
+    top: 180px;
+    left: 50%;
+    margin-left: -170px;
+    overflow: hidden;
+    opacity: 0.4;
+    z-index: -3;
+}
+
+#form-inner-cirlce {
+    background: #000;
+    border-radius: 80%;
+    border: 36px solid #00fffc;
+    height: 300px;
+    width: 300px;
+    margin: 10px;
+}
+
+    #form-inner-cirlce:before {
+        content: '  ';
+        width: 140px;
+        height: 420px;
+        background: #000;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    #form-inner-cirlce:after {
+        content: '  ';
+        width: 420px;
+        height: 140px;
+        background: #000;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+*/ .hexagons {
+    animation: logo-entry 4s ease-in;
+    color: #000;
+    font-size: 52px;
+    font-size: 5.1rem;
+    letter-spacing: -0.2em;
+    line-height: 0.7;
+    position: absolute;
+    text-shadow: 0 0 6px #00fffc;
+    top: 310px;
+    width: 100%;
+    transform: perspective(600px) rotateX(60deg) scale(1.4);
+    z-index: -3;
+}
+
+@keyframes logo-entry {
+    0% {
+        opacity: 0;
+    }
+
+    80% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes circle-entry {
+    0% {
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0.4;
+    }
+}
+
+@keyframes input-entry {
+    0% {
+        opacity: 0;
+    }
+
+    90% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes form-entry {
+    0% {
+        height: 0;
+        width: 0;
+        opacity: 0;
+        padding: 0;
+    }
+
+    20% {
+        height: 0;
+        border: 1px solid #00a4a2;
+        width: 0;
+        opacity: 0;
+        padding: 0;
+    }
+
+    40% {
+        width: 0;
+        height: 200px;
+        border: 6px solid #00a4a2;
+        opacity: 1;
+        padding: 0;
+    }
+
+    100% {
+        height: 200px;
+        width: 360px;
+    }
+}
+
+@keyframes box-glow {
+    0% {
+        border-color: #00b8b6;
+        box-shadow: 0 0 5px rgba(0, 255, 253, 0.2), inset 0 0 5px rgba(0, 255, 253, 0.1), 0 2px 0 black;
+    }
+
+    100% {
+        border-color: #00fffc;
+        box-shadow: 0 0 20px rgba(0, 255, 253, 0.6), inset 0 0 10px rgba(0, 255, 253, 0.4), 0 2px 0 black;
+    }
+}
+
+@keyframes text-glow {
+    0% {
+        color: #00a4a2;
+        text-shadow: 0 0 10px #000, 0 0 20px #000, 0 0 30px #000, 0 0 40px #000, 0 0 50px #000, 0 0 60px #000, 0 0 70px #000;
+    }
+
+    100% {
+        color: #00fffc;
+        text-shadow: 0 0 20px rgba(0, 255, 253, 0.6), 0 0 10px rgba(0, 255, 253, 0.4), 0 2px 0 black;
+    }
+}
+
+@keyframes before-glow {
+    0% {
+        border-bottom: 10px solid #00a4a2;
+    }
+
+    100% {
+        border-bottom: 10px solid #00fffc;
+    }
+}
+
+@keyframes after-glow {
+    0% {
+        border-top: 16px solid #00a4a2;
+    }
+
+    100% {
+        border-top: 16px solid #00fffc;
+    }
+}
+
+@keyframes form-outer-circle {
+    0% {
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+.core {
+    background: #cedce0;
+    width: 100px;
+    height: 100px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    border: 10px rgba(2, 255, 255, 0.15) solid;
+    animation: flicker 0.2s infinite;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+}
+
+.core2 {
+    background: #cedce0;
+    width: 100px;
+    height: 100px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    border: 10px rgba(2, 255, 255, 0.15) solid;
+    animation: flicker2 0.2s infinite;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+}
+
+.big_core {
+    background: #cedce0;
+    width: 200px;
+    height: 200px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    border: 10px rgba(2, 255, 255, 0.15) solid;
+    animation: big_flicker 0.2s infinite;
+}
+
+.c_ease {
+    animation: colour_ease 3s infinite ease-in-out;
+}
+
+.counterspin5 {
+    animation: rotate_anti 5s linear infinite;
+}
+
+.counterspin4 {
+    animation: rotate_anti 4s linear infinite;
+}
+
+.semi_arc {
+    width: 100px;
+    height: 100px;
+    border: 6px solid #02feff;
+    background: rgba(2, 254, 255, 0.2);
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    transform: rotateZ(0deg);
+    transition: box-shadow 3s ease;
+    text-align: center;
+    line-height: 100px;
+}
+
+    .semi_arc:hover {
+        box-shadow: 0px 0px 30px rgba(2, 254, 255, 0.8);
+        transition: 0.3s;
+    }
+
+.semi_arc_2 {
+    content: "";
+    position: absolute;
+    width: 94%;
+    height: 94%;
+    left: 3%;
+    top: 3%;
+    border: 5px solid #02feff;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    animation: rotate 4s linear infinite;
+    text-align: center;
+    line-height: 129px;
+}
+
+    .semi_arc_2:after {
+        content: "";
+        position: absolute;
+        width: 94%;
+        height: 94%;
+        left: 3%;
+        top: 3%;
+        border: 4px solid #02feff;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        animation: rotate_anti 2s linear infinite;
+    }
+
+.semi_arc_3 {
+    content: "";
+    position: absolute;
+    width: 94%;
+    height: 94%;
+    left: 3%;
+    top: 3%;
+    border: 5px solid #02feff;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    animation: rotate 4s linear infinite;
+    text-align: center;
+    line-height: 129px;
+}
+
+.arc {
+    width: 100px;
+    height: 100px;
+    border: 6px solid #02feff;
+    background: rgba(2, 254, 255, 0.2);
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    -moz-transform: rotateY(-30deg) translateZ(-200px);
+    -ms-transform: rotateY(-30deg) translateZ(-200px);
+    -webkit-transform: rotateY(-30deg) translateZ(-200px);
+    transform: rotateY(-30deg) translateZ(-200px);
+    transform: rotateZ(0deg);
+    transition: box-shadow 3s ease;
+    text-align: center;
+    line-height: 100px;
+}
+
+    .arc:hover {
+        box-shadow: 0px 0px 30px rgba(2, 254, 255, 0.8);
+        transition: 0.3s;
+    }
+
+    .arc:after {
+        content: "";
+        position: absolute;
+        width: 94%;
+        height: 94%;
+        left: 3%;
+        top: 3%;
+        border: 4px solid #02feff;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        animation: rotate 4s linear infinite;
+    }
+
+.e1:after {
+    border-color: rgba(2, 255, 255, 0.6);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+}
+
+.e2:after {
+    border-color: rgba(2, 255, 255, 0.6);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+}
+
+.e3 {
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    animation: rotate 5s linear infinite;
+}
+
+    .e3:after {
+        border-color: rgba(2, 255, 255, 0.6);
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+    }
+
+.e4 {
+    width: 150px;
+    height: 150px;
+}
+
+.e4_1 {
+    border-color: rgba(2, 255, 255, 0.3);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+}
+
+    .e4_1:after {
+        border-color: rgba(2, 255, 255, 0.6);
+        border-top: 4px solid transparent;
+        border-bottom: 4px solid transparent;
+    }
+
+.e5 {
+    width: 200px;
+    height: 200px;
+}
+
+.e5_1 {
+    color: rgba(2, 255, 255, 0.15);
+    border: 2px solid;
+    border-left: 2px solid transparent;
+    animation: rotate 5s linear infinite;
+}
+
+.e5_2 {
+    color: rgba(2, 255, 255, 0.7);
+    border: 4px solid;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    animation: rotate_anti 4s linear infinite;
+}
+
+.e5_3 {
+    color: rgba(2, 255, 255, 0.5);
+    border: 2px solid;
+    border-left: 2px solid transparent;
+    border-right: 2px solid transparent;
+    animation: rotate 3s linear infinite;
+}
+
+.e5_4 {
+    color: rgba(2, 255, 255, 0.15);
+    border: 4px solid;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    animation: rotate_anti 2s linear infinite;
+}
+
+.e6 {
+    border-color: transparent;
+    background: rgba(255, 255, 255, 0);
+    width: 200px;
+    height: 200px;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotateZ(0deg);
+    }
+
+    100% {
+        transform: rotateZ(360deg);
+    }
+}
+
+@keyframes rotate_anti {
+    0% {
+        transform: rotateZ(360deg);
+    }
+
+    100% {
+        transform: rotateZ(0deg);
+    }
+}
+
+@keyframes colour_ease {
+    0% {
+        border-color: #02feff;
+    }
+
+    50% {
+        border-color: rgba(2, 254, 255, 0.5);
+    }
+
+    100% {
+        border-color: #02feff;
+    }
+}
+
+@keyframes flicker {
+    0% {
+        box-shadow: 0px 0px 16px 8px rgba(150, 255, 255, 0.5), inset 0px 1px 4px 2px rgba(21, 211, 233, 0.3);
+    }
+
+    40% {
+        box-shadow: 0px 0px 16px 8px rgba(150, 255, 255, 0.5), inset 0px 1px 4px 2px rgba(21, 211, 233, 0.3);
+    }
+
+    50% {
+        box-shadow: 0px 0px 16px 6px rgba(150, 255, 255, 0.5), inset 0px 1px 100px 2px rgba(21, 211, 233, 0.3);
+    }
+
+    60% {
+        box-shadow: 0px 0px 16px 8px rgba(150, 255, 255, 0.5), inset 0px 1px 4px 2px rgba(21, 211, 233, 0.3);
+    }
+
+    100% {
+        box-shadow: 0px 0px 16px 8px rgba(150, 255, 255, 0.5), inset 0px 1px 4px 2px rgba(21, 211, 233, 0.3);
+    }
+}
+
+@keyframes flicker2 {
+    0% {
+        box-shadow: 0px 0px 60px 25px rgba(150, 255, 255, 0.5), inset 0px 1px 4px 2px rgba(21, 211, 233, 0.3);
+    }
+
+    40% {
+        box-shadow: 0px 0px 60px 25px rgba(150, 255, 255, 0.5), inset 0px 1px 4px 2px rgba(21, 211, 233, 0.3);
+    }
+
+    50% {
+        box-shadow: 0px 0px 50px 17px rgba(150, 255, 255, 0.5), inset 0px 1px 100px 2px rgba(21, 211, 233, 0.3);
+    }
+
+    60% {
+        box-shadow: 0px 0px 60px 25px rgba(150, 255, 255, 0.5), inset 0px 1px 4px 2px rgba(21, 211, 233, 0.3);
+    }
+
+    100% {
+        box-shadow: 0px 0px 60px 25px rgba(150, 255, 255, 0.5), inset 0px 1px 4px 2px rgba(21, 211, 233, 0.3);
+    }
+}
+
+@keyframes big_flicker {
+    0% {
+        box-shadow: 0px 0px 40px 20px rgba(150, 255, 255, 0.5), inset 0px 1px 30px 15px rgba(21, 211, 233, 0.3);
+    }
+
+    40% {
+        box-shadow: 0px 0px 40px 20px rgba(150, 255, 255, 0.5), inset 0px 1px 30px 15px rgba(21, 211, 233, 0.3);
+    }
+
+    50% {
+        box-shadow: 0px 0px 35px 17px rgba(150, 255, 255, 0.5), inset 0px 1px 50px 40px rgba(21, 211, 233, 0.3);
+    }
+
+    60% {
+        box-shadow: 0px 0px 40px 20px rgba(150, 255, 255, 0.5), inset 0px 1px 30px 15px rgba(21, 211, 233, 0.3);
+    }
+
+    100% {
+        box-shadow: 0px 0px 40px 20px rgba(150, 255, 255, 0.5), inset 0px 1px 30px 15px rgba(21, 211, 233, 0.3);
+    }
+}
+
+#leftmenu {
+    animation: logo-entry 4s ease-in-out;
+    position: fixed;
+    float: left;
+    top: 0;
+    margin-top: 60px;
+    left: 0;
+    margin-left: 60px;
+    width: 210px;
+}
+
+#rightmenu {
+    animation: logo-entry 4s ease-in-out;
+    position: fixed;
+    margin-bottom: 60px;
+    bottom: 0;
+    margin-right: 60px;
+    right: 0;
+}
+
+#date_time {
+    width: 200px;
+    height: 200px;
+}
+
+#time {
+    margin-left: 110px;
+    position: fixed;
+    background: rgba(0,0,0,0.8);
+    line-height: 0;
+}
+
+#date {
+    position: fixed;
+    margin-top: 20px;
+    background: rgba(0,0,0,0.8);
+}
+
+  </style>
+</head>
+<body>
+<div id="leftmenu">
+    <div id="date_time">
+        <div id="date" class="semi_arc e4 c_ease">
+            <div class="semi_arc_2 e4_1">
+                <div class="counterspin4"></div>
+            </div>
+            <div style="color:#02feff;font-size: 40px; margin-top: 0px;" id="login-date"></div>
+            <div style="color:#02feff;font-size: 25px;margin-top: -65px;" id="login-month"></div>
+        </div>
+        <div id="time" class="arc e1 c_ease">
+            <div style="color:#02feff;font-size: 18px; margin-left: 0px; margin-top: 52px;text-align:center;" id="login-time"></div>
+            <div style="color:#02feff;font-size: 17px; margin-top: -20px;" id="login-day"></div>
+        </div>
+    </div>
+</div>
+<div id="rightmenu">
+    <div style="color:#02feff;font-size:28px;margin-bottom:-110px;">Lifemap</div>
+    <div class="semi_arc e5 c_ease">
+        <div class="semi_arc_3 e5_1">
+            <div class="semi_arc_3 e5_2">
+                <div class="semi_arc_3 e5_3">
+                    <div class="semi_arc_3 e5_4">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div id="company-logo">
+    <h1><i> Login</i></h1>
+</div> -->
+<div class="company-login-form">
+    <form action="" method="POST">
+        <div id="login-fade-box">
+           {% csrf_token %}
+            {{form}}
+            <button type="submit" id="waitMe_ex_body">Update</button>
+        </div>
+    </form>
+</div>
+<div id="form-outer-circle">
+    <div id="form-inner-cirlce">
+    </div>
+</div>
+
+<script>
+  function showTime() {
+    var a_p = "";
+    var today = new Date();
+    var curr_hour = today.getHours();
+    var curr_minute = today.getMinutes();
+    var curr_second = today.getSeconds();
+    if (curr_hour < 12) {
+        a_p = " AM ";
+    } else {
+        a_p = " PM ";
+    }
+    if (curr_hour == 0) {
+        curr_hour = 12;
+    }
+    if (curr_hour > 12) {
+        curr_hour = curr_hour - 12;
+    }
+    curr_hour = checkTime(curr_hour);
+    curr_minute = checkTime(curr_minute);
+    curr_second = checkTime(curr_second);
+   // document.getElementById('clock-large').innerHTML = curr_hour + " : " + curr_minute + " : " + curr_second + " " + a_p;
+    document.getElementById('login-time').innerHTML = curr_hour + ":" + curr_minute + "<span style='font-size:10px;'>" + a_p +"</span>";
+}
+
+function checkTime(i) {
+    if (i < 10) {
+        i = "0" + i;
+    }
+    return i;
+}
+
+setInterval(showTime, 500);
+
+var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+var myDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+var date = new Date();
+var day = date.getDate();
+var month = date.getMonth();
+var thisDay = date.getDay(),
+    thisDay = myDays[thisDay];
+var yy = date.getYear();
+var year = (yy < 1000) ? yy + 1900 : yy;
+
+//document.getElementById('date-large').innerHTML = thisDay + ", " + day + " " + months[month] + " " + year;
+
+document.getElementById('login-day').innerHTML = thisDay;
+
+document.getElementById('login-date').innerHTML = day;
+
+document.getElementById('login-month').innerHTML = months[month];
+
+</script>
+</body>
+</html>

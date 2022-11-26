@@ -1,0 +1,759 @@
+       {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="">
+
+    <title>Lifemapcapitals</title>
+
+
+
+<!-- 
+   /** Imports Plugin css **/
+/****************************/ -->
+<link rel="stylesheet" href="{% static 'assets/vendor_components/bootstrap/dist/css/bootstrap.css' %}">
+<link rel="stylesheet" href="{% static 'assets/vendor_components/perfect-scrollbar/css/perfect-scrollbar.css' %}">
+<link rel="stylesheet" href="{% static 'assets/vendor_components/morris.js/morris.css' %}">
+<link rel="stylesheet" href="{% static 'assets/vendor_components/OwlCarousel2/dist/assets/owl.carousel.css' %}">
+<link rel="stylesheet" href="{% static 'assets/vendor_components/OwlCarousel2/dist/assets/owl.theme.default.min.css' %}">
+<link rel="stylesheet" href="{% static 'assets/vendor_components/horizontal-timeline/css/horizontal-timeline.css' %}">
+<link rel="stylesheet" href="{% static 'assets/vendor_components/flexslider/flexslider.css' %}">
+<link rel="stylesheet" href="{% static 'assets/vendor_components/prism/prism.css' %}">
+<link rel="stylesheet" href="{% static 'assets/vendor_components/datatable/datatables.min.css' %}">
+<link rel="stylesheet" href="{% static 'assets/vendor_components/Magnific-Popup-master/dist/magnific-popup.css' %}">
+<link rel="stylesheet" href="{% static 'assets/vendor_components/gallery/css/animated-masonry-gallery.css' %}">
+<link rel="stylesheet" href="{% static 'assets/vendor_components/lightbox-master/dist/ekko-lightbox.css' %}">
+<link rel="stylesheet" href="{% static 'assets/vendor_components/jvectormap/lib2/jquery-jvectormap-2.0.2.css' %}">
+<link rel="stylesheet" href="{% static 'assets/vendor_components/x-editable/dist/bootstrap3-editable/css/bootstrap-editable.css' %}">
+<link rel="stylesheet" href="{% static 'assets/vendor_components/sweetalert/sweetalert.css' %}">
+<link rel="stylesheet" href="{% static 'assets/vendor_components/bootstrap-markdown-master/css/bootstrap-markdown.css' %}">
+<link rel="stylesheet" href="{% static 'assets/vendor_components/dropzone/dropzone.css' %}">
+<link rel="stylesheet" href="{% static 'assets/vendor_components/select2/dist/css/select2.min.css' %}">
+<link rel="stylesheet" href="{% static 'assets/vendor_components/bootstrap-daterangepicker/daterangepicker.css' %}">
+<link rel="stylesheet" href="{% static 'assets/vendor_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css' %}">
+<link rel="stylesheet" href="{% static 'assets/vendor_components/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css' %}">
+<link rel="stylesheet" href="{% static 'assets/vendor_components/bootstrap-select/dist/css/bootstrap-select.css' %}">
+<link rel="stylesheet" href="{% static 'assets/vendor_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.css' %}">
+<link rel="stylesheet" href="{% static 'assets/vendor_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.css' %}">
+<link rel="stylesheet" href="{% static 'assets/vendor_components/raty-master/lib/jquery.raty.css' %}">
+<link rel="stylesheet" href="{% static 'assets/vendor_components/ion-rangeSlider/css/ion.rangeSlider.css' %}">
+<link rel="stylesheet" href="{% static 'assets/vendor_components/ion-rangeSlider/css/ion.rangeSlider.skinModern.css' %}">
+<link rel="stylesheet" href="{% static 'assets/vendor_components/gridstack/gridstack.css' %}">
+<link rel="stylesheet" href="{% static 'assets/vendor_components/jquery-toast-plugin-master/src/jquery.toast.css' %}">
+<link rel="stylesheet" href="{% static 'assets/vendor_components/nestable/nestable.css' %}">
+<link rel="stylesheet" href="{% static 'assets/vendor_components/bootstrap-switch/switch.css' %}">
+<link rel="stylesheet" href="{% static 'assets/vendor_components/c3/c3.min.css' %}">
+<link rel="stylesheet" href="{% static 'assets/vendor_components/chartist-js-develop/chartist.css' %}">
+<link rel="stylesheet" href="{% static 'assets/vendor_plugins/bootstrap-slider/slider.css' %}">
+<link rel="stylesheet" href="{% static 'assets/vendor_plugins/iCheck/flat/blue.css' %}">
+<link rel="stylesheet" href="{% static 'assets/vendor_plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css' %}">
+<link rel="stylesheet" href="{% static 'assets/vendor_plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.css' %}">
+<link rel="stylesheet" href="{% static 'assets/vendor_plugins/iCheck/all.css' %}">
+<link rel="stylesheet" href="{% static 'assets/vendor_plugins/timepicker/bootstrap-timepicker.min.css' %}">
+<link rel="stylesheet" href="{% static 'assets/vendor_plugins/pace/pace.min.css' %}">
+<link rel="stylesheet" href="{% static 'assets/vendor_components/fullcalendar/fullcalendar.min.css' %}">
+<link rel="stylesheet" href="{% static 'assets/vendor_components/fullcalendar/fullcalendar.print.min.css' %}" print;>
+<link rel="stylesheet" href="{% static 'assets/vendor_components/weather-icons/weather-icons.css' %}">
+<link rel="stylesheet" href="{% static 'assets/vendor_components/FlipClock-master/compiled/flipclock.css' %}">
+
+
+
+<link rel="stylesheet" href="{% static 'css/color_theme.css' %}">
+<link rel="stylesheet" href="{% static 'css/style_rtl.css' %}">
+<link rel="stylesheet" href="{% static 'assets/icons/font-awesome/css/font-awesome.css' %}">
+<link rel="stylesheet" href="{% static 'assets/icons/Ionicons/css/ionicons.css' %}">
+<link rel="stylesheet" href="{% static 'assets/icons/themify-icons/themify-icons.css' %}">
+<link rel="stylesheet" href="{% static 'assets/icons/linea-icons/linea.css' %}">
+<link rel="stylesheet" href="{% static 'assets/icons/glyphicons/glyphicon.css' %}">
+<link rel="stylesheet" href="{% static 'assets/icons/flag-icon-css/css/flag-icon.css' %}">
+<link rel="stylesheet" href="{% static 'assets/icons/material-design-iconic-font/css/materialdesignicons.css' %}">
+<link rel="stylesheet" href="{% static 'assets/icons/simple-line-icons/css/simple-line-icons.css' %}">
+<link rel="stylesheet" href="{% static 'assets/icons/cryptocoins-master/cryptocoins.css' %}">
+<link rel="stylesheet" href="{% static 'assets/icons/weather-icons/css/weather-icons.min.css' %}">
+<link rel="stylesheet" href="{% static 'assets/icons/iconsmind/style.css' %}">
+<link rel="stylesheet" href="{% static 'assets/icons/icomoon/style.css' %}">
+<link rel="stylesheet" href="{% static 'assets/vendor_components/animate/animate.css' %}">
+	<!-- Vendors Style-->   <link rel="stylesheet" href="{% static 'css/vendors_css.css' %}">
+     
+   <!-- Style-->  
+   <link rel="stylesheet" href="{% static 'css/style.css' %}">
+   <link rel="stylesheet" href="{% static 'css/skin_color.css' %}">  
+
+
+     
+  </head>
+
+<body class="hold-transition dark-skin sidebar-mini theme-primary fixed">
+	
+<div class="wrapper">
+	<div id="loader"></div>
+	
+  <header class="main-header" style="background-color:#000422;">
+  	<div style="height:62px; background-color: #FFFFFF; overflow:hidden; box-sizing: border-box; border: 1px solid #56667F; border-radius: 4px; text-align: right; line-height:14px; block-size:62px; font-size: 12px; font-feature-settings: normal; text-size-adjust: 100%; box-shadow: inset 0 -20px 0 0 #000422;padding:1px;padding: 0px; margin: 0px; width: 100%;"><div style="height:40px; padding:0px; margin:0px; width: 100%;"><iframe src="https://widget.coinlib.io/widget?type=horizontal_v2&theme=light&pref_coin_id=1505&invert_hover=" width="100%" height="36px" scrolling="auto" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;"></iframe></div><div style="color: #FFFFFF; line-height: 14px; font-weight: 400; font-size: 11px; box-sizing: border-box; padding: 2px 6px; width: 100%; font-family: Verdana, Tahoma, Arial, sans-serif;"><a href="https://coinlib.io" target="_blank" style="font-weight: 500; color: #FFFFFF; text-decoration:none; font-size:11px">Cryptocurrency Prices</a>&nbsp;by Lifemapcapital</div></div>
+<!-- 
+	<div class="d-flex align-items-center logo-box justify-content-start" style="background: #000422 !important;">	 -->
+		<!-- Logo -->
+
+		<!-- <a href="/" class="logo"> -->
+		  <!-- logo-->
+	<!-- 	  <div class="logo-mini w-50">
+			  <span class="dark-logo"><img src="{% static 'images/BITTECHFX LOGO.png' %}" alt="logo"></span>
+		  </div>
+		  <div class="logo-lg">
+			  <span class="dark-logo"><img src="{% static 'images/logo.png' %}" alt="logo"></span>
+		  </div>
+		</a>	
+	</div>  -->
+
+    <!-- Header Navbar -->
+    <nav class="navbar navbar-static-top">
+      <!-- Sidebar toggle button-->
+	  <div class="app-menu">
+		<ul class="header-megamenu nav">
+			<li class="btn-group nav-item">
+				<a href="#" class="waves-effect waves-light nav-link push-btn btn-primary-light" data-toggle="push-menu" role="button">
+					<i data-feather="align-left"></i>
+			    </a>
+			</li>
+
+		</ul> 
+	  </div>
+		
+      <div class="navbar-custom-menu r-side">
+        <ul class="nav navbar-nav">	
+			
+			<li class="btn-group d-md-inline-flex d-none">
+              <a href="javascript:void(0)" title="skin Change" class="waves-effect skin-toggle waves-light">
+			  	<label class="switch">
+					<input type="checkbox" data-mainsidebarskin="toggle" id="toggle_left_sidebar_skin">
+					<span class="switch-on"><i class="mdi mdi-lightbulb-on"></i></span>
+					<span class="switch-off"><i class="mdi mdi-lightbulb"></i></span>
+				</label>
+			  </a>
+				
+            </li>
+			
+			
+			<li class="btn-group d-lg-inline-flex d-none">
+				<a href="#" data-provide="fullscreen" class="waves-effect waves-light full-screen btn-warning-light" title="Full Screen">
+					<i data-feather="maximize"></i>
+			    </a>
+			</li>
+		  <!-- Notifications -->
+		
+		  
+	      <!-- User Account-->
+          <li class="dropdown user user-menu">
+            <a href="#" class="waves-effect waves-light dropdown-toggle w-auto l-h-12 bg-transparent py-0 no-shadow" data-bs-toggle="dropdown" title="User">
+				<div class="d-flex pt-5">
+					<div class="text-end me-10">
+						<p class="pt-5 fs-14 mb-0 fw-700 text-primary">{{user.first_name}} {{user.last_name}}</p>
+						<small class="fs-10 mb-0 text-uppercase text-mute">{{user.username}}</small>
+					</div>
+					<img src="{{user.profile.image.url}}" class="avatar rounded-10 bg-primary-light h-40 w-40" alt="" />
+				</div>
+            </a>
+            <ul class="dropdown-menu animated flipInX">
+              <li class="user-body">
+				 <a class="dropdown-item" href="/"><i class="ti-user text-muted me-2"></i>Home</a>
+				<a class="dropdown-item" href="/auto"><i class="ti-lock text-muted me-2"></i>automatic increase</a>
+				 <a class="dropdown-item" href="/profile"><i class="ti-settings text-muted me-2"></i> Settings</a>
+				 <div class="dropdown-divider"></div>
+				 <a class="dropdown-item" href="/logout"><i class="ti-lock text-muted me-2"></i> Logout</a>
+              </li>
+            </ul>
+          </li>	
+			
+        </ul>
+      </div>
+    </nav>
+  </header>
+  
+  <aside class="main-sidebar" style="background-color:#000422;">
+    <!-- sidebar-->
+    <section class="sidebar position-relative">	
+	  	<div class="multinav">
+		  <div class="multinav-scroll" style="height: 100%;">	
+			  <!-- sidebar menu-->
+			  <ul class="sidebar-menu" data-widget="tree">	
+				<li>
+				  <a href="/dashboard">
+					<i data-feather="monitor"></i>Dashboard				  
+					<span class="pull-right-container">
+					  <i class="fa fa-angle-right pull-right"></i>
+					</span>
+				  </a>
+				</li>				  
+				<li>
+				  <a href="/deposit">
+					<i data-feather="cpu"></i>
+					Deposit
+					<span class="pull-right-container">
+					  <i class="fa fa-angle-right pull-right"></i>
+					</span>
+				  </a>
+				</li>
+				<li>
+					 <a href="/withdraw">
+					<i data-feather="grid"></i>
+					Withdrawal
+					<span class="pull-right-container">
+					  <i class="fa fa-angle-right pull-right"></i>
+					</span>
+				  </a>
+				</li>
+					<li>
+				  	<a href="/speacial_parkages">
+					<i data-feather="grid"></i>
+					Special Packages
+					<span class="pull-right-container">
+					  <i class="fa fa-angle-right pull-right"></i>
+					</span>
+				  </a>
+				</li>
+ 
+				<li>
+				  <a href="/packages">
+					<i data-feather="package"></i>
+					Packages
+					<span class="pull-right-container">
+					  <i class="fa fa-angle-right pull-right"></i>
+					</span>
+				  </a>
+				</li>	
+					<li>
+				  <a href="/transactions">
+					<i data-feather="inbox"></i>
+					Transaction Historys
+					<span class="pull-right-container">
+					  <i class="fa fa-angle-right pull-right"></i>
+					</span>
+				  </a>
+				</li>
+			<!-- 	<li>
+				  <a href="/transaction_first">
+					<i data-feather="inbox"></i>
+					Transaction Historys
+					<span class="pull-right-container">
+					  <i class="fa fa-angle-right pull-right"></i>
+					</span>
+				  </a>
+				</li>   -->	
+				<li>
+				  <a href="/referal">
+					<i data-feather="user"></i>
+					Referd Users
+					<span class="pull-right-container">
+					  <i class="fa fa-angle-right pull-right"></i>
+					</span>
+				  </a>
+				</li> 
+				<li>
+				  <a href="/support">
+					<i data-feather="alert-triangle"></i>
+					Support
+					<span class="pull-right-container">
+					  <i class="fa fa-angle-right pull-right"></i>
+					</span>
+				  </a>
+				  
+				</li>
+				{% if user.is_superuser or user.is_staff %}
+				<li>
+				  <a href="/adminDT">
+
+					<i data-feather="lock"></i>
+					DS Transactions (admin)
+					<span class="pull-right-container">
+					  <i class="fa fa-angle-right pull-right"></i>
+					</span>
+				  </a>
+				  
+				</li>
+				
+				<li>
+				  <a href="/adminWD">
+					<i data-feather="lock"></i>
+					WD Transactions (admin)
+					<span class="pull-right-container">
+					  <i class="fa fa-angle-right pull-right"></i>
+					</span>
+				  </a>
+				  
+				</li>
+				<li>
+					<a href="/client-ip">
+					  <i data-feather="lock"></i>
+					  All User/Locations (admin)
+					  <span class="pull-right-container">
+						<i class="fa fa-angle-right pull-right"></i>
+					  </span>
+					</a>
+					
+				  </li>
+				<li>
+				  <a href="/all_user">
+					<i data-feather="lock"></i>
+					All User/Details (admin)
+					<span class="pull-right-container">
+					  <i class="fa fa-angle-right pull-right"></i>
+					</span>
+				  </a>
+				  
+				</li>
+				<li>
+				  <a href="/adminPAR">
+
+					<i data-feather="lock"></i>
+					Package Request (admin)
+					<span class="pull-right-container">
+					  <i class="fa fa-angle-right pull-right"></i>
+					</span>
+				  </a>
+				  
+				</li>
+						<li>
+				  <a href="/admin">
+					<i data-feather="lock"></i>
+					Full Controll switch (admin)
+					<span class="pull-right-container">
+					  <i class="fa fa-angle-right pull-right"></i>
+					</span>
+				  </a>
+				  
+				</li>
+				{% endif %}
+			  </ul>
+			  
+			  <div class="sidebar-widgets">	
+	 
+				<div class="copyright text-start m-25">
+				<p><strong class="d-block">Trusted all over the world</strong> © 2013 All Rights Reserved</p>
+				</div>
+			  </div>
+		  </div>
+		</div>
+    </section>
+  </aside>
+{% block content %}
+{% include 'crypto/messages.html' %}
+
+
+
+
+{% endblock content %}
+
+
+ <!-- /.content-wrapper -->
+  <!-- <footer class="main-footer">
+    <div class="pull-right d-none d-sm-inline-block">
+        <ul class="nav nav-primary nav-dotted nav-dot-separated justify-content-center justify-content-md-end">
+		  <li class="nav-item">
+			<a class="nav-link" href="javascript:void(0)">FAQ</a>
+		  </li>
+	
+		</ul>
+    </div>
+	  &copy; 2013 <a href="/">Lifemapcapital</a>. All Rights Reserved.
+  </footer> -->
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar">
+	  
+	<div class="rpanel-title"><span class="pull-right btn btn-circle btn-danger" data-toggle="control-sidebar"><i class="ion ion-close text-white"></i></span> </div>  <!-- Create the tabs -->
+    <ul class="nav nav-tabs control-sidebar-tabs">
+      <li class="nav-item"><a href="#control-sidebar-home-tab" data-bs-toggle="tab"><i class="mdi mdi-message-text"></i></a></li>
+      <li class="nav-item"><a href="#control-sidebar-settings-tab" data-bs-toggle="tab"><i class="mdi mdi-playlist-check"></i></a></li>
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <!-- Home tab content -->
+      <div class="tab-pane" id="control-sidebar-home-tab">
+          <div class="flexbox">
+			<a href="javascript:void(0)" class="text-grey">
+				<i class="ti-more"></i>
+			</a>	
+			<p>Users</p>
+			<a href="javascript:void(0)" class="text-end text-grey"><i class="ti-plus"></i></a>
+		  </div>
+		  <div class="lookup lookup-sm lookup-right d-none d-lg-block">
+			<input type="text" name="s" placeholder="Search" class="w-p100">
+		  </div>
+          <div class="media-list media-list-hover mt-20">
+			<div class="media py-10 px-0">
+			  <a class="avatar avatar-lg status-success" href="#">
+				<img src="../images/avatar/1.jpg" alt="...">
+			  </a>
+			  <div class="media-body">
+				<p class="fs-16">
+				  <a class="hover-primary" href="#"><strong>Tyler</strong></a>
+				</p>
+				<p>Praesent tristique diam...</p>
+				  <span>Just now</span>
+			  </div>
+			</div>
+
+			<div class="media py-10 px-0">
+			  <a class="avatar avatar-lg status-danger" href="#">
+				<img src="../images/avatar/2.jpg" alt="...">
+			  </a>
+			  <div class="media-body">
+				<p class="fs-16">
+				  <a class="hover-primary" href="#"><strong>Luke</strong></a>
+				</p>
+				<p>Cras tempor diam ...</p>
+				  <span>33 min ago</span>
+			  </div>
+			</div>
+
+			<div class="media py-10 px-0">
+			  <a class="avatar avatar-lg status-warning" href="#">
+				<img src="../images/avatar/3.jpg" alt="...">
+			  </a>
+			  <div class="media-body">
+				<p class="fs-16">
+				  <a class="hover-primary" href="#"><strong>Evan</strong></a>
+				</p>
+				<p>In posuere tortor vel...</p>
+				  <span>42 min ago</span>
+			  </div>
+			</div>
+
+			<div class="media py-10 px-0">
+			  <a class="avatar avatar-lg status-primary" href="#">
+				<img src="../images/avatar/4.jpg" alt="...">
+			  </a>
+			  <div class="media-body">
+				<p class="fs-16">
+				  <a class="hover-primary" href="#"><strong>Evan</strong></a>
+				</p>
+				<p>In posuere tortor vel...</p>
+				  <span>42 min ago</span>
+			  </div>
+			</div>			
+			
+			<div class="media py-10 px-0">
+			  <a class="avatar avatar-lg status-success" href="#">
+				<img src="../images/avatar/1.jpg" alt="...">
+			  </a>
+			  <div class="media-body">
+				<p class="fs-16">
+				  <a class="hover-primary" href="#"><strong>Tyler</strong></a>
+				</p>
+				<p>Praesent tristique diam...</p>
+				  <span>Just now</span>
+			  </div>
+			</div>
+
+			<div class="media py-10 px-0">
+			  <a class="avatar avatar-lg status-danger" href="#">
+				<img src="../images/avatar/2.jpg" alt="...">
+			  </a>
+			  <div class="media-body">
+				<p class="fs-16">
+				  <a class="hover-primary" href="#"><strong>Luke</strong></a>
+				</p>
+				<p>Cras tempor diam ...</p>
+				  <span>33 min ago</span>
+			  </div>
+			</div>
+
+			<div class="media py-10 px-0">
+			  <a class="avatar avatar-lg status-warning" href="#">
+				<img src="../images/avatar/3.jpg" alt="...">
+			  </a>
+			  <div class="media-body">
+				<p class="fs-16">
+				  <a class="hover-primary" href="#"><strong>Evan</strong></a>
+				</p>
+				<p>In posuere tortor vel...</p>
+				  <span>42 min ago</span>
+			  </div>
+			</div>
+
+			<div class="media py-10 px-0">
+			  <a class="avatar avatar-lg status-primary" href="#">
+				<img src="../images/avatar/4.jpg" alt="...">
+			  </a>
+			  <div class="media-body">
+				<p class="fs-16">
+				  <a class="hover-primary" href="#"><strong>Evan</strong></a>
+				</p>
+				<p>In posuere tortor vel...</p>
+				  <span>42 min ago</span>
+			  </div>
+			</div>
+			  
+		  </div>
+
+      </div>
+      <!-- /.tab-pane -->
+      <!-- Settings tab content -->
+      <div class="tab-pane" id="control-sidebar-settings-tab">
+          <div class="flexbox">
+			<a href="javascript:void(0)" class="text-grey">
+				<i class="ti-more"></i>
+			</a>	
+			<p>Todo List</p>
+			<a href="javascript:void(0)" class="text-end text-grey"><i class="ti-plus"></i></a>
+		  </div>
+        <ul class="todo-list mt-20">
+			<li class="py-15 px-5 by-1">
+			  <!-- checkbox -->
+			  <input type="checkbox" id="basic_checkbox_1" class="filled-in">
+			  <label for="basic_checkbox_1" class="mb-0 h-15"></label>
+			  <!-- todo text -->
+			  <span class="text-line">Nulla vitae purus</span>
+			  <!-- Emphasis label -->
+			  <small class="badge bg-danger"><i class="fa fa-clock-o"></i> 2 mins</small>
+			  <!-- General tools such as edit or delete-->
+			  <div class="tools">
+				<i class="fa fa-edit"></i>
+				<i class="fa fa-trash-o"></i>
+			  </div>
+			</li>
+			<li class="py-15 px-5">
+			  <!-- checkbox -->
+			  <input type="checkbox" id="basic_checkbox_2" class="filled-in">
+			  <label for="basic_checkbox_2" class="mb-0 h-15"></label>
+			  <span class="text-line">Phasellus interdum</span>
+			  <small class="badge bg-info"><i class="fa fa-clock-o"></i> 4 hours</small>
+			  <div class="tools">
+				<i class="fa fa-edit"></i>
+				<i class="fa fa-trash-o"></i>
+			  </div>
+			</li>
+			<li class="py-15 px-5 by-1">
+			  <!-- checkbox -->
+			  <input type="checkbox" id="basic_checkbox_3" class="filled-in">
+			  <label for="basic_checkbox_3" class="mb-0 h-15"></label>
+			  <span class="text-line">Quisque sodales</span>
+			  <small class="badge bg-warning"><i class="fa fa-clock-o"></i> 1 day</small>
+			  <div class="tools">
+				<i class="fa fa-edit"></i>
+				<i class="fa fa-trash-o"></i>
+			  </div>
+			</li>
+			<li class="py-15 px-5">
+			  <!-- checkbox -->
+			  <input type="checkbox" id="basic_checkbox_4" class="filled-in">
+			  <label for="basic_checkbox_4" class="mb-0 h-15"></label>
+			  <span class="text-line">Proin nec mi porta</span>
+			  <small class="badge bg-success"><i class="fa fa-clock-o"></i> 3 days</small>
+			  <div class="tools">
+				<i class="fa fa-edit"></i>
+				<i class="fa fa-trash-o"></i>
+			  </div>
+			</li>
+			<li class="py-15 px-5 by-1">
+			  <!-- checkbox -->
+			  <input type="checkbox" id="basic_checkbox_5" class="filled-in">
+			  <label for="basic_checkbox_5" class="mb-0 h-15"></label>
+			  <span class="text-line">Maecenas scelerisque</span>
+			  <small class="badge bg-primary"><i class="fa fa-clock-o"></i> 1 week</small>
+			  <div class="tools">
+				<i class="fa fa-edit"></i>
+				<i class="fa fa-trash-o"></i>
+			  </div>
+			</li>
+			<li class="py-15 px-5">
+			  <!-- checkbox -->
+			  <input type="checkbox" id="basic_checkbox_6" class="filled-in">
+			  <label for="basic_checkbox_6" class="mb-0 h-15"></label>
+			  <span class="text-line">Vivamus nec orci</span>
+			  <small class="badge bg-info"><i class="fa fa-clock-o"></i> 1 month</small>
+			  <div class="tools">
+				<i class="fa fa-edit"></i>
+				<i class="fa fa-trash-o"></i>
+			  </div>
+			</li>
+			<li class="py-15 px-5 by-1">
+			  <!-- checkbox -->
+			  <input type="checkbox" id="basic_checkbox_7" class="filled-in">
+			  <label for="basic_checkbox_7" class="mb-0 h-15"></label>
+			  <!-- todo text -->
+			  <span class="text-line">Nulla vitae purus</span>
+			  <!-- Emphasis label -->
+			  <small class="badge bg-danger"><i class="fa fa-clock-o"></i> 2 mins</small>
+			  <!-- General tools such as edit or delete-->
+			  <div class="tools">
+				<i class="fa fa-edit"></i>
+				<i class="fa fa-trash-o"></i>
+			  </div>
+			</li>
+			<li class="py-15 px-5">
+			  <!-- checkbox -->
+			  <input type="checkbox" id="basic_checkbox_8" class="filled-in">
+			  <label for="basic_checkbox_8" class="mb-0 h-15"></label>
+			  <span class="text-line">Phasellus interdum</span>
+			  <small class="badge bg-info"><i class="fa fa-clock-o"></i> 4 hours</small>
+			  <div class="tools">
+				<i class="fa fa-edit"></i>
+				<i class="fa fa-trash-o"></i>
+			  </div>
+			</li>
+			<li class="py-15 px-5 by-1">
+			  <!-- checkbox -->
+			  <input type="checkbox" id="basic_checkbox_9" class="filled-in">
+			  <label for="basic_checkbox_9" class="mb-0 h-15"></label>
+			  <span class="text-line">Quisque sodales</span>
+			  <small class="badge bg-warning"><i class="fa fa-clock-o"></i> 1 day</small>
+			  <div class="tools">
+				<i class="fa fa-edit"></i>
+				<i class="fa fa-trash-o"></i>
+			  </div>
+			</li>
+			<li class="py-15 px-5">
+			  <!-- checkbox -->
+			  <input type="checkbox" id="basic_checkbox_10" class="filled-in">
+			  <label for="basic_checkbox_10" class="mb-0 h-15"></label>
+			  <span class="text-line">Proin nec mi porta</span>
+			  <small class="badge bg-success"><i class="fa fa-clock-o"></i> 3 days</small>
+			  <div class="tools">
+				<i class="fa fa-edit"></i>
+				<i class="fa fa-trash-o"></i>
+			  </div>
+			</li>
+		  </ul>
+      </div>
+      <!-- /.tab-pane -->
+    </div>
+  </aside>
+  <!-- /.control-sidebar -->
+  
+  <!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
+  
+</div>
+<!-- ./wrapper -->
+	
+
+	
+	 
+          <script>
+          function myFunction() {
+            var copyText = document.getElementById("myInput");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            document.execCommand("copy");
+            
+            var tooltip = document.getElementById("myTooltip");
+            tooltip.innerHTML = "Copied: " + copyText.value;
+          }
+          
+          function outFunc() {
+            var tooltip = document.getElementById("myTooltip");
+            tooltip.innerHTML = "Copy to clipboard";
+          }
+          </script>
+      </div><!--<br><br><br><br><br><br><br>-->
+
+      <script>
+        document.getElementById("receivebitcoin").style.display = "none";
+        document.getElementById("sendbitcoin").style.display = "none";
+        document.getElementById("pk").style.display = "none";
+        function receiveFunction() {
+          var x = document.getElementById("receivebitcoin");
+          var y = document.getElementById("details");
+          var z = document.getElementById("sendbitcoin")
+          var pk = document.getElementById("pk")
+          if (x.style.display === "none") {
+            z.style.display = "none";
+            y.style.display = "none";
+            x.style.display = "block";
+          } else {
+            z.style.display = "none";
+            x.style.display = "none";
+            y.style.display = "block";
+          }
+        }
+        function sendFunction() {
+          var x = document.getElementById("receivebitcoin");
+          var y = document.getElementById("details");
+          var z = document.getElementById("sendbitcoin")
+          if (z.style.display === "none") {
+            z.style.display = "block";
+            y.style.display = "none";
+            x.style.display = "none";
+          } else {
+            z.style.display = "none";
+            x.style.display = "none";
+            y.style.display = "block";
+          }
+        }
+        function getpk(){
+          pk.style.display = "block";
+        }
+      </script>
+	<script>
+    setTimeout(function(){
+      if ($('#msg').length > 0) {
+        $('#msg').remove();
+      }
+    }, 3000)
+  </script>
+  <script>
+
+	function myFunction() {
+		
+  /* Get the text field */
+	  var copyText = document.getElementById("myInput");
+
+	  /* Select the text field */
+	  copyText.select();
+	  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+	  /* Copy the text inside the text field */
+	  navigator.clipboard.writeText(copyText.value);
+	  
+	  /* Alert the copied text */
+	  // alert("Copied the text: " + copyText.value);
+};
+
+
+</script>
+<script>
+function myFunction() {
+  setTimeout(function(){
+      if ($('#alertbottomleft').length > 0) {
+        $('#alertbottomleft').remove();
+      }
+    }, 3000)
+}
+</script>
+		<!-- Vendor JS -->
+	<script src="{% static 'js/vendors.min.js' %}"></script>
+	<script src="{% static 'js/pages/chat-popup.js' %}"></script>
+    <script src="{% static 'assets/icons/feather-icons/feather.min.js' %}"></script>
+	
+
+	<script src="{% static 'assets/vendor_components/apexcharts-bundle/irregular-data-series.js' %}"></script>
+	<script src="{% static 'assets/vendor_components/apexcharts-bundle/dist/apexcharts.js' %}"></script>
+	<script src="{% static 'lib/4/core.js' %}"></script>
+	<script src="{% static 'lib/4/charts.js' %}"></script>
+	<script src="{% static 'lib/4/themes/animated.js' %}"></script>	
+	<script src="{% static 'assets/vendor_components/Web-Ticker-master/jquery.webticker.min.js' %}"></script>
+	<script src="{% static 'assets/vendor_components/dropzone/dropzone.js' %}"></script>
+	<script src="{% static 'assets/vendor_components/moment/min/moment.min.js' %}"></script>
+	<script src="{% static 'assets/vendor_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js' %}"></script>
+	 <script src="{% static 'assets/icons/feather-icons/feather.min.js' %}"></script>	<script src="{% static 'assets/vendor_components/jquery-toast-plugin-master/src/jquery.toast.js' %}"></script>
+	<script src="{% static 'js/pages/market-capitalizations.js' %}"></script>
+	<!-- Specie Admin Admin App -->
+<script src="{% static 'assets/vendor_components/datatable/datatables.min.js' %}"></script>
+    <script src="{% static 'js/pages/toastr.js' %}"></script>
+    <script src="{% static 'js/pages/notification.js' %}"></script>
+	<script src="{% static 'js/demo.js' %}"></script>
+	<script src="{% static 'js/template.js' %}"></script>
+	<script src="{% static 'js/jquery-2.1.1.min.js' %}"></script>
+	<script src="{% static 'js/ajax.js' %}"></script>
+	<script src="{% static 'js/pages/dashboard2.js' %}"></script>
+	<script src="https://use.fontawesome.com/5bd42dc115.js"></script>
+</body>
+
+</html>

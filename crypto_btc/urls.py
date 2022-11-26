@@ -16,7 +16,7 @@ urlpatterns = [
     path('profile/', view.profile, name='profile'),
     path('register/', view.register, name='register'),
     # path('register/', register.as_view(), name='register'),
-    path('login/', auth_views.LoginView.as_view(template_name='users/auth_login2.html'), name='login'),
+    path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
     path('<str:ref_code>/', index, name="index"),
 ]

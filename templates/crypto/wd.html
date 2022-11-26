@@ -1,12 +1,13 @@
-{% extends 'crypto/base2.html' %}   
+ {% extends 'crypto/base.html' %}   
 
-{% load crispy_forms_tags %}
+  {% load static %}
+   {% load crispy_forms_tags %}
 
 
 
 {% block content %}
-<!-- <div class="content-wrapper" style="min-height: 606px;background-color: #000422;margin-left: 0;"> -->
-	  <div class="container">
+<div class="content-wrapper" style="min-height: 606px;background-color: #000422;">
+	  <div class="container-full">
 		<!-- Content Header (Page header) -->
 		<div class="content-header">
 			<div class="d-flex align-items-center">
@@ -35,14 +36,12 @@
 							<div class="table-responsive">
 								<div id="dataTable_crypto_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer"><div class="row"><div class="col-sm-12 col-md-6"></div></div><div class="row"><div class="col-sm-12"><table class="table table-bordered dataTable no-footer table-striped" id="dataTable_crypto" role="grid" aria-describedby="dataTable_crypto_info">
 								  <thead>
-										<tr role="row"><th colspan="2" rowspan="1">Currency</th>
-										<th class="text-end sorting" tabindex="0" aria-controls="dataTable_crypto" rowspan="1" colspan="1" aria-label="Price: activate to sort column ascending">User</th>
+									 <tr role="row"><th colspan="2" rowspan="1">Currency</th><th class="text-end sorting" tabindex="0" aria-controls="dataTable_crypto" rowspan="1" colspan="1" aria-label="Price: activate to sort column ascending">User</th>
 
 									 	<th class="text-end sorting" tabindex="0" aria-controls="dataTable_crypto" rowspan="1" colspan="1" aria-label="Market Cap: activate to sort column ascending">Wallet address</th>
 
-									 	<th class="text-end sorting" tabindex="0" aria-controls="dataTable_crypto" rowspan="1" colspan="1" aria-label="Market Cap: activate to sort column ascending">Amount</th>
-										<th class="text-end sorting" tabindex="0" aria-controls="dataTable_crypto" rowspan="1" colspan="1" aria-label="Volume 24H: activate to sort column ascending">Date/Time</th>
-										 <th class="text-end sorting" tabindex="0" aria-controls="dataTable_crypto" rowspan="1" colspan="1" aria-label="Volume 24H: activate to sort column ascending">Created Date/Time</th>
+									 	<th class="text-end sorting" tabindex="0" aria-controls="dataTable_crypto" rowspan="1" colspan="1" aria-label="Market Cap: activate to sort column ascending">Amount</th><th class="text-end sorting" tabindex="0" aria-controls="dataTable_crypto" rowspan="1" colspan="1" aria-label="Volume 24H: activate to sort column ascending">Created Date/Time</th>
+
 						<!-- 			 	<th class="text-end sorting" tabindex="0" aria-controls="dataTable_crypto" rowspan="1" colspan="1" aria-label="Volume 24H: activate to sort column ascending"></th> -->
 
 									 	<th class="text-end sorting" tabindex="0" aria-controls="dataTable_crypto" rowspan="1" colspan="1" aria-label="Change % (1H): activate to sort column ascending">Edit</th>
@@ -66,7 +65,6 @@
 								   	{% else %}
 										 <td class="sorting_1"><span><a href="#"><i class="cc BTC" title="BTC"></i></a></span></td>
 										{% endif %}
-									
 										 <td>
 											<small><a href="#" class="hover-warning"> {{employee.currency}}</a></small>
 										 </td>
@@ -75,7 +73,6 @@
 										 <td class="text-end"><p><span></span> {{employee.userwallet}}</p></td>
 										 <td class="text-end"><p><span>$</span> {{employee.amount}}</p></td>
 										 <td class="text-end"><p><span></span>{{employee.created_dated}} </p></td>
-										 <td class="text-end"><p><span></span>{{employee.created_date}} </p></td>
 										
 										 <td class="no-wrap text-end"><a href="/edit/{{ employee.id }}"><label class="label " style="background-color:blue;"><i class="fa fa-chevron-down"></i> Edit</label></a></td>
 									<!-- 	 <td class="no-wrap text-end"><label class="label label-success"><i class="fa fa-chevron-up"></i> Massage</label></td> -->

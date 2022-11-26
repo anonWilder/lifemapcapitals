@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-&y0bdgbdby06172n&3en==c+^a3ge%n^n+#&v#7e428!-q)@f6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['161.35.229.211','lifemapcapital.com','www.lifemapcapital.com','lifemapcapitals.com','www.lifemapcapitals.com','143.198.162.61']
+ALLOWED_HOSTS = ['194.195.124.180','lifemapcapital.com','www.lifemapcapital.com','lifemapcapitals.com','www.lifemapcapitals.com','143.198.162.61']
 
 
 # Application definition

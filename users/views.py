@@ -141,7 +141,7 @@ def register(request):
 				return redirect('/login')
 	else:
 		form = UserRegisterForm()
-	return render(request, 'users/auth_register2.html', {'detail': detail,'form':form})
+	return render(request, 'users/register.html', {'detail': detail,'form':form})
 
 
 # def register(request):

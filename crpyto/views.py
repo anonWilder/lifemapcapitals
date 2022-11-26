@@ -479,12 +479,25 @@ def withdraw(request):
 		withd = request.POST['types']
 		addr = request.POST['addr']
 
+		# res2 = requests.get('https://coinmarketcap.com/currencies/bitcoin/')
+		# soup2 = bs4.BeautifulSoup(res2.content, "html.parser")
+		# live_price = soup2.find_all('div', {'class': 'priceValue '})
+		# live_bitcoin_price = live_price[0].getText()	
+		# live_bitcoin_price1 = live_price[0].getText()
+		# # res = requests.get('https://www.blockchain.com/btc/address/'+addr)
+
+
 		res2 = requests.get('https://coinmarketcap.com/currencies/bitcoin/')
-		soup2 = bs4.BeautifulSoup(res2.text, 'xml')
-		live_price = soup2.find_all('div', {'class': 'priceValue '})
-		live_bitcoin_price = live_price[0].getText()	
-		live_bitcoin_price1 = live_price[0].getText()
-		# res = requests.get('https://www.blockchain.com/btc/address/'+addr)
+		soup2 = bs4.BeautifulSoup(res2.content, "html.parser")
+		# suo = bs4.BeautifulSoup(res2.content, "html.parser")
+		# live_pric = suo.find('div', {'class': 'priceValue'})
+		# return HttpResponse(live_pric)	
+		live_price = soup2.find_all('div', {'class': 'priceValue'})
+		
+		live_bitcoin_price = live_price[0].getText()
+		
+		live_bitcoin_price1 = live_price[0].getText()	
+
 		res = public_key
 
 		final_bal1_int = float(res)

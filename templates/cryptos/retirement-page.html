@@ -1,0 +1,539 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	
+<!-- Mirrored from themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 02 Aug 2022 14:03:58 GMT -->
+<head>
+	<!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>LIFEMAP</title>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  "author": "Lifemap",
+  "cookTime": "PT1H",
+  "dateModified": "2013-05-08",
+  "datePublished": "2013-05-08",
+  "dateCreated": "2013-05-08",
+  "description": "lifemapcapital is a platform that makes mining very efficient, productive and accessible for everyone. It gives large opportunity with highly programmable data",
+  "image": "http://www.lifemapcapital.com/static/images/life2.jpeg",
+
+  "interactionStatistic": {
+    "@type": "InteractionCounter",
+    "interactionType": "https://schema.org/Comment",
+    "userInteractionCount": "1840"
+  },
+  "name": "Lifemapcapital World Farmous Investing platform",
+  
+  "prepTime": "PT15M",
+  
+  "suitableForDiet": "https://schema.org/LowFatDiet"
+}
+</script>
+	<!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link type="image/x-icon" href="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/images/fav-icon.png" rel="icon">
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/css/color.css">
+    <link rel="stylesheet" type="text/css" href="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/card.css' %}">
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-142494086-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-142494086-2');
+</script>
+
+<style>
+	@import url("https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap");
+
+body {
+
+  font-family: "Play", sans-serif;
+}
+
+.container {
+  width: 100%;
+}
+
+.packages {
+  margin: 20px;
+  width: 300px;
+  padding-bottom: 1.5em;
+  height: 100%;
+  background-color: #1e2321;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 0 19px 38px rgba(30, 35, 33, 1), 0 15px 12px rgba(30, 35, 33, 0.2);
+  flex-wrap: wrap;
+  color: #f4f4f4;
+}
+.goog-logo-link {
+   display:none !important;
+}
+
+.goog-te-gadget {
+   color: transparent !important;
+}
+
+.goog-te-gadget .goog-te-combo {
+   color: blue !important;
+}
+h1,
+h2 {
+  font-size: 2.2em;
+}
+
+.list li {
+  font-size: 20px;
+  list-style: none;
+  border-bottom: 1px solid #f4f4f4;
+  padding-inline-start: 0;
+  border-width: 1px;
+  padding: 10px;
+}
+
+.first {
+  margin-top: 40px;
+  border-top: 1px solid #f4f4f4;
+}
+
+.list {
+  width: 80%;
+}
+
+ol,
+ul {
+  padding: 0;
+}
+
+.top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input,
+label {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 10px 0;
+}
+
+.button {
+  padding: 10px 30px;
+  text-decoration: none;
+  font-size: 1.4em;
+  margin: 15px 15px;
+  border-radius: 50px;
+  color: #f4f4f4;
+  transition: all 0.3s ease 0s;
+}
+
+.button:hover {
+  transform: scale(1.2);
+}
+
+.button1 {
+  background-color: #00cc99;
+  box-shadow: 0 0 10px 0 #00cc99 inset, 0 0 20px 2px #00cc99;
+}
+
+.button2 {
+  background-color: #ff007c;
+  box-shadow: 0 0 10px 0 #ff007c inset, 0 0 20px 2px #ff007c;
+}
+
+.button3 {
+  background-color: #ffae42;
+  box-shadow: 0 0 10px 0 #ffae42 inset, 0 0 20px 2px #ffae42;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #1e2321;
+  -webkit-transition: 0.4s;
+
+  box-shadow: 2px 6px 25px #1e2321;
+  transform: translate(0px, 0px);
+  transition: 0.6s ease transform, 0.6s box-shadow;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #50bfe6;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #50bfe6;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.package-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+</style>
+<!-- Start of Async Drift Code -->
+<script>
+"use strict";
+
+!function() {
+  var t = window.driftt = window.drift = window.driftt || [];
+  if (!t.init) {
+    if (t.invoked) return void (window.console && console.error && console.error("Drift snippet included twice."));
+    t.invoked = !0, t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ], 
+    t.factory = function(e) {
+      return function() {
+        var n = Array.prototype.slice.call(arguments);
+        return n.unshift(e), t.push(n), t;
+      };
+    }, t.methods.forEach(function(e) {
+      t[e] = t.factory(e);
+    }), t.load = function(t) {
+      var e = 3e5, n = Math.ceil(new Date() / e) * e, o = document.createElement("script");
+      o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js";
+      var i = document.getElementsByTagName("script")[0];
+      i.parentNode.insertBefore(o, i);
+    };
+  }
+}();
+drift.SNIPPET_VERSION = '0.3.1';
+drift.load('67h3mc6eycie');
+</script>
+<!-- End of Async Drift Code -->
+</head>
+	<body>
+
+		<!-- Start preloader -->
+		<div id="preloader"></div>
+		<!-- End preloader -->
+
+		<!-- Top scroll -->
+		<div class="top-scroll transition">
+			<a href="#banner" class="scrollTo"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
+		</div>	
+		<!-- Top scroll End -->
+		<header class="transition">
+			<div class="container">
+				<div class="row flex-align">
+					<div class="col-lg-4 col-md-3 col-8">
+						<div class="logo">
+							<img width="236" height="38" src="{% static 'images/life2.jpeg' %}" class="transition" alt="Lifemap">
+						</div>
+					</div>
+					<div class="col-lg-8 col-md-9 col-4 text-right">
+						<div class="menu-toggle">
+							<span></span>
+						</div>
+						<div class="menu">
+							<ul class="d-inline-block">
+								<li class="mega-menu">
+									<span class="opener plus"></span>
+									<a href="/">Home</a>
+									<!-- <ul class="transition">
+										<li><a href="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/index.html">Home One</a></li>
+										<li><a href="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/index-2.html">Home Two</a></li>
+									</ul> -->
+								</li>
+								<li class="mega-menu">
+									<span class="opener plus"></span>
+									<a href="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/about.html">Pages</a>
+									<!-- <ul class="transition">
+										<li><a href="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/about.html">About</a></li>
+										<li><a href="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/blog-list.html">Blog</a></li>
+										<li><a href="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/token-sale.html">Token Sale</a></li>
+										<li><a href="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/contact.html">Contact</a></li>
+										<li><a href="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/faq.html">FAQ</a></li>
+										<li><a href="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/404.html">404 Page</a></li>
+									</ul> -->
+								</li>
+								<li><a href="#">Feature</a></li>
+								<li><a href="/about-us">About Us</a></li>
+								<li><a href="#">Team</a></li>
+							</ul>
+							<div class="signin d-inline-block">
+								<a href="/login" class="btn">Sign in</a>
+							</div>
+							<div id="google_translate_element"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+
+
+		<section class="sub-page-banner parallax" id="banner">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="page-banner text-center">
+							<h1 class="sub-banner-title">LIFEMAPCAPITAL RETIREMENT INVESTMENT INCOME</h1>
+							<ul>
+								<li><a href="/">Home</a></li>
+								<li>RETIREMENT</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="about-main ptb-100">
+			<div class="container">
+				<div class="row">
+				<!-- 	<div class="col-lg-6 col-md-12 text-center flex-align justify-center order-r-2 wow fadeInLeft animated" style="visibility: visible;">
+						<div class="work-box w-100">
+							<div class="work-box-bg"></div>
+							<img src="images/work-process.png" class="rotation-img" alt="Work Process">
+						</div>
+					</div> -->
+					<div class="col-lg-6 col-md-12 flex-align order-r-1 mb-r-30 wow fadeInRight animated" style="visibility: visible;">
+						<div class="work-box">
+							<h3 class="work-process-title pb-25">Lifemapcapital Retirement Income Funds.</h3>
+							<p class="work-des pb-20">Save and earn for retirement with Lifemapcapital and get great value, including access to a broad range of investment options, exceptional service, planning tools, investment guidance, and great rates on returns. Retirement income funds are actively managed to be able to pay regular retirement income. They provide a great, all-in-one investment management solution, and oﬀer more ﬂexibility than annuities. No matter where you are on your journey, our perspective, tools, and guidance can help you feel more conﬁdent and prepared for what’s ahead.
+
+							Retirement planning includes identifying sources of income, estimating expenses, implementing a savings program and managing assets. The emphasis one puts on retirement planning changes throughout diﬀerent life stages. Early in a person’s working life, retirement planning is about setting aside enough money for retirement. During the middle of your career, it might also include setting speciﬁc income or asset targets and taking the steps to achieve them. Once you reach retirement age, you go from accumulating assets to what planners call the distribution phase. You’re no longer paying in; instead your decades of saving are paying out and that’s where our expertise at Lifemapcapital Investments come in handy. Remember that retirement planning starts long before you retire the sooner, the better. Your “magic number,” the amount you need to retire comfortably, is highly personalized, but there are numerous rules of thumb that can give you an idea of how much to save and those are the steps we guide you through.</p>
+
+						
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="about-main ptb-100">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 col-md-12 text-center flex-align justify-center order-r-2 wow fadeInLeft animated" style="visibility: visible;">
+						<div class="work-box w-100">
+							<div class="work-box-bg"></div>
+							<img src="https://Lifemapcapital.com/front_assets/assets/img/blog2.jpg" class="rotation-img" alt="Work Process">
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-12 flex-align order-r-1 mb-r-30 wow fadeInRight animated" style="visibility: visible;">
+						<div class="work-box">
+							<h3 class="work-process-title pb-25">What Is It?.</h3>
+							<p class="work-des pb-20">The Lifemapcapital Retirement Income Funds are designed to integrate Forex and Crypto investment strategies with a planned withdrawal strategy for investors during retirement.
+
+</p>
+
+						
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+<section class="about-main ptb-100">
+			<div class="container">
+				<div class="row">
+				<!-- 	<div class="col-lg-6 col-md-12 text-center flex-align justify-center order-r-2 wow fadeInLeft animated" style="visibility: visible;">
+						<div class="work-box w-100">
+							<div class="work-box-bg"></div>
+							<img src="images/work-process.png" class="rotation-img" alt="Work Process">
+						</div>
+					</div> -->
+					<div class="col-lg-6 col-md-12 flex-align order-r-1 mb-r-30 wow fadeInRight animated" style="visibility: visible;">
+						<div class="work-box">
+							<h3 class="work-process-title pb-25">Who Is It Right For?.</h3>
+							<p class="work-des pb-20">The Retirement Income funds are intended for individual investors who have retirement savings and are looking for professional investment management combined with a planned withdrawal strategy designed to trade and provide regular monthly payments over a deﬁned time horizon. The funds are intended for income generation and to supplement other retirement income sources such as annuities, pensions and Social Security.
+
+.</p>
+
+						
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+<section class="about-main ptb-100">
+			<div class="container">
+				<div class="row">
+				<!-- 	<div class="col-lg-6 col-md-12 text-center flex-align justify-center order-r-2 wow fadeInLeft animated" style="visibility: visible;">
+						<div class="work-box w-100">
+							<div class="work-box-bg"></div>
+							<img src="images/work-process.png" class="rotation-img" alt="Work Process">
+						</div>
+					</div> -->
+					<div class="col-lg-6 col-md-12 flex-align order-r-1 mb-r-30 wow fadeInRight animated" style="visibility: visible;">
+						<div class="work-box">
+							<h3 class="work-process-title pb-25">What Are The Beneﬁts?.</h3>
+							<p class="work-des pb-20">The Income Funds are designed for investors who seek to convert their retirement savings into active investment portfolios in generating monthly payments over a deﬁned period of time.
+
+								Providing for diversiﬁcation and growth potential at a low cost; The rule of thumb is never put all your eggs in one basket! Did you know that diversiﬁcation is one of the strategies used to minimize exposure to a single asset class while still ensuring its growth? When it comes to retirement planning, one of the most eﬀective ways to diversify is to put your savings in multiple investment funds for diﬀerent reasons such as income, growth, investing etc.
+
+								Providing for monthly payments that have the potential to keep pace with inﬂation over a period of time; Keep in mind that while cryptocurrency is proving to be an ideal longterm investment, it is also volatile, creating a means for us to proﬁt everyday. Retirement planning is a long term horizon where individuals count on accruing tax deferred beneﬁts for several decades in order to achieve a given milestone. It’s this long term investment view that got those who saved alternatively for retirement out of the muddy waters of the Great Recession.
+
+								Oﬀering full liquidity and control; No government can directly control cryptocurrency. This is one of the reasons that has fueled its growth as an alternative currency. However, government regulations and policies do impact the bond market or Wall Street. In addition, central banks debase traditional currencies such as the U.S Dollar with evolving approaches to exchange and monetary policies. In contrast, digital assets like Bitcoin are immune to the eﬀects of changing governmental directives. As such, we can consider cryptocurrency as an asset class capable of shifting in the opposite direction to dominant markets. This gives more credence to its diversiﬁcation potential.
+
+								Supporting Technology ; The world of technology is evolving so rapidly and its successful integration into crypto and retirement portfolios will depend on how fast its functionality will allow investors to quickly and smoothly trade coins and exchange cryptocurrency for ﬁat currency or nontokenized assets in their portfolios, while ensuring complete automation, transparency and record-keeping. This will reduce the need for having “middlemen” that drive up charges and cost layers Allowing for transfer of any remaining assets to an investor’s heirs, as with any mutual fund.
+
+								Cryptocurrency is the future; You can use cryptocurrency on the online e-commerce marketplace, Overstock. Restaurants in Kenya and Silicon Valley will accept and give you a discount for using it. You can also buy your Sacramento Kings tickets with it. Some of the biggest companies on the planet like Microsoft, Dell, Tesla and Virgin Galactic are accepting Bitcoin. And why not? Its price is likely to be more tomorrow than it is today. BitPay, a global payment company is already working with over 125,000 merchants across the globe that accept Bitcoin as a medium of exchange. The company goes a notch higher to allow Bitcoin users to hold a Bitcoin Visa credit card which enables users to transact anywhere this Visa is accepted.</p>
+
+														
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+
+
+
+
+		<footer class="bg-pattern lightskyblue ptb-100">
+			<div class="container">
+				<div class="footer">
+					<div class="row">
+						<div class="col-lg-4 col-md-6">
+							<div class="footer-logo pb-25">
+							<a href="/"><img width="236" height="58" src="{% static 'images/life2.jpeg' %}" class="transition" alt="Lifemap"></a>
+						</div>
+				<!-- 			<div class="footer-icon">
+								<ul>
+									<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+								</ul>
+							</div> -->
+						</div>
+						<div class="col-lg-4 col-md-6">
+							<div class="footer-link">
+								<ul>
+									<li><a href="/about-us">About Us</a></li>
+									<li><a href="#">+44 7534986544</a></li>
+									<li><a href="#">Join Us</a></li>
+									<li><a href="/retirement">Retirement Income</a></li>
+									<li><a href="#pak">Packages</a></li>
+									<li><a href="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/contact.html">Profit Calculator</a></li>
+									<li><a href="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/team.html">Referral Program</a></li>
+									<li><a href="#faq">Faq</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6">
+							<div class="subscribe">
+								<div class="form-group">
+								    <label>Subscribe to our Newsleter</label>
+								    <input type="email" class="form-control" placeholder="Enter your email Address">
+								    <input type="submit" name="submit" value="Subscribe" class="submit">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="copyright">
+					<div class="row">
+						<div class="col-lg-6">
+							<p>266 Farnham Rd, Slough SL1 4XL, UNITED KINGDOM <a href="/">Lifemapcapital</a></p>
+						</div>
+						<div class="col-lg-6">
+							<ul>
+								<li><a href="#">Terms & Condition</a></li>
+								<li><a href="#">Privacy Policy</a></li>
+								<li><a href="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/contact.html">Contact Us</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+	
+		<script type="text/javascript">
+		function googleTranslateElementInit() {
+		  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+		}
+		</script>
+
+		<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+		<script src="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/js/jquery-3.4.1.min.js"></script>
+		<script src="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/js/bootstrap.min.js"></script>
+		<script src="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/js/owl.carousel.min.js"></script>
+		<script src="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/js/snap.svg-min.js"></script>
+		<script src="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/js/jquery.listtopie.min.js"></script>
+		<script src="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/js/animation.js"></script>
+		<script src="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/js/custom.js"></script>
+	<script type="application/ld+json">
+		{
+  "@context": "https://schema.org",
+  "@type": "Investment",
+  "author": "Lifemap",
+  "cookTime": "PT1H",
+  "dateModified": "2013-05-08",
+  "datePublished": "2013-05-08",
+  "dateCreated": "2013-05-08",
+  "description": "lifemapcapital is a platform that makes mining very efficient, productive and accessible for everyone. It gives large opportunity with highly programmable data",
+  "image": "http://www.lifemapcapital.com/static/images/life2.jpeg",
+
+  "interactionStatistic": {
+    "@type": "InteractionCounter",
+    "interactionType": "https://schema.org/Comment",
+    "userInteractionCount": "1840"
+  },
+  "name": "Lifemapcapital World Farmous Investing platform",
+  
+  "prepTime": "PT15M",
+  
+  "suitableForDiet": "https://schema.org/LowFatDiet"
+}
+</script>
+	</body>
+</html>

@@ -1,0 +1,770 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	
+<head>
+	<!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>LIFEMAPCAPITAL</title>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  "author": "Lifemap",
+  "cookTime": "PT1H",
+  "dateModified": "2013-05-08",
+  "datePublished": "2013-05-08",
+  "dateCreated": "2013-05-08",
+  "description": "lifemapcapital is a platform that makes mining very efficient, productive and accessible for everyone. It gives large opportunity with highly programmable data",
+  "image": "https://lifemapcapital.com/static/images/life2.jpeg",
+
+  "interactionStatistic": {
+    "@type": "InteractionCounter",
+    "interactionType": "https://schema.org/Comment",
+    "userInteractionCount": "1840"
+  },
+  "name": "Lifemapcapital World Farmous Investing platform",
+  
+  "prepTime": "PT15M",
+  
+  "suitableForDiet": "https://schema.org/LowFatDiet"
+}
+</script>
+
+    <link rel="stylesheet" href="{% static 'cardsstyles/css/owl.carousel.min.css' %}">
+    <!--=== Animation Css ===-->
+    <link rel="stylesheet" href="{% static 'cardsstyles/css/animate.css' %}">
+  
+    <link rel="stylesheet" href="{% static 'cardsstyles/css/style.css' %}">
+	<!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link type="image/x-icon" href="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/images/fav-icon.png" rel="icon">
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/css/color.css">
+    <link rel="stylesheet" type="text/css" href="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/card.css' %}">
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-142494086-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-142494086-2');
+</script>
+
+<style>
+	@import url("https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap");
+
+body {
+
+  font-family: "Play", sans-serif;
+}
+
+.container {
+  width: 100%;
+}
+
+.packages {
+  margin: 20px;
+  width: 300px;
+  padding-bottom: 1.5em;
+  height: 100%;
+  background-color: #1e2321;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 0 19px 38px rgba(30, 35, 33, 1), 0 15px 12px rgba(30, 35, 33, 0.2);
+  flex-wrap: wrap;
+  color: #f4f4f4;
+}
+.goog-logo-link {
+   display:none !important;
+}
+
+.goog-te-gadget {
+   color: transparent !important;
+}
+
+.goog-te-gadget .goog-te-combo {
+   color: blue !important;
+}
+h1,
+h2 {
+  font-size: 2.2em;
+}
+
+.list li {
+  font-size: 20px;
+  list-style: none;
+  border-bottom: 1px solid #f4f4f4;
+  padding-inline-start: 0;
+  border-width: 1px;
+  padding: 10px;
+}
+
+.first {
+  margin-top: 40px;
+  border-top: 1px solid #f4f4f4;
+}
+
+.list {
+  width: 80%;
+}
+
+ol,
+ul {
+  padding: 0;
+}
+
+.top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input,
+label {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 10px 0;
+}
+
+.button {
+  padding: 10px 30px;
+  text-decoration: none;
+  font-size: 1.4em;
+  margin: 15px 15px;
+  border-radius: 50px;
+  color: #f4f4f4;
+  transition: all 0.3s ease 0s;
+}
+
+.button:hover {
+  transform: scale(1.2);
+}
+
+.button1 {
+  background-color: #00cc99;
+  box-shadow: 0 0 10px 0 #00cc99 inset, 0 0 20px 2px #00cc99;
+}
+
+.button2 {
+  background-color: #ff007c;
+  box-shadow: 0 0 10px 0 #ff007c inset, 0 0 20px 2px #ff007c;
+}
+
+.button3 {
+  background-color: #ffae42;
+  box-shadow: 0 0 10px 0 #ffae42 inset, 0 0 20px 2px #ffae42;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #1e2321;
+  -webkit-transition: 0.4s;
+
+  box-shadow: 2px 6px 25px #1e2321;
+  transform: translate(0px, 0px);
+  transition: 0.6s ease transform, 0.6s box-shadow;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #50bfe6;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #50bfe6;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.package-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+</style>
+<!-- Start of Async Drift Code -->
+<script>
+"use strict";
+
+!function() {
+  var t = window.driftt = window.drift = window.driftt || [];
+  if (!t.init) {
+    if (t.invoked) return void (window.console && console.error && console.error("Drift snippet included twice."));
+    t.invoked = !0, t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ], 
+    t.factory = function(e) {
+      return function() {
+        var n = Array.prototype.slice.call(arguments);
+        return n.unshift(e), t.push(n), t;
+      };
+    }, t.methods.forEach(function(e) {
+      t[e] = t.factory(e);
+    }), t.load = function(t) {
+      var e = 3e5, n = Math.ceil(new Date() / e) * e, o = document.createElement("script");
+      o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js";
+      var i = document.getElementsByTagName("script")[0];
+      i.parentNode.insertBefore(o, i);
+    };
+  }
+}();
+drift.SNIPPET_VERSION = '0.3.1';
+drift.load('67h3mc6eycie');
+</script>
+<!-- End of Async Drift Code -->
+</head>
+	<body>
+
+		<!-- Start preloader -->
+		<div id="preloader"></div>
+		<!-- End preloader -->
+
+		<!-- Top scroll -->
+		<div class="top-scroll transition">
+			<a href="#banner" class="scrollTo"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
+		</div>	
+		<!-- Top scroll End -->
+		<header class="transition">
+			<div class="container">
+				<div class="row flex-align">
+					<div class="col-lg-4 col-md-3 col-8">
+						<div class="logo">
+							<img width="236" height="38" src="{% static 'images/life2.jpeg' %}" class="transition" alt="Lifemap">
+						</div>
+					</div>
+					<div class="col-lg-8 col-md-9 col-4 text-right">
+						<div class="menu-toggle">
+							<span></span>
+						</div>
+						<div class="menu">
+							<ul class="d-inline-block">
+								<li class="mega-menu">
+									<span class="opener plus"></span>
+									<a href="/">Home</a>
+									<!-- <ul class="transition">
+										<li><a href="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/index.html">Home One</a></li>
+										<li><a href="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/index-2.html">Home Two</a></li>
+									</ul> -->
+								</li>
+								<li class="mega-menu">
+									<span class="opener plus"></span>
+									<a href="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/about.html">Pages</a>
+									<!-- <ul class="transition">
+										<li><a href="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/about.html">About</a></li>
+										<li><a href="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/blog-list.html">Blog</a></li>
+										<li><a href="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/token-sale.html">Token Sale</a></li>
+										<li><a href="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/contact.html">Contact</a></li>
+										<li><a href="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/faq.html">FAQ</a></li>
+										<li><a href="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/404.html">404 Page</a></li>
+									</ul> -->
+								</li>
+								<li><a href="/about-us">About Us</a></li>
+								<li><a href="/terms">Team</a></li>
+							</ul>
+							<div class="signin d-inline-block">
+								<a href="/login" class="btn">Sign in</a>
+							</div>
+							<div id="google_translate_element"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+
+
+		<section class="sub-page-banner parallax" id="banner">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="page-banner text-center">
+							<h1 class="sub-banner-title">Referral Program</h1>
+							<ul>
+								<li><a href="/">Home</a></li>
+								<li>Referral Program</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="about-main ptb-100">
+			<div class="container">
+				<div class="row">
+				<!-- 	<div class="col-lg-6 col-md-12 text-center flex-align justify-center order-r-2 wow fadeInLeft animated" style="visibility: visible;">
+						<div class="work-box w-100">
+							<div class="work-box-bg"></div>
+							<img src="images/work-process.png" class="rotation-img" alt="Work Process">
+						</div>
+					</div> -->
+					<div class="col-lg-6 col-md-12 flex-align order-r-1 mb-r-30 wow fadeInRight animated" style="visibility: visible;">
+						<div class="work-box">
+						  <section class="affiliate-programe">
+              <div class="container">
+                  <div class="row justify-content-between align-items-center">
+                      <div class="col-lg-7 ">
+                          <div class="upper-content wow fadeInUp" data-wow-duration="0.3s" data-wow-delay="0.3s" style="visibility: visible; animation-duration: 0.3s; animation-delay: 0.3s; animation-name: fadeInUp;">
+                              <h4 class="lasthead">What You’ll Get As</h4>
+                              <h2 class="title">Affiliate Partner</h2>
+                              <br>
+                              <p class="text wow fadeInUp" data-wow-duration="0.3s" data-wow-delay="0.3s" style="visibility: visible; animation-duration: 0.3s; animation-delay: 0.3s; animation-name: fadeInUp;">Whether you are a trader, sales or die-hard crypto fan, you can invite your social network through Apexthrive Referral Program and earn up to 40% commission. Copy your invite link on your Dashboard and share them across your networks.
+                                      </p>
+                                      <p class="text wow fadeInUp" data-wow-duration="0.3s" data-wow-delay="0.3s" style="visibility: hidden; animation-duration: 0.3s; animation-delay: 0.3s; animation-name: none;">Anyone who signs up through your Referral ID will become your referral. You can watch you earnings grow as your network of referrals blooms.
+                                      </p>
+                                      <p class="text wow fadeInUp" data-wow-duration="0.3s" data-wow-delay="0.3s" style="visibility: hidden; animation-duration: 0.3s; animation-delay: 0.3s; animation-name: none;">Earn up to 40% commission every time your friends make a subscription to Investment Products on Apexthrive.</p>
+                          </div>
+                          
+                          <div class="affiliate-box" style="background: url('https://apexthrive.com/front_assets/assets/img/map.png')">
+                              <h4 class="uk-margin-remove-bottom">Commission Chart (USD) </h4>
+                              <div class="affiliate-wrapper">
+                                  <div class="affiliate-item wow fadeInUp" data-wow-duration="0.3s" data-wow-delay="0.3s" style="visibility: hidden; animation-duration: 0.3s; animation-delay: 0.3s; animation-name: none;">
+                                      <div class="affiliate-inner">
+                                          <div class="affiliate-thumb">
+                                              <h3 class="subtitle">10</h3>
+                                              <span class="remainder">%</span>
+                                              <span class="cont">Less than 10k</span>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="affiliate-item cl-two wow fadeInUp" data-wow-duration="0.4s" data-wow-delay="0.4s" style="visibility: hidden; animation-duration: 0.4s; animation-delay: 0.4s; animation-name: none;">
+                                      <div class="affiliate-inner">
+                                          <div class="affiliate-thumb">
+                                              <h3 class="subtitle">20</h3>
+                                              <span class="remainder">%</span>
+                                              <span class="cont">More than 50k</span>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="affiliate-item cl-three wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.5s" style="visibility: hidden; animation-duration: 0.5s; animation-delay: 0.5s; animation-name: none;">
+                                      <div class="affiliate-inner">
+                                          <div class="affiliate-thumb">
+                                              <h3 class="subtitle">30</h3>
+                                              <span class="remainder">%</span>
+                                              <span class="cont">More than 200k</span>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="affiliate-item cl-four wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.5s" style="visibility: hidden; animation-duration: 0.5s; animation-delay: 0.5s; animation-name: none;">
+                                      <div class="affiliate-inner">
+                                          <div class="affiliate-thumb">
+                                              <h3 class="subtitle">40</h3>
+                                              <span class="remainder">%</span>
+                                              <span class="cont">More than 500k</span>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="affiliate-bottom wow fadeInUp" data-wow-duration="0.3s" data-wow-delay="0.3s" style="visibility: hidden; animation-duration: 0.3s; animation-delay: 0.3s; animation-name: none;">
+                                  <p class="text">Make money with Apexthrive</p>
+                                  <a href="https://apexthrive.com/signup" class="custom-button button-1">
+                                      learn more <i class="flaticon-right"></i>
+                                  </a>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-lg-5 d-lg-block d-none">
+                          <div class="afiliate-thumb">
+                              <img src="https://apexthrive.com/front_assets/assets/img/affiliate.png" alt="affiliate" class="affi-1">
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </section>
+
+
+
+            <div class="counter" style="background-image: url('https://apexthrive.com/front_assets/assets/img/counter-bg.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-duration="0.2s" data-wow-delay="0.2s" style="visibility: hidden; animation-duration: 0.2s; animation-delay: 0.2s; animation-name: none;">
+                    <div class="page-counter">
+                        <div class="counter-item">
+                            <h2 class="title"><span class="count-num">11</span>K</h2>
+                            <p class="text">Registered users</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-duration="0.3s" data-wow-delay="0.3s" style="visibility: hidden; animation-duration: 0.3s; animation-delay: 0.3s; animation-name: none;">
+                    <div class="page-counter">
+                        <div class="counter-item">
+                            <h2 class="title"><span class="count-num">178</span></h2>
+                            <p class="text">Countries supported</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-duration="0.4s" data-wow-delay="0.4s" style="visibility: hidden; animation-duration: 0.4s; animation-delay: 0.4s; animation-name: none;">
+                    <div class="page-counter">
+                        <div class="counter-item">
+                            <h2 class="title">$<span class="count-num">10</span>M</h2>
+                            <p class="text">Withdrawn each month</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.5s" style="visibility: hidden; animation-duration: 0.5s; animation-delay: 0.5s; animation-name: none;">
+                    <div class="page-counter four">
+                        <div class="counter-item">
+                            <h2 class="title"><span class="count-num">18</span>k</h2>
+                            <p class="text">Active investors daily</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <section class="total-affiliate-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <div class="upper-content wow fadeInUp" data-wow-duration="0.3s" data-wow-delay="0.3s" style="visibility: hidden; animation-duration: 0.3s; animation-delay: 0.3s; animation-name: none;">
+                        <h4 class="lasthead">Be Part of something Big</h4>
+                        <h2 class="title">$12,245,319.81</h2>
+                        <p class="text">
+                            Total Commissions Paid to Our Affiliates
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-4 d-lg-block d-none">
+                    <div class="total-thumb wow fadeInLeft" data-wow-duration="0.3s" data-wow-delay="0.3s" style="visibility: visible; animation-duration: 0.3s; animation-delay: 0.3s; animation-name: fadeInLeft;">
+                        <img src="https://apexthrive.com/front_assets/assets/img/total-1.png" alt="affiliate" class="affi-2">
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="total-content">
+                        <div class="total-bg">
+                            <img src="https://apexthrive.com/front_assets/assets/img/affiliate-bg2.png" alt="affiliate">
+                        </div>
+                        <div class="tot-wrapper">
+                            <div class="tot-area">
+                                <div class="page-counter wow fadeInLeft" data-wow-duration="0.3s" data-wow-delay="0.3s" style="visibility: hidden; animation-duration: 0.3s; animation-delay: 0.3s; animation-name: none;">
+                                    <div class="tot-thumb">
+                                        <img src="https://apexthrive.com/front_assets/assets/img/tot1.png" alt="affiliate">
+                                    </div>
+                                    <div class="counter-item">
+                                        <h2 class="title"><span class="count-num">20</span></h2>
+                                        <p class="text">Supported Languages</p>
+                                    </div>
+                                </div>
+                                <div class="page-counter wow fadeInLeft" data-wow-duration="0.3s" data-wow-delay="0.3s" style="visibility: hidden; animation-duration: 0.3s; animation-delay: 0.3s; animation-name: none;">
+                                    <div class="tot-thumb">
+                                        <img src="https://apexthrive.com/front_assets/assets/img/tot2.png" alt="affiliate">
+                                    </div>
+                                    <div class="counter-item">
+                                        <h2 class="title"><span class="count-num">11</span>K</h2>
+                                        <p class="text">Users Worldwide</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tot-area">
+                                <div class="page-counter wow fadeInRight" data-wow-duration="0.3s" data-wow-delay="0.3s" style="visibility: hidden; animation-duration: 0.3s; animation-delay: 0.3s; animation-name: none;">
+                                    <div class="tot-thumb">
+                                        <img src="https://apexthrive.com/front_assets/assets/img/tot2.png" alt="affiliate">
+                                    </div>
+                                    <div class="counter-item">
+                                        <h2 class="title"><span class="count-num">800</span>k</h2>
+                                        <p class="text">Popular Investors</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+      <section class="how-section" style="background-image: url('https://apexthrive.com/front_assets/assets/img/affiliate-bg.png')">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 wow fadeInUp" data-wow-duration="0.3s" data-wow-delay="0.3s" style="visibility: hidden; animation-duration: 0.3s; animation-delay: 0.3s; animation-name: none;">
+                    <div class="upper-content text-center">
+                        <h4 class="lasthead">Here’s how it works</h4>
+                        <h2 class="title">Getting Started? It’s Simple</h2>
+                        <p class="text">
+                            The affiliate program is our special feature for loyal Investors.Invite users and earn 40%
+                            of the fee on their exchange transactions!
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center mb-30-none">
+                <div class="col-md-6 col-lg-4 col-sm-10 wow fadeInUp" data-wow-duration="0.3s" data-wow-delay="0.3s" style="visibility: hidden; animation-duration: 0.3s; animation-delay: 0.3s; animation-name: none;">
+                    <div class="how-item">
+                        <div class="how-thumb-area">
+                            <div class="how-thumb">
+                                <img src="https://apexthrive.com/front_assets/assets/img/how4.png" alt="how">
+                            </div>
+                        </div>
+                        <div class="how-content">
+                            <h4 class="lasthead">Register Your Account
+                        </h4>
+                        <p class="text">
+                            Fill in the form and access your dashboard
+                        </p>
+                            <a href="/signup">Join Now <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 col-sm-10 wow fadeInUp" data-wow-duration="0.4s" data-wow-delay="0.4s" style="visibility: hidden; animation-duration: 0.4s; animation-delay: 0.4s; animation-name: none;">
+                    <div class="how-item active">
+                        <div class="how-thumb-area">
+                            <div class="how-thumb">
+                                <img src="https://apexthrive.com/front_assets/assets/img/how5.png" alt="how">
+                            </div>
+                        </div>
+                        <div class="how-content">
+                            <h4 class="lasthead">Invite Friends
+                            </h4>
+                            <p class="text">
+                            Send Your referral code or link to your down liners
+                        </p>
+                            <a href="/login">Referral Link <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 col-sm-10 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.5s" style="visibility: hidden; animation-duration: 0.5s; animation-delay: 0.5s; animation-name: none;">
+                    <div class="how-item">
+                        <div class="how-thumb-area">
+                            <div class="how-thumb">
+                                <img src="https://apexthrive.com/front_assets/assets/img/how6.png" alt="how">
+                            </div>
+                        </div>
+                        <div class="how-content">
+                            <h4 class="lasthead">Get Paid</h4>
+                            <p>Friends subscribe and you get paid.</p>
+                            <a href="/login">Commission Payment <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section class="why-affiliate-section">
+        <div class="container">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-lg-6">
+                    <div class="why-affiliate-content">
+                        <div class="upper-content wow fadeInUp" data-wow-duration="0.3s" data-wow-delay="0.3s" style="visibility: hidden; animation-duration: 0.3s; animation-delay: 0.3s; animation-name: none;">
+                            <h4 class="lasthead">Why Should You</h4>
+                            <h2 class="title">Join affiliate?</h2>
+                            <p class="text">
+                                Our commission structure encourages you to get unlimited referees under your account. It accumulates monthly and allow you to get extra 10% bonus if you have reached outperforming target.
+                            </p>
+                        </div>
+                        <div class="why-area">
+                            <div class="why-item wow fadeInUp" data-wow-duration="0.3s" data-wow-delay="0.3s" style="visibility: hidden; animation-duration: 0.3s; animation-delay: 0.3s; animation-name: none;">
+                                <div class="why-inner">
+                                    <div class="why-thumb">
+                                        <img src="https://apexthrive.com/front_assets/assets/img/why1.png" alt="why">
+                                    </div>
+                                    <div class="why-content">
+                                        <h6 class="title">Joining free </h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="why-item wow fadeInUp" data-wow-duration="0.4s" data-wow-delay="0.4s" style="visibility: hidden; animation-duration: 0.4s; animation-delay: 0.4s; animation-name: none;">
+                                <div class="why-inner">
+                                    <div class="why-thumb">
+                                        <img src="https://apexthrive.com/front_assets/assets/img/why2.png" alt="why">
+                                    </div>
+                                    <div class="why-content">
+                                        <h6 class="title">Instant Payout</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="why-item wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.5s" style="visibility: hidden; animation-duration: 0.5s; animation-delay: 0.5s; animation-name: none;">
+                                <div class="why-inner">
+                                    <div class="why-thumb">
+                                        <img src="https://apexthrive.com/front_assets/assets/img/why3.png" alt="why">
+                                    </div>
+                                    <div class="why-content">
+                                        <h6 class="title">Performance Bonues</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="why-item wow fadeInUp" data-wow-duration="0.6s" data-wow-delay="0.6s" style="visibility: hidden; animation-duration: 0.6s; animation-delay: 0.6s; animation-name: none;">
+                                <div class="why-inner">
+                                    <div class="why-thumb">
+                                        <img src="https://apexthrive.com/front_assets/assets/img/why4.png" alt="why">
+                                    </div>
+                                    <div class="why-content">
+                                        <h6 class="title">Unlimited affiliates</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="https://apexthrive.com/signup" class="custom-button button-1 wow fadeInUp" data-wow-duration="0.3s" data-wow-delay="0.3s" style="visibility: hidden; animation-duration: 0.3s; animation-delay: 0.3s; animation-name: none;">&gt;join Now!</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-lg-block d-none">
+                    <div class="why--thumb wow fadeInRight" data-wow-duration="0.3s" data-wow-delay="0.3s" style="visibility: visible; animation-duration: 0.3s; animation-delay: 0.3s; animation-name: fadeInRight;">
+                        <img src="https://apexthrive.com/front_assets/assets/img/how.png" alt="why" class="why">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+      						</div>
+      					</div>
+      				</div>
+      			</div>
+		</section>
+
+
+
+
+
+
+
+		<footer class="bg-pattern lightskyblue ptb-100">
+			<div class="container">
+				<div class="footer">
+					<div class="row">
+						<div class="col-lg-4 col-md-6">
+							<div class="footer-logo pb-25">
+							<a href="/"><img width="236" height="58" src="{% static 'images/life2.jpeg' %}" class="transition" alt="Lifemap"></a>
+						</div>
+				<!-- 			<div class="footer-icon">
+								<ul>
+									<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+								</ul>
+							</div> -->
+						</div>
+						<div class="col-lg-4 col-md-6">
+							<div class="footer-link">
+								<ul>
+									<li><a href="/about-us">About Us</a></li>
+									<li><a href="#">+44 7534986544</a></li>
+									<li><a href="#">Join Us</a></li>
+									<li><a href="/retirement">Retirement Income</a></li>
+									<li><a href="#pak">Packages</a></li>
+									<li><a href="/terms">Terms & Condition</a></li>
+									<li><a href="/affiliate">Referral Program</a></li>
+									<li><a href="#faq">Faq</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6">
+							<div class="subscribe">
+								<div class="form-group">
+								    <label>Subscribe to our Newsleter</label>
+								    <input type="email" class="form-control" placeholder="Enter your email Address">
+								    <input type="submit" name="submit" value="Subscribe" class="submit">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="copyright">
+					<div class="row">
+						<div class="col-lg-6">
+							<p>266 Farnham Rd, Slough SL1 4XL, UNITED KINGDOM <a href="/">Lifemapcapital</a></p>
+						</div>
+				<!-- 		<div class="col-lg-6">
+							<ul>
+								<li><a href="/terms">Terms & Condition</a></li>
+								<li><a href="/privacy">Privacy Policy</a></li>
+								<li><a href="/">Contact Us</a></li>
+							</ul>
+						</div> -->
+					</div>
+				</div>
+			</div>
+		</footer>
+	
+		<script type="text/javascript">
+		function googleTranslateElementInit() {
+		  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+		}
+		</script>
+
+		<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+		<script src="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/js/jquery-3.4.1.min.js"></script>
+		<script src="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/js/bootstrap.min.js"></script>
+		<script src="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/js/owl.carousel.min.js"></script>
+		<script src="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/js/snap.svg-min.js"></script>
+		<script src="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/js/jquery.listtopie.min.js"></script>
+		<script src="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/js/animation.js"></script>
+		<script src="https://themes.templatescoder.com/crypton/html/demo/1-2/02-Light-Theme/js/custom.js"></script>
+	<script type="application/ld+json">
+		{
+  "@context": "https://schema.org",
+  "@type": "Investment",
+  "author": "Lifemap",
+  "cookTime": "PT1H",
+  "dateModified": "2013-05-08",
+  "datePublished": "2013-05-08",
+  "dateCreated": "2013-05-08",
+  "description": "lifemapcapital is a platform that makes mining very efficient, productive and accessible for everyone. It gives large opportunity with highly programmable data",
+  "image": "https://lifemapcapital.com/static/images/life2.jpeg",
+
+  "interactionStatistic": {
+    "@type": "InteractionCounter",
+    "interactionType": "https://schema.org/Comment",
+    "userInteractionCount": "1840"
+  },
+  "name": "Lifemapcapital World Farmous Investing platform",
+  
+  "prepTime": "PT15M",
+  
+  "suitableForDiet": "https://schema.org/LowFatDiet"
+}
+</script>
+	</body>
+</html>

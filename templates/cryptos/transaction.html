@@ -1,0 +1,554 @@
+{% extends 'crypto/base2.html' %}   
+
+
+{% block content %}
+<style>
+	#chartdiv {
+	  width: 100%;
+	  height: 500px;
+	}
+	#chartdiv2 {
+	width: 100%;
+	height: 500px;
+	}
+	</style>
+<!-- Content Wrapper. Contains page content -->
+  <!-- <div class="content-wrapper" style="background-color: #000422; margin-left: 0;"> -->
+	  <div class="container" >
+		<!-- Content Header (Page header) -->	  
+		<div class="content-header">
+			<div class="d-flex align-items-center">
+				<div class="me-auto">
+					<h4 class="page-title">Details</h4>
+					<div class="d-inline-block align-items-center">
+						<nav>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
+								<li class="breadcrumb-item" aria-current="page">Transactions</li>
+								<li class="breadcrumb-item active" aria-current="page">Details </li>
+
+		
+
+
+
+
+
+
+
+							</ol>
+						</nav>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+
+		<!-- Main content -->
+		<section class="content">
+		
+			<div class="row">
+				<div class="col-lg-6 col-12">
+				  <div class="box">
+					<div class="box-header with-border">
+					  <h4 class="box-title">Deposit Chart</h4>
+					</div>
+					<div class="box-body">
+						<div id="chartdiv"></div>
+					</div>
+					<!-- /.box-body -->
+			  </div>
+				  <!-- /.box -->
+				</div>
+				<div class="col-lg-6 col-12">
+				  <div class="box">
+					<div class="box-header with-border">
+					  <h4 class="box-title">Withdraw Chart</h4>
+					</div>
+					<div class="box-body">
+							<div id="chartdiv2"></div>
+						
+					</div>
+					<!-- /.box-body -->
+				  </div>
+				  <!-- /.box -->
+				</div>
+			  </div>
+
+
+
+
+
+
+
+
+
+			<div class="row">
+				<div class="col-lg-6 col-12">
+				  <div class="box">
+					<div class="box-header with-border">
+					  <h4 class="box-title">Your Summary</h4>
+					</div>
+					<div class="box-body">
+						<div class="table-responsive">
+							<table class="table table-striped table-hover no-margin">
+							  <tbody>
+								<tr>
+								  <td>Username</td>
+								  <td><a href="#">{{user.username}}</a></td>
+								</tr>
+								<tr>
+								  <td>Full name</td>
+								  <td><a href="#">{{user.first_name}} {{user.last_name}}</a></td>
+								</tr>
+								<tr>
+								  <td>Email</td>
+								  <td>{{user.email}}</td>
+								</tr>
+							  </tbody>
+							</table>
+						</div>
+					</div>
+				  </div>
+				</div>
+				<div class="col-lg-4 col-12">
+				  <div class="box">
+					<div class="box-header with-border">
+					  <h4 class="box-title">Wallet Transactions</h4>
+					</div>
+					<div class="box-body">
+						<div class="table-responsive">
+							<table class="table table-striped table-hover no-margin">
+							  <tbody>
+								<tr>
+								  <td>Total Deposit</td>
+								  <td><span class="text-success">{{depo}}</span></td>
+								  <td><i class="fa fa-bar-chart"></i></td>
+								</tr>
+								<tr>
+
+								  <td>Total Bonus</td>
+								  <td><span class="text-success">{{bon}} </span></td>
+								  <td><i class="fa fa-bar-chart"></i></td>
+								</tr>
+								<tr>
+								  <td>Total Balance</td>
+								  <td><span class="text-success">{{total}}</span></td>
+								  <td><i class="fa fa-bar-chart"></i></td>
+								</tr>
+							  </tbody>
+							</table>
+						</div>
+					</div>
+				  </div>
+				</div>
+				<div class="col-lg-2 col-12">
+				  <div class="box">
+					<div class="box-body">
+						<img src="https://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data={{addr}}%0A&qzone=1&margin=0&size=200x200&ecc=L" alt="codeQR">
+					</div>
+				  </div>
+				</div>
+			<!-- </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			<div class="row">
+				<div class="col-lg-6 col-12">
+				  <div class="box">
+					<div class="box-header with-border">
+					  <h4 class="box-title">Deposit</h4>
+					</div>
+					<div class="box-body">
+						<div class="table-responsive">
+							<table class="table table-bordered no-margin">
+							  <thead>
+								<tr>
+								   <th class="text-center">ID</th>
+								   <th>Payment prof</th>
+								   <th class="text-end">Amount</th>
+								   <th class="text-end">currency</th>
+								   <th class="text-end">Status</th>
+								</tr>
+							   </thead>
+							   <tbody>
+									{% for post in post %}
+								<tr>
+								   <td class="text-center">{{post.id}}</td>
+								   <td class="text-end"><img src="{{post.prof.url}}" style="width:20px"></td>
+								   <td class="text-end"><span>$</span> {{post.amount}}</td>
+								   <td class="text-end"><span></span> {{post.currency}}</td>
+								   {% if post.status == 'confirmed' %}
+								   <td class="text-end"><span class="label label-success">{{post.status}}</span></td>
+								   {% elif post.status == 'declind' %}
+								   <td class="text-end"><span class="label label-danger">{{post.status}}</span></td>
+								   {% else %}
+								   <td class="text-end"><span class="label" style="background-color:#d7961a;">{{post.status}}</span></td>
+								   {% endif %}
+								</tr>
+								{% endfor %}
+								
+							   </tbody>
+							</table>
+						</div>
+					</div>
+					<!-- /.box-body -->
+			  </div>
+				  <!-- /.box -->
+				</div>
+				<div class="col-lg-6 col-12">
+				  <div class="box">
+					<div class="box-header with-border">
+					  <h4 class="box-title">Withdraw</h4>
+					</div>
+					<div class="box-body">
+						<div class="table-responsive">
+							<table class="table table-bordered no-margin">
+							  <thead>
+								<tr>
+								   <th class="text-center">ID</th>
+								   <th>Name</th>
+								   <th class="text-end">Price</th>
+								   <th class="text-end">currency</th>
+								   <th class="text-end">status</th>
+								</tr>
+							  </thead>
+							  <tbody>
+							  		{% for post in posts %}
+								<tr>
+								   <td class="text-center">{{post.id}}</td>
+								   <td><a href="#" class="hover-warning">{{post.user.username}}</a></td>
+								   <td class="text-end"><span>$</span> {{post.amount}}</td>
+								   <td class="text-end"><span></span> {{post.currency}}</td>
+								   <!-- <td class="text-end"><span></span>{{post.created_date}}</td> -->
+								   {% if post.status == 'confirmed' %}
+								   <td class="text-end"><span class="label label-success">{{post.status}}</span></td>
+								   {% elif post.status == 'declind' %}
+								   <td class="text-end"><span class="label label-danger">{{post.status}}</span></td>
+								   {% else %}
+								   <td class="text-end"><span class="label" style="background-color:#d7961a;">{{post.status}}</span></td>
+								   {% endif %}
+								</tr>
+								{% endfor %}
+							   </tbody>
+							</table>
+						</div>
+					</div>
+					<!-- /.box-body -->
+				  </div>
+				  <!-- /.box -->
+				</div>
+			  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		</section>
+		<!-- /.content -->
+	  
+	  </div>
+  </div>
+  <!-- /.content-wrapper -->
+  <script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
+<!-- Resources -->
+<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+
+<!-- Chart code -->
+<script>
+am5.ready(function() {
+
+// Create root element
+// https://www.amcharts.com/docs/v5/getting-started/#Root_element
+var root = am5.Root.new("chartdiv");
+
+
+// Set themes
+// https://www.amcharts.com/docs/v5/concepts/themes/
+root.setThemes([
+  am5themes_Animated.new(root)
+]);
+
+
+// Create chart
+// https://www.amcharts.com/docs/v5/charts/xy-chart/
+var chart = root.container.children.push(am5xy.XYChart.new(root, {
+  panX: false,
+  panY: false,
+  wheelX: "panX",
+  wheelY: "zoomX",
+  layout: root.verticalLayout
+}));
+
+
+// Add legend
+// https://www.amcharts.com/docs/v5/charts/xy-chart/legend-xy-series/
+var legend = chart.children.push(am5.Legend.new(root, {
+  centerX: am5.p50,
+  x: am5.p50
+}))
+
+
+// Data
+var data = [{
+  year: "2017",
+  income: 23.5,
+  expenses: 18.1
+}, {
+  year: "2018",
+  income: 26.2,
+  expenses: 22.8
+}, {
+  year: "2019",
+  income: 30.1,
+  expenses: 23.9
+}, {
+  year: "2020",
+  income: 29.5,
+  expenses: 25.1
+}, {
+  year: "2021",
+  income: 24.6,
+  expenses: 25
+}];
+
+
+// Create axes
+// https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+var yAxis = chart.yAxes.push(am5xy.CategoryAxis.new(root, {
+  categoryField: "year",
+  renderer: am5xy.AxisRendererY.new(root, {
+    inversed: true,
+    cellStartLocation: 0.1,
+    cellEndLocation: 0.9
+  })
+}));
+
+yAxis.data.setAll(data);
+
+var xAxis = chart.xAxes.push(am5xy.ValueAxis.new(root, {
+  renderer: am5xy.AxisRendererX.new(root, {}),
+  min: 0
+}));
+
+
+// Add series
+// https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+function createSeries(field, name) {
+  var series = chart.series.push(am5xy.ColumnSeries.new(root, {
+    name: name,
+    xAxis: xAxis,
+    yAxis: yAxis,
+    valueXField: field,
+    categoryYField: "year",
+    sequencedInterpolation: true,
+    tooltip: am5.Tooltip.new(root, {
+      pointerOrientation: "horizontal",
+      labelText: "[bold]{name}[/]\n{categoryY}: {valueX}"
+    })
+  }));
+
+  series.columns.template.setAll({
+    height: am5.p100
+  });
+
+
+  series.bullets.push(function() {
+    return am5.Bullet.new(root, {
+      locationX: 1,
+      locationY: 0.5,
+      sprite: am5.Label.new(root, {
+        centerY: am5.p50,
+        text: "{valueX}",
+        populateText: true
+      })
+    });
+  });
+
+  series.bullets.push(function() {
+    return am5.Bullet.new(root, {
+      locationX: 1,
+      locationY: 0.5,
+      sprite: am5.Label.new(root, {
+        centerX: am5.p100,
+        centerY: am5.p50,
+        text: "{name}",
+        fill: am5.color(0xffffff),
+        populateText: true
+      })
+    });
+  });
+
+  series.data.setAll(data);
+  series.appear();
+
+  return series;
+}
+
+createSeries("income", "Income");
+createSeries("expenses", "Expenses");
+
+
+// Add legend
+// https://www.amcharts.com/docs/v5/charts/xy-chart/legend-xy-series/
+var legend = chart.children.push(am5.Legend.new(root, {
+  centerX: am5.p50,
+  x: am5.p50
+}));
+
+legend.data.setAll(chart.series.values);
+
+
+// Add cursor
+// https://www.amcharts.com/docs/v5/charts/xy-chart/cursor/
+var cursor = chart.set("cursor", am5xy.XYCursor.new(root, {
+  behavior: "zoomY"
+}));
+cursor.lineY.set("forceHidden", true);
+cursor.lineX.set("forceHidden", true);
+
+
+// Make stuff animate on load
+// https://www.amcharts.com/docs/v5/concepts/animations/
+chart.appear(1000, 100);
+
+}); // end am5.ready()
+</script>
+
+
+
+
+<script>
+	am5.ready(function() {
+	
+	// Create root element
+	// https://www.amcharts.com/docs/v5/getting-started/#Root_element
+	var root = am5.Root.new("chartdiv2");
+	
+	// Set themes
+	// https://www.amcharts.com/docs/v5/concepts/themes/
+	root.setThemes([
+	  am5themes_Animated.new(root)
+	]);
+	
+	// Create chart
+	// https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/
+	// start and end angle must be set both for chart and series
+	var chart = root.container.children.push(am5percent.PieChart.new(root, {
+	  layout: root.verticalLayout,
+	  innerRadius: am5.percent(40)
+	}));
+	
+	// Create series
+	// https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Series
+	// start and end angle must be set both for chart and series
+	var series0 = chart.series.push(am5percent.PieSeries.new(root, {
+	  valueField: "bottles",
+	  categoryField: "country",
+	  alignLabels: false
+	}));
+	
+	var bgColor = root.interfaceColors.get("background");
+	
+	series0.ticks.template.setAll({ forceHidden: true });
+	series0.labels.template.setAll({ forceHidden: true });
+	series0.slices.template.setAll({
+	  stroke: bgColor,
+	  strokeWidth: 2,
+	  tooltipText:
+		"{category}: {valuePercentTotal.formatNumber('0.00')}% ({value} bottles)"
+	});
+	series0.slices.template.states.create("hover", { scale: 0.95 });
+	
+	var series1 = chart.series.push(am5percent.PieSeries.new(root, {
+	  valueField: "litres",
+	  categoryField: "country",
+	  alignLabels: true
+	}));
+	
+	series1.slices.template.setAll({
+	  stroke: bgColor,
+	  strokeWidth: 2,
+	  tooltipText:
+		"{category}: {valuePercentTotal.formatNumber('0.00')}% ({value} litres)"
+	});
+	
+	var data = [{
+	  country: "Lithuania",
+	  litres: 501.9,
+	  bottles: 1500
+	}, {
+	  country: "Czech Republic",
+	  litres: 301.9,
+	  bottles: 990
+	}, {
+	  country: "Ireland",
+	  litres: 201.1,
+	  bottles: 785
+	}, {
+	  country: "Germany",
+	  litres: 165.8,
+	  bottles: 255
+	}, {
+	  country: "Australia",
+	  litres: 139.9,
+	  bottles: 452
+	}, {
+	  country: "Austria",
+	  litres: 128.3,
+	  bottles: 332
+	}, {
+	  country: "UK",
+	  litres: 99,
+	  bottles: 150
+	}, {
+	  country: "Belgium",
+	  litres: 60,
+	  bottles: 178
+	}, {
+	  country: "The Netherlands",
+	  litres: 50,
+	  bottles: 50
+	}];
+	
+	// Set data
+	// https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Setting_data
+	series0.data.setAll(data);
+	series1.data.setAll(data);
+	
+	// Play initial series animation
+	// https://www.amcharts.com/docs/v5/concepts/animations/#Animation_of_series
+	series0.appear(1000, 100);
+	series1.appear(1000, 100);
+	
+	}); // end am5.ready()
+	</script>
+
+
+{% endblock %}

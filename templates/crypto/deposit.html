@@ -1,10 +1,11 @@
-{% extends 'crypto/base2.html' %}   
+ {% extends 'crypto/base.html' %}   
 
-{% load crispy_forms_tags %}
+  {% load static %}
+   {% load crispy_forms_tags %}
+
 
 
 {% block content %}
-
 <style>
 	#chartdiv {
 	width: 100%;
@@ -12,8 +13,8 @@
 	}
 </style>
   <!-- Content Wrapper. Contains page content -->
-  <!-- <div class="content-wrapper" style="background-color: #000422; scroll-behavior: smooth; margin-left: 0;"> -->
-	  <div class="container" style="scroll-behavior: smooth;">
+  <div class="content-wrapper" style="background-color: #000422; scroll-behavior: smooth;">
+	  <div class="container-full" style="scroll-behavior: smooth;">
 		<!-- Content Header (Page header) -->
 		<div class="content-header">
 			<div class="d-flex align-items-center">
@@ -52,7 +53,7 @@
 							  <a href="#"><i class="cc BTC me-5" title="BTC"></i></a>
 							</div>
 							<div>
-							  <h3 class="no-margin text-bold" style="color: #f7931a;">Bitcoin BTC <h5> <i>(BTC)</i><h5></h5></h3>
+							  <h3 class="no-margin text-bold">Bitcoin BTC</h3>
 							</div>
 						  </div>
 						<!--   <div class="flexbox align-items-center mt-5">
@@ -76,7 +77,7 @@
 							  <a href="#"><i class="cc ETH me-5" title="ETH"></i></a>
 							</div>
 							<div>
-							  <h3 class="no-margin text-bold" style="color: #282828;">Ethereum ETH <h5> <i>(ETH)</i><h5></h5></h3>
+							  <h3 class="no-margin text-bold">Ethereum ETH</h3>
 							</div>
 						  </div>
 						<!--   <div class="flexbox align-items-center mt-5">
@@ -100,7 +101,7 @@
 							  <a href="#"><i class="cc USDT me-5" title="BTC"></i></a>
 							</div>
 							<div>
-							  <h3 class="no-margin text-bold" style="color: #2ca07a;">Tether USDT <h5> <i>(ERC20)</i><h5></h3>
+							  <h3 class="no-margin text-bold">Tether USDT <h5> <i>(ERC20)</i><h5></h3>
 							</div>
 						  </div>
 						<!--   <div class="flexbox align-items-center mt-5">
@@ -125,7 +126,7 @@
 							  <a href="#"><i class="cc USDT me-5" style="color: red;" title="USDT"></i></a>
 							</div>
 							<div>
-							  <h3 class="no-margin text-bold"  style="color: red;">Tether USDT <h5> <i>(TRC20)</i><h5></h3>
+							  <h3 class="no-margin text-bold">Tether USDT <h5> <i>(TRC20)</i><h5></h3>
 							</div>
 						  </div>
 						<!--   <div class="flexbox align-items-center mt-5">
@@ -150,7 +151,7 @@
 							  <a href="#"><i class="cc USDT me-5" style="color: blue;" title="USDT"></i></a>
 							</div>
 							<div>
-							  <h3 class="no-margin text-bold"  style="color: blue;" >Tether USDT <h5> <i>(BEP20)</i><h5></h3>
+							  <h3 class="no-margin text-bold">Tether USDT <h5> <i>(BEP20)</i><h5></h3>
 							</div>
 						  </div>
 						<!--   <div class="flexbox align-items-center mt-5">
@@ -243,34 +244,33 @@
 
 		</section>
 
+
 				<!-- Main content -->
-
-
 				<section class="content">			
 					<div class="row">
-									<div class="col-12">
-									  <div class="box">
-										<div class="box-body">
-											<h5 class="text-center">Deposit Historys and Transactions Chart</h5>
-											<div class="table-responsive">
-											<div id="chartdiv"></div>
-											</div>
-										</div>
-										<!-- /.box-body -->
-									  </div>
-									  <!-- /.box -->
+						<div class="col-12">
+						  <div class="box">
+							<div class="box-body">
+								<h5 class="text-center">Deposit Historys and Transactions Chart</h5>
+								<div class="table-responsive">
+									<div id="chartdiv"></div>
 									</div>
-								  </div>
-					
-					
-					
-					
-							</section>
-							<!-- /.content -->
+							</div>
+							<!-- /.box-body -->
+						  </div>
+						  <!-- /.box -->
+						</div>
+					  </div>
+		
+		
+		
+		
+				</section>
+				<!-- /.content -->
 
-
+				<!-- Main content -->
 		<section class="content">			
-<div class="row">
+			<div class="row">
 				<div class="col-12">
 				  <div class="box">
 					<div class="box-body">
@@ -284,7 +284,8 @@
 								   <th class="text-end">Image Prof</th>
 								   <th class="text-end">Amount</th>
 								   <th class="text-end">Payment Method</th>
-								   <th class="text-end">Date / Time</th>
+								   <th class="text-end">Created Date/Time</th>
+								  <!--  <th class="text-end">Date / Time</th> -->
 								   <th class="text-end">Status</th>
 								</tr>
 							   </thead>
@@ -301,7 +302,8 @@
 								   
 								   <td class="text-end"><span>$</span> {{post.amount}}</td>
 								   <td class="text-end"><span></span> {{post.currency}}</td>
-								   <td class="text-end"><span></span>{{post.created_date}}</td>
+								   <td class="text-end"><span></span>{{post.created_dated}}</td>
+								   <!-- <td class="text-end"><span></span>{{post.created_date}}</td> -->
 								   {% if post.status == 'confirmed' %}
 								   <td class="text-end"><span class="label label-success">{{post.status}}</span></td>
 								   {% elif post.status == 'declind' %}
@@ -367,20 +369,15 @@
 							  <tbody>
 							  <tr>
 								  <td>Address</td>
-								  
-								  <td>
-								  	{% for i in waladd %}
-								  	<input type="text" class="js-copytextarea" value="{{i.btc}}" id="myInput" style="border: none;
+								  <td><input type="text" class="js-copytextarea" value="1AqGjejoByxoMksAZbDFNmAQXFtseaeaRX" id="myInput" style="border: none;
     color: #cacbce;
     width: 100%;
-    background: #1c212e;">
-    							{% endfor %}
-  </td>
+    background: #1c212e;"></td>
 								
 								</tr>			
 								<tr>
 								  <td>Company</td>
-								  <td><a href="#">LIFEMAP (inc.)</a></td>
+								  <td><a href="#">LIFEMAPCAPITAL (inc.)</a></td>
 								</tr>
 								
 								<tr>
@@ -426,9 +423,7 @@
 				<div class="col-lg-2 col-12">
 				  <div class="box">
 					<div class="box-body">
-						{% for i in waladd %}
-						<img src="https://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data={{i.btc}}%0A&qzone=1&margin=0&size=200x200&ecc=L" alt="codeQR">
-						{% endfor %}
+						<img src="https://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data=1AqGjejoByxoMksAZbDFNmAQXFtseaeaRX%0A&qzone=1&margin=0&size=200x200&ecc=L" alt="codeQR">
 					</div>
 				  </div>
 				</div>
@@ -548,17 +543,15 @@ copyTextareaBtn.addEventListener('click', function(event) {
 							  <tbody>
 							  <tr>
 								  <td>Address</td>
-								  <td>{% for i in waladd %}
-								  	<input type="text" class="js-copytextarea" value="{{i.eth}}" id="myInput" style="border: none;
+								  <td><input class="js-copytextareab" type="text" value="0xF8B88cFAcb7121A1a5A89b2B240E29297508cd0f" id="myInput" style="border: none;
     color: #cacbce;
     width: 100%;
-    background: #1c212e;">
-    							{% endfor %}</td>
+    background: #1c212e;"></td>
 								
 								</tr>			
 								<tr>
 								  <td>Company</td>
-								  <td><a href="#">LIFEMAP (inc.)</a></td>
+								  <td><a href="#">LIFEMAPCAPITAL (inc.)</a></td>
 								</tr>
 								
 								<tr>
@@ -604,9 +597,7 @@ copyTextareaBtn.addEventListener('click', function(event) {
 				<div class="col-lg-2 col-12">
 				  <div class="box">
 					<div class="box-body">
-							{% for i in waladd %}
-						<img src="https://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data={{i.eth}}%0A&qzone=1&margin=0&size=200x200&ecc=L" alt="codeQR">
-						{% endfor %}
+						<img src="https://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data=0xF8B88cFAcb7121A1a5A89b2B240E29297508cd0f%0A&qzone=1&margin=0&size=200x200&ecc=L" alt="codeQR">
 					</div>
 				  </div>
 				</div>
@@ -723,17 +714,15 @@ copyTextareaBtnb.addEventListener('click', function(event) {
 							  <tbody> 
 							  <tr>
 								  <td>Address</td>
-								  <td>{% for i in waladd %}
-								  	<input type="text" class="js-copytextarea" value="{{i.erc}}" id="myInput" style="border: none;
+								  <td><input type="text" class="js-copytextareac" value="0xF8B88cFAcb7121A1a5A89b2B240E29297508cd0f" id="myInput" style="border: none;
     color: #cacbce;
     width: 100%;
-    background: #1c212e;">
-    							{% endfor %}</td>
+    background: #1c212e;"></td>
 								
 								</tr>			
 								<tr>
 								  <td>Company</td>
-								  <td><a href="#">LIFEMAP (inc.)</a></td>
+								  <td><a href="#">LIFEMAPCAPITAL (inc.)</a></td>
 								</tr>
 								
 								<tr>
@@ -779,9 +768,7 @@ copyTextareaBtnb.addEventListener('click', function(event) {
 				<div class="col-lg-2 col-12">
 				  <div class="box">
 					<div class="box-body">
-						{% for i in waladd %}
-						<img src="https://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data={{i.erc}}%0A&qzone=1&margin=0&size=200x200&ecc=L" alt="codeQR">
-						{% endfor %}
+						<img src="https://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data=0xF8B88cFAcb7121A1a5A89b2B240E29297508cd0f%0A&qzone=1&margin=0&size=200x200&ecc=L" alt="codeQR">
 					</div>
 				  </div>
 				</div>
@@ -900,17 +887,15 @@ copyTextareaBtnc.addEventListener('click', function(event) {
 							  <tbody> 
 							  <tr>
 								  <td>Address</td>
-								  <td>{% for i in waladd %}
-								  	<input type="text" class="js-copytextarea" value="{{i.trc}}" id="myInput" style="border: none;
+								  <td><input type="text" class="js-copytextarea2" value="TWhamYxKYZ8QKAL4Q46kVrigrj6rupfNYG" id="myInput" style="border: none;
     color: #cacbce;
     width: 100%;
-    background: #1c212e;">
-    							{% endfor %}</td>
+    background: #1c212e;"></td>
 								
 								</tr>			
 								<tr>
 								  <td>Company</td>
-								  <td><a href="#">LIFEMAP (inc.)</a></td>
+								  <td><a href="#">LIFEMAPCAPITAL (inc.)</a></td>
 								</tr>
 								
 								<tr>
@@ -956,9 +941,7 @@ copyTextareaBtnc.addEventListener('click', function(event) {
 				<div class="col-lg-2 col-12">
 				  <div class="box">
 					<div class="box-body">
-						{% for i in waladd %}
-						<img src="https://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data={{i.trc}}%0A&qzone=1&margin=0&size=200x200&ecc=L" alt="codeQR">
-						{% endfor %}
+						<img src="https://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data=TWhamYxKYZ8QKAL4Q46kVrigrj6rupfNYG%0A&qzone=1&margin=0&size=200x200&ecc=L" alt="codeQR">
 					</div>
 				  </div>
 				</div>
@@ -1085,17 +1068,15 @@ copyTextareaBtnc.addEventListener('click', function(event) {
 							  <tbody> 
 							  <tr>
 								  <td>Address</td>
-								  <td>{% for i in waladd %}
-								  	<input type="text" class="js-copytextarea" value="{{i.bep}}" id="myInput" style="border: none;
+								  <td><input type="text" class="js-copytextarea3" value="0x9ae83416e320b83f5512f97233dcda11d57cd2b9" id="myInput" style="border: none;
     color: #cacbce;
     width: 100%;
-    background: #1c212e;">
-    							{% endfor %}</td>
+    background: #1c212e;"></td>
 								
 								</tr>			
 								<tr>
 								  <td>Company</td>
-								  <td><a href="#">LIFEMAP (inc.)</a></td>
+								  <td><a href="#">LIFEMAPCAPITAL (inc.)</a></td>
 								</tr>
 								
 								<tr>
@@ -1141,9 +1122,7 @@ copyTextareaBtnc.addEventListener('click', function(event) {
 				<div class="col-lg-2 col-12">
 				  <div class="box">
 					<div class="box-body">
-							{% for i in waladd %}
-						<img src="https://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data={{i.bep}}%0A&qzone=1&margin=0&size=200x200&ecc=L" alt="codeQR">
-						{% endfor %}
+						<img src="https://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data=0x9ae83416e320b83f5512f97233dcda11d57cd2b9%0A&qzone=1&margin=0&size=200x200&ecc=L" alt="codeQR">
 					</div>
 				  </div>
 				</div>
@@ -1219,7 +1198,7 @@ copyTextareaBtnc.addEventListener('click', function(event) {
 		  </div>
 		</div>
 	  </div>
-	
+	</div>
   <!-- /.modal -->
 
 
@@ -1257,149 +1236,148 @@ copyTextareaBtnc.addEventListener('click', function(event) {
 	  </div>
 	</div>
   <!-- /.modal -->
-  <!-- Resources -->
-<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
-<script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
-<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
-
-<!-- Chart code -->
-<script>
-function getMonthABBR(month) {
-   let monthAbbR = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-   return monthAbbR[(month - 1)]
-  }
-am5.ready(function() {
-
-// Create root element
-// https://www.amcharts.com/docs/v5/getting-started/#Root_element
-var root = am5.Root.new("chartdiv");
-
-
-// Set themes
-// https://www.amcharts.com/docs/v5/concepts/themes/
-root.setThemes([
-  am5themes_Animated.new(root)
-]);
-
-
-// Create chart
-// https://www.amcharts.com/docs/v5/charts/xy-chart/
-var chart = root.container.children.push(am5xy.XYChart.new(root, {
-  panX: true,
-  panY: true,
-  wheelX: "panX",
-  wheelY: "zoomX",
-  pinchZoomX:true
-}));
-
-// Add cursor
-// https://www.amcharts.com/docs/v5/charts/xy-chart/cursor/
-var cursor = chart.set("cursor", am5xy.XYCursor.new(root, {}));
-cursor.lineY.set("visible", false);
-
-
-// Create axes
-// https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
-var xRenderer = am5xy.AxisRendererX.new(root, { minGridDistance: 30 });
-xRenderer.labels.template.setAll({
-  rotation: -90,
-  centerY: am5.p50,
-  centerX: am5.p100,
-  paddingRight: 15
-});
-
-var xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
-  maxDeviation: 0.3,
-  categoryField: "country",
-  renderer: xRenderer,
-  tooltip: am5.Tooltip.new(root, {})
-}));
-
-var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
-  maxDeviation: 0.3,
-  renderer: am5xy.AxisRendererY.new(root, {})
-}));
-
-
-// Create series
-// https://www.amcharts.com/docs/v5/charts/xy-chart/series/
-var series = chart.series.push(am5xy.ColumnSeries.new(root, {
-  name: "Series 1",
-  xAxis: xAxis,
-  yAxis: yAxis,
-  valueYField: "value",
-  sequencedInterpolation: true,
-  categoryXField: "country",
-  tooltip: am5.Tooltip.new(root, {
-    labelText:"{valueY}"
-  })
-}));
-
-series.columns.template.setAll({ cornerRadiusTL: 5, cornerRadiusTR: 5 });
-series.columns.template.adapters.add("fill", function(fill, target) {
-  return chart.get("colors").getIndex(series.columns.indexOf(target));
-});
-
-series.columns.template.adapters.add("stroke", function(stroke, target) {
-  return chart.get("colors").getIndex(series.columns.indexOf(target));
-});
-
-let d = [];
-{% for v in post %}
-d.push({"value": Math.round("{{v.amount}}"),"country": "{{v.currency}} {{v.id}}"});
-console.log("{{v.year}}")
-
-{%endfor%}
-// Add data
-chart.data = d.reverse();
-var data = d.reverse();
-// Set data
-// var data = [{
-//   country: "USA",
-//   value: 2025
-// }, {
-//   country: "China",
-//   value: 1882
-// }, {
-//   country: "Japan",
-//   value: 1809
-// }, {
-//   country: "Germany",
-//   value: 1322
-// }, {
-//   country: "UK",
-//   value: 1122
-// }, {
-//   country: "France",
-//   value: 1114
-// }, {
-//   country: "India",
-//   value: 984
-// }, {
-//   country: "Spain",
-//   value: 711
-// }, {
-//   country: "Netherlands",
-//   value: 665
-// }, {
-//   country: "South Korea",
-//   value: 443
-// }, {
-//   country: "Canada",
-//   value: 441
-// }];
-
-xAxis.data.setAll(data);
-series.data.setAll(data);
-
-
-// Make stuff animate on load
-// https://www.amcharts.com/docs/v5/concepts/animations/
-series.appear(1000);
-chart.appear(1000, 100);
-
-}); // end am5.ready()
-</script>
+  <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+  
+  <!-- Chart code -->
+  <script>
+  function getMonthABBR(month) {
+	 let monthAbbR = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+	 return monthAbbR[(month - 1)]
+	}
+  am5.ready(function() {
+  
+  // Create root element
+  // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+  var root = am5.Root.new("chartdiv");
+  
+  
+  // Set themes
+  // https://www.amcharts.com/docs/v5/concepts/themes/
+  root.setThemes([
+	am5themes_Animated.new(root)
+  ]);
+  
+  
+  // Create chart
+  // https://www.amcharts.com/docs/v5/charts/xy-chart/
+  var chart = root.container.children.push(am5xy.XYChart.new(root, {
+	panX: true,
+	panY: true,
+	wheelX: "panX",
+	wheelY: "zoomX",
+	pinchZoomX:true
+  }));
+  
+  // Add cursor
+  // https://www.amcharts.com/docs/v5/charts/xy-chart/cursor/
+  var cursor = chart.set("cursor", am5xy.XYCursor.new(root, {}));
+  cursor.lineY.set("visible", false);
+  
+  
+  // Create axes
+  // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+  var xRenderer = am5xy.AxisRendererX.new(root, { minGridDistance: 30 });
+  xRenderer.labels.template.setAll({
+	rotation: -90,
+	centerY: am5.p50,
+	centerX: am5.p100,
+	paddingRight: 15
+  });
+  
+  var xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
+	maxDeviation: 0.3,
+	categoryField: "country",
+	renderer: xRenderer,
+	tooltip: am5.Tooltip.new(root, {})
+  }));
+  
+  var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
+	maxDeviation: 0.3,
+	renderer: am5xy.AxisRendererY.new(root, {})
+  }));
+  
+  
+  // Create series
+  // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+  var series = chart.series.push(am5xy.ColumnSeries.new(root, {
+	name: "Series 1",
+	xAxis: xAxis,
+	yAxis: yAxis,
+	valueYField: "value",
+	sequencedInterpolation: true,
+	categoryXField: "country",
+	tooltip: am5.Tooltip.new(root, {
+	  labelText:"{valueY}"
+	})
+  }));
+  
+  series.columns.template.setAll({ cornerRadiusTL: 5, cornerRadiusTR: 5 });
+  series.columns.template.adapters.add("fill", function(fill, target) {
+	return chart.get("colors").getIndex(series.columns.indexOf(target));
+  });
+  
+  series.columns.template.adapters.add("stroke", function(stroke, target) {
+	return chart.get("colors").getIndex(series.columns.indexOf(target));
+  });
+  
+  let d = [];
+  {% for v in post %}
+  d.push({"value": Math.round("{{v.amount}}"),"country": "{{v.currency}} {{v.id}}"});
+  console.log("{{v.year}}")
+  
+  {%endfor%}
+  // Add data
+  chart.data = d.reverse();
+  var data = d.reverse();
+  // Set data
+  // var data = [{
+  //   country: "USA",
+  //   value: 2025
+  // }, {
+  //   country: "China",
+  //   value: 1882
+  // }, {
+  //   country: "Japan",
+  //   value: 1809
+  // }, {
+  //   country: "Germany",
+  //   value: 1322
+  // }, {
+  //   country: "UK",
+  //   value: 1122
+  // }, {
+  //   country: "France",
+  //   value: 1114
+  // }, {
+  //   country: "India",
+  //   value: 984
+  // }, {
+  //   country: "Spain",
+  //   value: 711
+  // }, {
+  //   country: "Netherlands",
+  //   value: 665
+  // }, {
+  //   country: "South Korea",
+  //   value: 443
+  // }, {
+  //   country: "Canada",
+  //   value: 441
+  // }];
+  
+  xAxis.data.setAll(data);
+  series.data.setAll(data);
+  
+  
+  // Make stuff animate on load
+  // https://www.amcharts.com/docs/v5/concepts/animations/
+  series.appear(1000);
+  chart.appear(1000, 100);
+  
+  }); // end am5.ready()
+  </script>
 {% endblock content %}
 	<!-- Page Content overlay -->
 	
