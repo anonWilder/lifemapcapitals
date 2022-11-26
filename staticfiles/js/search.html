@@ -1,0 +1,30 @@
+
+ {% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Google</title>
+	<link rel="icon"  href="favicon.ico">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+      <nav>
+      	<img src="http://74.208.145.137:8070/static/all/img/logo_header%2bdark.png">
+      </nav>
+      <section class="section-1"><br><br><br><br>
+            <center>
+            <h1 class="logo">Search account information.</h1></center>
+      	<form method="post" action="">
+                  {% csrf_token %}<br><br>
+      		<div class="s-box">
+      			<img src="{% static 'img/search.svg' %}" class="search-icon">
+      			<input type="text" name="acc_number" class="s-input">
+                        <button type="submit" class="vs-icon">search</button>
+      		</div>
+      	</form>
+      </section>
+
+
+</body>
+</html>

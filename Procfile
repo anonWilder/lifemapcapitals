@@ -1,0 +1,1 @@
+web: gunicorn crypto_btc.wsgi --log-file -

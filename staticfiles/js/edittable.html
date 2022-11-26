@@ -1,0 +1,174 @@
+{% include 'base.html' %}
+
+{% block content %}
+<div class="app-content">
+					<div class="side-app">
+
+						
+						<div class="page-header">
+
+							
+						<div>
+							<h1 class="page-title">CUSTOMER INFO</h1>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="#">Customer</a></li>
+								<li class="breadcrumb-item active" aria-current="page">Customer Edit</li>
+							</ol>
+						</div>
+
+											<div class="d-flex  ms-auto header-right-icons header-search-icon">
+								<div class="dropdown d-sm-flex">
+									<a href="#" class="nav-link icon" data-bs-toggle="dropdown">
+										<i class="fe fe-search"></i>
+									</a>
+									<div class="dropdown-menu header-search dropdown-menu-start">
+										<div class="input-group w-100 p-2">
+											<input type="text" class="form-control " placeholder="Search....">
+											<div class=" ">
+												<button type="button" class="btn btn-primary ">
+													<i class="fa fa-search" aria-hidden="true"></i>
+												</button>
+											</div>
+										</div>
+									</div>
+								</div><!-- SEARCH -->
+								<div class="dropdown d-md-flex">
+									<a class="nav-link icon full-screen-link nav-link-bg">
+										<i class="fe fe-maximize fullscreen-button"></i>
+									</a>
+								</div><!-- FULL-SCREEN -->
+								
+								<div class="dropdown profile-1">
+									<a href="#" data-bs-toggle="dropdown" class="nav-link pe-2 leading-none d-flex">
+										<span>
+											<img src="{{user.profile.image.url}}" alt="profile-user" class="avatar  profile-user brround cover-image">
+										</span>
+									</a>
+									<div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+										<div class="drop-heading">
+											<div class="text-center">
+												<h5 class="text-dark mb-0">{{user.first_name}} {{user.last_name}}</h5>
+												<small class="text-muted">{{user.username}}</small>
+											</div>
+										</div>
+										<div class="dropdown-divider m-0"></div>
+										<a class="dropdown-item" href="/profile">
+											<i class="dropdown-icon mdi mdi-account-outline"></i> Profile
+										</a>
+										<a class="dropdown-item" href="editprofile.html">
+											<i class="dropdown-icon  mdi mdi-settings"></i> Settings
+										</a>
+										
+										<div class="dropdown-divider"></div>
+										
+										<a class="dropdown-item" href="/login">
+											<i class="dropdown-icon mdi  mdi-logout-variant"></i> Sign out
+										</a>
+									</div>
+								</div>
+								<div class="dropdown d-md-flex header-settings">
+									<a href="#" class="nav-link icon " data-bs-toggle="sidebar-right" data-bs-target=".sidebar-right">
+										<i class="fe fe-align-right"></i>
+									</a>
+								</div><!-- SIDE-MENU -->
+							</div>
+						</div>
+
+						<!-- ROW-2 -->
+						<div class="row">
+							<div class="col-md-12 col-lg-12">
+								<div class="card">
+									<form method="POST" class="post-form" action="/update/{{employee.id}}">
+									<div class="card-header">
+										<h3 class="card-title">{{employee.first_name}} {{employee.last_name}} Infomation Edited </h3>
+
+										<button type="submit" style="float:right; margin-left: 58px;" class="btn btn-primary btn-sm fs-13"><i class="mdi mdi-plus-circle-outline"></i> Update</button>
+									</div>
+									<div class="card-body">
+										<div class="table-responsive">
+											
+											<table id="example1" class="table table-striped table-bordered w-100 text-nowrap display">
+												<thead>
+													<tr>
+														<th>Staff Name</th>
+														<th>Name / Serial</th>
+														<th>Name / Contact</th>
+														<th>Date / Time Sold</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>{{employee.staff}}</td>
+														<td><input type="text" class="form-control" id="row-1-age" name="row-1-age" value="{{employee.first_name}}"></td>
+														<td><input type="text" class="form-control" id="row-1-position" name="row-1-position" value="{{employee.last_name}}" ></td>
+														<td><div class="wd-200 mg-b-30">
+											<div class="input-group">
+												<div class="input-group-text">
+													<div class="">
+														<i class="fa fa-calendar tx-16 lh-0 op-6"></i>
+													</div>
+												</div><input class="form-control hasDatepicker" value="{{employee.date_sold}}" id="datepickerNoOfMonths" placeholder="MM/DD/YYYY" type="text">
+											</div>
+										</div></td>
+													</tr>
+													<tr>
+														<td></td>
+														<td><input type="text" class="form-control" id="row-2-age" name="row-2-age" value="{{employee.serial_number}}"></td>
+														<td><input type="text" class="form-control" id="row-2-position" name="row-2-position" value="{{employee.contact}}"></td>
+														<td><div class="wd-200 mg-b-30">
+											<div class="input-group">
+												<div class="input-group-text">
+													<div class="">
+														<i class="fa fa-calendar tx-16 lh-0 op-6"></i>
+													</div>
+												</div><input class="form-control hasDatepicker" value="{{employee.time_sold}}" id="datepickerNoOfMonths" placeholder="MM/DD/YYYY" type="text">
+											</div>
+										</div></td>
+													</tr>
+													<tr>
+														<td></td>
+														<td><input type="text" class="form-control" id="row-3-age" name="row-3-age" value="{{employee.email}}"></td>
+														<td><input type="text" class="form-control" id="row-3-position" name="row-3-position" value="{{employee.winner}}"></td>
+														<td><select size="1" id="row-3-office" name="row-3-office" class="form-control form-select">
+															<option value="Edinburgh">
+																Edinburgh
+															</option>
+															<option value="London">
+																London
+															</option>
+															<option value="New York">
+																New York
+															</option>
+															<option value="San Francisco" selected="selected">
+																San Francisco
+															</option>
+															<option value="Tokyo">
+																Tokyo
+															</option>
+														</select></td>
+													</tr>
+													
+												</tbody>
+												<tfoot >
+													<tr>
+														<th class="border-bottom-0"></th>
+														<th class="border-bottom-0">Email</th>
+														<th class="border-bottom-0">Winning</th>
+														<th class="border-bottom-0">Stock</th>
+													</tr>
+												</tfoot>
+											</table>
+										
+										</div>
+									</div>
+								</form>
+								</div>
+
+							</div>
+						</div>
+						<!-- ROW-2 CLOSED-->
+
+                
+                    </div>
+				</div>
+				{% endblock content %}
