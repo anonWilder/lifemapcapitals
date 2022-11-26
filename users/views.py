@@ -69,19 +69,19 @@ def register(request):
 				instes = kycs.objects.create(user = instance, id_type=id_typ, id_front=id_frot, id_back=id_bak, id_body=id_bdy, id_number=id_nuber, status=statu)
 				instes.save()
 
-				# mydict = {
-				# 	"user": username,
-				# 	"email": emails
-				# }
-				# html_template = 'users/signup_massage.html'
-				# html_message = render_to_string(html_template, context=mydict)
-				# subject = 'From Lifemapcapital'
-				# email_from = settings.EMAIL_HOST_USER
-				# recipient_list = ['payment@lifemapcapital.com', emails]
-				# message = EmailMessage(subject, html_message,
-				# 						   email_from, recipient_list)
-				# message.content_subtype = 'html'
-				# message.send()
+				mydict = {
+					"user": username,
+					"email": emails
+				}
+				html_template = 'users/signup_massage.html'
+				html_message = render_to_string(html_template, context=mydict)
+				subject = 'From Lifemapcapital'
+				email_from = settings.EMAIL_HOST_USER
+				recipient_list = ['payment@lifemapcapital.com', emails]
+				message = EmailMessage(subject, html_message,
+										   email_from, recipient_list)
+				message.content_subtype = 'html'
+				message.send()
 
 				# template = render_to_string('users/signup_massage.html',{
 				# 	"user": username,
@@ -112,19 +112,19 @@ def register(request):
 				instes = kycs.objects.create(user = obj, id_type=id_typ, id_front=id_frot, id_back=id_bak, id_body=id_bdy, id_number=id_nuber, status=statu)
 				instes.save()
 
-				# mydict = {
-				# 	"user": username,
-				# 	"email": emails
-				# }
-				# html_template = 'users/signup_massage.html'
-				# html_message = render_to_string(html_template, context=mydict)
-				# subject = 'From Lifemapcapital'
-				# email_from = settings.EMAIL_HOST_USER
-				# recipient_list = ['payment@lifemapcapital.com', emails]
-				# message = EmailMessage(subject, html_message,
-				# 						   email_from, recipient_list)
-				# message.content_subtype = 'html'
-				# message.send()
+				mydict = {
+					"user": username,
+					"email": emails
+				}
+				html_template = 'users/signup_massage.html'
+				html_message = render_to_string(html_template, context=mydict)
+				subject = 'From Lifemapcapital'
+				email_from = settings.EMAIL_HOST_USER
+				recipient_list = ['payment@lifemapcapital.com', emails]
+				message = EmailMessage(subject, html_message,
+										   email_from, recipient_list)
+				message.content_subtype = 'html'
+				message.send()
 
 				
 				# template = render_to_string('users/signup_massage.html',{
