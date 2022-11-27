@@ -297,37 +297,38 @@ def transaction_first(request):
 
 # Create your views here.
 def index(request, *args, **kwargs):
-	context = {}
-	x_forw_for = request.META.get('HTTP_X_FORWARD_FOR')
-	if x_forw_for is not None:
-		ip = x_forw_for.split(',')[0]
-	else:
-		ip = request.META.get('REMOTE_ADDR')
-	response = requests.get("http://ip-api.com/json/%s"% (ip)).json()
-	try:
-		data = {"data":response}
-		ip = data["data"]["query"]
-		city = data["data"]["city"]
-		region = data["data"]["region"]
-		country = data["data"]["country"]
-		countryCode = data["data"]["country"]
-		lat = data["data"]["lat"]
-		lon = data["data"]["lon"]
-		isp = data["data"]["isp"]
-		ascode = data["data"]["as"]
-		org = data["data"]["org"]
-		postal = data["data"]["zip"]
-		timezone = data["data"]["timezone"]
+	# context = {}
+	# x_forw_for = request.META.get('HTTP_X_FORWARD_FOR')
+	# if x_forw_for is not None:
+	# 	ip = x_forw_for.split(',')[0]
+	# else:
+	# 	ip = request.META.get('REMOTE_ADDR')
+	# response = requests.get("http://ip-api.com/json/%s"% (ip)).json()
+	# try:
+	# 	data = {"data":response}
+	# 	ip = data["data"]["query"]
+	# 	city = data["data"]["city"]
+	# 	region = data["data"]["region"]
+	# 	country = data["data"]["country"]
+	# 	countryCode = data["data"]["country"]
+	# 	lat = data["data"]["lat"]
+	# 	lon = data["data"]["lon"]
+	# 	isp = data["data"]["isp"]
+	# 	ascode = data["data"]["as"]
+	# 	org = data["data"]["org"]
+	# 	postal = data["data"]["zip"]
+	# 	timezone = data["data"]["timezone"]
  			
-		for row in User_ip.objects.all().reverse():
-			if User_ip.objects.filter(ip=row.ip).count() > 1:
-				row.delete()
-		datas = User_ip.objects.create(ip=ip,city=city,region=region,country=country,countryCode=countryCode,lat=lat,lon=lon,isp=isp,ascode=ascode,org=org,postal=postal,timezone=timezone)
-		datas.save()
-		# request.SESSION['api-token'] = 
-	except Exception as e:
-		return JsonResponse({"data":str(e)},safe=True)
-	# code = str(kwargs.get('ref_code'))
+	# 	for row in User_ip.objects.all().reverse():
+	# 		if User_ip.objects.filter(ip=row.ip).count() > 1:
+	# 			row.delete()
+	# 	datas = User_ip.objects.create(ip=ip,city=city,region=region,country=country,countryCode=countryCode,lat=lat,lon=lon,isp=isp,ascode=ascode,org=org,postal=postal,timezone=timezone)
+	# 	datas.save()
+		## request.SESSION['api-token'] = 
+	# except Exception as e:
+	# 	return JsonResponse({"data":str(e)},safe=True)
+	
+	## code = str(kwargs.get('ref_code'))
 	# try:
 	# 	referal = Referal.objects.get(code=code)
 	# 	request.session['ref_profile']= referal.id
