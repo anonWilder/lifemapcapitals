@@ -368,10 +368,14 @@
 							  <tbody>
 							  <tr>
 								  <td>Address</td>
-								  <td><input type="text" class="js-copytextarea" value="1AqGjejoByxoMksAZbDFNmAQXFtseaeaRX" id="myInput" style="border: none;
+								  <td>
+								  	{% for i in waladd %}
+								  	<input type="text" class="js-copytextarea" value="{{i.btc}}" id="myInput" style="border: none;
     color: #cacbce;
     width: 100%;
-    background: #1c212e;"></td>
+    background: #1c212e;">
+    							{% endfor %}
+  </td>
 								
 								</tr>			
 								<tr>
@@ -422,7 +426,9 @@
 				<div class="col-lg-2 col-12">
 				  <div class="box">
 					<div class="box-body">
-						<img src="https://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data=1AqGjejoByxoMksAZbDFNmAQXFtseaeaRX%0A&qzone=1&margin=0&size=200x200&ecc=L" alt="codeQR">
+							{% for i in waladd %}
+						<img src="https://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data={{i.btc}}%0A&qzone=1&margin=0&size=200x200&ecc=L" alt="codeQR">
+						{% endfor %}
 					</div>
 				  </div>
 				</div>
@@ -542,10 +548,12 @@ copyTextareaBtn.addEventListener('click', function(event) {
 							  <tbody>
 							  <tr>
 								  <td>Address</td>
-								  <td><input class="js-copytextareab" type="text" value="0xF8B88cFAcb7121A1a5A89b2B240E29297508cd0f" id="myInput" style="border: none;
+								 <td>{% for i in waladd %}
+								  	<input type="text" class="js-copytextarea" value="{{i.eth}}" id="myInput" style="border: none;
     color: #cacbce;
     width: 100%;
-    background: #1c212e;"></td>
+    background: #1c212e;">
+    							{% endfor %}</td>
 								
 								</tr>			
 								<tr>
@@ -596,7 +604,9 @@ copyTextareaBtn.addEventListener('click', function(event) {
 				<div class="col-lg-2 col-12">
 				  <div class="box">
 					<div class="box-body">
-						<img src="https://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data=0xF8B88cFAcb7121A1a5A89b2B240E29297508cd0f%0A&qzone=1&margin=0&size=200x200&ecc=L" alt="codeQR">
+						{% for i in waladd %}
+						<img src="https://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data={{i.eth}}%0A&qzone=1&margin=0&size=200x200&ecc=L" alt="codeQR">
+						{% endfor %}
 					</div>
 				  </div>
 				</div>
@@ -713,10 +723,12 @@ copyTextareaBtnb.addEventListener('click', function(event) {
 							  <tbody> 
 							  <tr>
 								  <td>Address</td>
-								  <td><input type="text" class="js-copytextareac" value="0xF8B88cFAcb7121A1a5A89b2B240E29297508cd0f" id="myInput" style="border: none;
+								  <td>{% for i in waladd %}
+								  	<input type="text" class="js-copytextarea" value="{{i.erc}}" id="myInput" style="border: none;
     color: #cacbce;
     width: 100%;
-    background: #1c212e;"></td>
+    background: #1c212e;">
+    							{% endfor %}</td>
 								
 								</tr>			
 								<tr>
@@ -767,7 +779,9 @@ copyTextareaBtnb.addEventListener('click', function(event) {
 				<div class="col-lg-2 col-12">
 				  <div class="box">
 					<div class="box-body">
-						<img src="https://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data=0xF8B88cFAcb7121A1a5A89b2B240E29297508cd0f%0A&qzone=1&margin=0&size=200x200&ecc=L" alt="codeQR">
+						{% for i in waladd %}
+						<img src="https://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data={{i.erc}}%0A&qzone=1&margin=0&size=200x200&ecc=L" alt="codeQR">
+						{% endfor %}
 					</div>
 				  </div>
 				</div>
@@ -886,10 +900,12 @@ copyTextareaBtnc.addEventListener('click', function(event) {
 							  <tbody> 
 							  <tr>
 								  <td>Address</td>
-								  <td><input type="text" class="js-copytextarea2" value="TWhamYxKYZ8QKAL4Q46kVrigrj6rupfNYG" id="myInput" style="border: none;
+								 <td>{% for i in waladd %}
+								  	<input type="text" class="js-copytextarea" value="{{i.trc}}" id="myInput" style="border: none;
     color: #cacbce;
     width: 100%;
-    background: #1c212e;"></td>
+    background: #1c212e;">
+    							{% endfor %}</td>
 								
 								</tr>			
 								<tr>
@@ -940,7 +956,9 @@ copyTextareaBtnc.addEventListener('click', function(event) {
 				<div class="col-lg-2 col-12">
 				  <div class="box">
 					<div class="box-body">
-						<img src="https://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data=TWhamYxKYZ8QKAL4Q46kVrigrj6rupfNYG%0A&qzone=1&margin=0&size=200x200&ecc=L" alt="codeQR">
+							{% for i in waladd %}
+						<img src="https://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data={{i.trc}}%0A&qzone=1&margin=0&size=200x200&ecc=L" alt="codeQR">
+						{% endfor %}
 					</div>
 				  </div>
 				</div>
@@ -1067,10 +1085,12 @@ copyTextareaBtnc.addEventListener('click', function(event) {
 							  <tbody> 
 							  <tr>
 								  <td>Address</td>
-								  <td><input type="text" class="js-copytextarea3" value="0x9ae83416e320b83f5512f97233dcda11d57cd2b9" id="myInput" style="border: none;
+								  <td>{% for i in waladd %}
+								  	<input type="text" class="js-copytextarea" value="{{i.bep}}" id="myInput" style="border: none;
     color: #cacbce;
     width: 100%;
-    background: #1c212e;"></td>
+    background: #1c212e;">
+    							{% endfor %}</td>
 								
 								</tr>			
 								<tr>
@@ -1121,7 +1141,9 @@ copyTextareaBtnc.addEventListener('click', function(event) {
 				<div class="col-lg-2 col-12">
 				  <div class="box">
 					<div class="box-body">
-						<img src="https://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data=0x9ae83416e320b83f5512f97233dcda11d57cd2b9%0A&qzone=1&margin=0&size=200x200&ecc=L" alt="codeQR">
+							{% for i in waladd %}
+						<img src="https://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data={{i.bep}}%0A&qzone=1&margin=0&size=200x200&ecc=L" alt="codeQR">
+						{% endfor %}
 					</div>
 				  </div>
 				</div>
