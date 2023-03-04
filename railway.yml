@@ -1,0 +1,7 @@
+name: lifemap-capital
+env: python-3.9
+build:
+  steps:
+    - run: pip install -r requirements.txt
+run:
+  web: gunicorn crypto_btc.wsgi:application --bind 0.0.0.0:$PORT
