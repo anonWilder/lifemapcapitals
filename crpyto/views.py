@@ -66,7 +66,7 @@ def DashboardView(request):
 	live_price = soup2.find_all('div', {'class': 'priceValue'})
 	
 	live_price3 = soup3.find_all('div', {'class': 'priceValue'})
-	live_bitcoin_price = live_price[0].getText()
+	#live_bitcoin_price = live_price[0].getText()
 	
 	live_bitcoin_price1 = live_price[0].getText()
 	live_bitcoin_price3 = live_price3[0].getText()	
